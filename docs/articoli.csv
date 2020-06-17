@@ -1,0 +1,591 @@
+idArticle;refERP;description;length;width;heigth;weigth;category;unityOfMeasure;rateOfConversion;grossPrice;buyPrice
+1;073735170;Fundo Primo, piatto doccia filo/ quadrato, scarico centrale;900;900;40;0;T;pc;1;325.72;90.22
+2;073736170;Fundo Primo, piatto doccia filo/ quadrato, scarico decentrato;900;900;40;0;T;pc;1;325.72;90.22
+3;073735131;Fundo Primo, piatto doccia filo/ quadrato, scarico centrale;1000;1000;40;0;T;pc;1;351.79;97.45
+4;073735531;Fundo Primo, piatto doccia filo/ quadrato, scarico decentrato;1000;1000;40;0;T;pc;1;351.79;97.45
+5;073735171;Fundo Primo, piatto doccia filo/ quadrato, scarico centrale;1200;1200;40;0;T;pc;1;364.89;101.07
+6;073736171;Fundo Primo, piatto doccia filo/ quadrato, scarico decentrato;1200;1200;40;0;T;pc;1;364.89;101.07
+7;073735175;Fundo Primo, piatto doccia filo/ quadrato, scarico centrale;1500;1500;40;0;T;pc;1;402.51;111.49
+8;073736175;Fundo Primo, piatto doccia filo/ quadrato, scarico decentrato;1500;1500;40;0;T;pc;1;402.51;111.49
+9;073735176;Fundo Primo, piatto doccia filo/ rettangolare, scarico centrale;900;750;40;0;T;pc;1;313.64;86.88
+10;073735174;Fundo Primo, piatto doccia filo/ rettangolare, scarico centrale;1200;900;40;0;T;pc;1;349.49;96.81
+11;073736174;Fundo Primo, piatto doccia filo/ rettangolare, scarico decentrato;1200;900;40;0;T;pc;1;349.49;96.81
+12;073735196;Fundo Primo, piatto doccia filo/ rettangolare, scarico centrale;1400;900;40;0;T;pc;1;361.45;100.14
+13;073735150;Fundo Primo, piatto doccia filo/ rettangolare, scarico decentrato;1400;900;40;0;T;pc;1;361.45;100.14
+14;073735198;Fundo Primo, piatto doccia filo/ rettangolare, scarico centrale;1400;1000;40;0;T;pc;1;374.74;103.8
+15;073736120;Fundo Primo, piatto doccia filo/ rettangolare, scarico centrale;1500;900;40;0;T;pc;1;368.1;101.97
+16;073736121;Fundo Primo, piatto doccia filo/ rettangolare, scarico centrale;1500;1000;40;0;T;pc;1;381.38;105.64
+17;073735151;Fundo Primo, piatto doccia filo/ rettangolare, scarico decentrato;1600;900;40;0;T;pc;1;376.62;104.33
+18;073735152;Fundo Primo, piatto doccia filo/ rettangolare, scarico decentrato;1600;1000;40;0;T;pc;1;392.19;108.63
+19;073735580;Fundo Primo, piatto doccia filo/ rettangolare, scarico centrale;1800;900;40;0;T;pc;1;396.6;109.86
+20;073735180;Fundo Primo, piatto doccia filo/ rettangolare, scarico decentrato;1800;900;40;0;T;pc;1;396.6;109.86
+21;073736176;Fundo Primo, piatto doccia filo/ rettangolare, scarico decentrato;2000;1000;40;0;T;pc;1;413.36;118.99
+22;077000015;Scarico Primo minimax, DN 40, extrapiatto ;0;0;0;0;TS;pc;1;55.76;16.42
+23;077000007;Scarico Primo verticale, DN 50 ;0;0;0;0;TS;pc;1;55.76;16.42
+24;077000008;Scarico Primo verticale, DN 50, griglia rotonda ;0;0;0;0;TS;pc;1;55.76;16.42
+25;073749002;Scarico Primo verticale, DN 50, con tagliafuoco ;0;0;0;0;TS;pc;1;219.78;64.69
+26;077000011;Scarico Primo orizontale, DN 50 ;0;0;0;0;TS;pc;1;55.76;16.42
+27;077000012;Scarico Primo orizontale, DN 50, griglia rotonda ;0;0;0;0;TS;pc;1;55.76;16.42
+28;077000010;Scarico Primo verticale, DN 70 ;0;0;0;0;TS;pc;1;55.76;16.42
+29;073749012;Scarico Primo verticale, DN 70, con tagliafuoco ;0;0;0;0;TS;pc;1;219.78;73.78
+30;073735625;Fundo Plano, quadrato;900;900;65;0;T;pc;1;568.04;178.07
+31;073735626;Fundo Plano, quadrato;1000;1000;65;0;T;pc;1;649.17;203.51
+32;073735627;Fundo Plano, quadrato;1200;1200;65;0;T;pc;1;704.96;221
+33;075900004;Fundo integro, quadrato;900;900;90;0;T;pc;1;598.53;187.63
+34;075900008;Fundo integro, quadrato;1000;1000;90;0;T;pc;1;684;214.44
+35;075900007;Fundo integro, quadrato;1200;1200;90;0;T;pc;1;742.79;232.86
+36;073735630;Fundo Plano, rettangolare, scarico centrale;1200;900;65;0;T;pc;1;676.12;211.96
+37;073735631;Fundo Plano, rettangolare, scarico centrale;1200;900;65;0;T;pc;1;676.12;211.96
+38;073735620;Fundo Plano, rettangolare, scarico centrale;1400;900;65;0;T;pc;1;692.4;221.42
+39;073735621;Fundo Plano, rettangolare, scarico decentrato;1600;1000;65;0;T;pc;1;718.45;229.42
+40;075900005;Fundo integro scarico centrale, raccordo lato corto;1200;900;90;0;T;pc;1;712.4;223.33
+41;075900006;Fundo integro scarico centrale, raccordo lato lungo;1200;900;90;0;T;pc;1;712.4;223.33
+42;075900000;Fundo integro scarico decentrato;1200;900;90;0;T;pc;1;712.4;223.33
+43;075900001;Fundo integro scarico decentrato;1400;900;90;0;T;pc;1;729.54;233.29
+44;075900002;Fundo integro scarico decentrato;1600;900;90;0;T;pc;1;756.99;242.06
+45;075900003;Fundo integro scarico decentrato;1800;900;90;0;T;pc;1;766.45;245.1
+46;073737001;wedi pendenza 1 Fundo Primo ;600;1200;40;0;T;pc;1;72.16;26.75
+47;073737002;wedi pendenza 2 Fundo Primo ;600;1200;46;0;T;pc;1;73.48;27.25
+48;073732011;Fundo LIGNO, piatto doccia filo/ quadrato, scarico centrale;900;900;20;0;T;pc;1;299.84;93.38
+49;073732021;Fundo LIGNO, piatto doccia filo/ quadrato, scarico decentrato;900;900;20;0;T;pc;1;299.84;93.38
+50;073732022;Fundo LIGNO, piatto doccia filo/ rettangolare-scarico decentrato;1200;900;20;0;T;pc;1;320.95;100.2
+51;073732012;Fundo LIGNO, piatto doccia filo/ quadrato, scarico centrale;1200;1200;20;0;T;pc;1;342.09;106.89
+52;073732023;Fundo LIGNO, piatto doccia filo/ quadrato, scarico decentrato;1200;1200;20;0;T;pc;1;342.09;106.89
+53;073732013;Fundo LIGNO, piatto doccia filo/ quadrato, scarico centrale;1500;1500;20;0;T;pc;1;399.1;124.17
+54;073732024;Fundo LIGNO, piatto doccia filo/ rettangolare-scarico decentrato;1600;900;20;0;T;pc;1;363.2;117.15
+55;073735576;Fundo Borgo, piatto doccia tondo, scarico decentrato;900;900;40;0;T;pc;1;325.72;90.22
+56;073736576;Fundo Borgo, piatto doccia tondo, scarico decentrato;1000;1000;40;0;T;pc;1;351.79;97.45
+57;073736575;Fundo Trollo, piatto doccia rotondo scarico centrale;1140;0;0;0;T;pc;1;534.63;148.09
+58;041709002;Fundo Trollo, solo pareti ;1100;1100;2015;0;T;pc;1;1562.91;450.95
+59;041709052;Fundo Trollo, elemento di rialzo;500;0;0;0;T;pc;1;439.24;126.74
+60;041709003;Fundo Trollo libero, solo pareti;1100;1100;2015;0;T;pc;1;1754.13;495.05
+61;041709053;Fundo Trollo libero, elemento di rialzo;500;0;0;0;T;pc;1;490.83;141.62
+62;073736065;Fundo Nautilo, piatto doccia spirale, entrata a sinstra ;1890;1515;50;0;T;pc;1;953.27;264.05
+63;073736066;Fundo Nautilo, piatto doccia spirale, entrata a destra;1890;1515;50;0;T;pc;1;953.27;264.05
+64;041708000;Fundo Nautilo, Solo pareti;2015;0;0;0;T;pc;1;2740.93;790.83
+65;041708052;Fundo Nautilo, elemento di rialzo;500;0;0;0;T;pc;1;690.25;199.16
+66;041708002;Fundo Nautilo libero, Solo pareti;2015;0;0;0;T;pc;1;3049.22;886.05
+67;041708053;Fundo Nautilo libero, elemento di rialzo;500;0;0;0;T;pc;1;796.23;229.73
+68;073743010;Sistema per sottostrutture per piatti con scarico lineare o puntuale;900;900;0;0;TA;pc;1;69;20.66
+69;073743011;Sistema per sottostrutture per piatti con scarico lineare o puntuale;1200;1200;0;0;TA;pc;1;99;24.17
+70;073743012;Sistema per sottostrutture per piatti con scarico lineare o puntuale;1500;1500;0;0;TA;pc;1;129;27.67
+71;073732090;wedi Fundo, elemento sottotruttura per scarico;338;338;82;0;TA;pc;1;51.11;18.36
+72;676800033;Fino 1.1, griglia quadrata;115;115;5;0;TG;pc;1;40.47;11.9
+73;676800034;Fino 1.2, griglia rotonda;115;5;0;0;TG;pc;1;40.47;11.9
+74;676800035;Fino 1.3, griglia quadrata avvitabile, incl telaio / supporto inox;115;115;5;0;TG;pc;1;84.05;24.72
+75;676800037;Fino 2.1, griglia quadrata;115;115;5;0;TG;pc;1;40.47;11.9
+76;676800038;Fino 2.2, griglia rotonda 115 5 mm;115;5;0;0;TG;pc;1;40.47;11.9
+77;676800039;Fino 2.3, griglia quadrata avvitabile, incl telaio / supporto ino;115;115;5;0;TG;pc;1;84.05;24.72
+78;676800040;Fino 3.1, griglia quadrata 115 115 5 mm;115;115;5;0;TG;pc;1;40.47;11.9
+79;676800041;Fino 3.2, griglia rotonda 115 5 mm;115;5;0;0;TG;pc;1;40.47;11.9
+80;676800042;Fino 3.3, griglia quadrata avvitabile, incl telaio / supporto ino;115;115;5;0;TG;pc;1;84.05;24.72
+81;676800043;Fino 4.1, griglia quadrata massiccia  Exclusiv 115 115 5 mm;115;115;5;0;TG;pc;1;154.33;44.09
+82;676800044;Fino 4.2, griglia rotonda massiccia Exclusiv 115 5 mm;115;5;0;0;TG;pc;1;154.33;44.09
+83;676800046;Fino 5.1, griglia quadrata massiccia  Exclusiv 115 115 5 mm;115;115;5;0;TG;pc;1;154.33;44.09
+84;676800052;Fino 6.1, griglia quadrata  115 115 3 mm;115;115;3;0;TG;pc;1;63.39;18.65
+85;676800053;wedi Fundo griglia di scarico piastrellabile 7.1;115;115;5;0;TG;pc;1;154.33;49.55
+86;077100003;Supporto Fino quadrato acciaio inox;120;120;10;0;TG;pc;1;54.02;15.88
+87;077100004;Supporto Fino quadrato acciaio inox, extra piatto;120;120;6;0;TG;pc;1;76.68;22.55
+88;077100001;Supporto Fino rotondo acciaio ino;120;9;0;0;TG;pc;1;54.02;15.88
+89;077100002;Supporto Fino rotondo acciaio inox, extra piatto ;120;2;0;0;TG;pc;1;76.68;22.55
+90;072010100;wedi Fundo Top scarico centrale (Fundo Primo 073735170);900;900;6;0;TR;pc;1;299;80.98
+91;072010103;wedi Fundo Top scarico centrale (Fundo Primo 073735171);1200;1200;6;0;TR;pc;1;359;91.06
+92;072010101;wedi Fundo Top scarico centrale (Fundo Primo 073735174);1200;900;6;0;TR;pc;1;319;87.36
+93;072010102;wedi Fundo Top scarico decentrato (Fundo Primo 073736174);1200;900;6;0;TR;pc;1;319;87.36
+94;072010106;wedi Fundo Top, scarico decentrato (Fundo Primo 073735150);1400;900;6;0;TR;pc;1;399;89.38
+95;072010107;wedi Fundo Top, scarico decentrato (Fundo Primo 073735152);1600;1000;6;0;TR;pc;1;419;99.12
+96;072010105;wedi Fundo Top scarico decentrato (Fundo Primo 073735180);1800;900;6;0;TR;pc;1;429;99.12
+97;072010500;wedi Fundo Top, scarico centrale (Fundo Primo 073735170);900;900;0;0;TR;pc;1;299;80.98
+98;072010503;wedi Fundo Top, scarico centrale (Fundo Primo 073735171);1200;1200;0;0;TR;pc;1;359;91.06
+99;072010501;wedi Fundo Top, scarico centrale (Fundo Primo 073735174);1200;900;0;0;TR;pc;1;319;87.36
+100;072010502;wedi Fundo Top, scarico decentrato (Fundo Primo 073736174);1200;900;0;0;TR;pc;1;319;87.36
+101;072010504;wedi Fundo Top, scarico decentrato (Fundo Primo 073735150);1400;900;0;0;TR;pc;1;399;89.38
+102;072010505;wedi Fundo Top, scarico decentrato (Fundo Primo 073735152);1600;1000;0;0;TR;pc;1;419;94.08
+103;072010506;wedi Fundo Top, scarico decentrato (Fundo Primo 073735180);1800;900;0;0;TR;pc;1;429;99.12
+104;072010600;wedi Fundo Top, scarico centrale (Fundo Primo 073735170);900;900;0;0;TR;pc;1;299;80.98
+105;072010603;wedi Fundo Top, scarico centrale (Fundo Primo 073735171);1200;1200;0;0;TR;pc;1;359;91.06
+106;072010601;wedi Fundo Top, scarico centrale (Fundo Primo 073735174);1200;900;0;0;TR;pc;1;319;87.36
+107;072010602;wedi Fundo Top, scarico decentrato (Fundo Primo 073736174);1200;900;0;0;TR;pc;1;319;87.36
+108;072010604;wedi Fundo Top, scarico decentrato (Fundo Primo 073735150);1400;900;0;0;TR;pc;1;399;89.38
+109;072010605;wedi Fundo Top, scarico decentrato (Fundo Primo 073735152);1600;1000;0;0;TR;pc;1;419;94.08
+110;072010606;wedi Fundo Top, scarico decentrato (Fundo Primo 073735180);1800;900;0;0;TR;pc;1;429;99.12
+111;072031010;wedi Fundo Top scarico centrale (Fundo Plano 073735625);900;900;6;0;TR;pc;1;299;80.98
+112;072031011;wedi Fundo Top scarico centrale, (Fundo Plano 073735630, 073735631);1200;900;6;0;TR;pc;1;319;87.36
+113;072031000;wedi Fundo Top scarico decentrato, (Fundo Plano 073735621);1600;900;6;0;TR;pc;1;419;94.08
+114;072040100;Fundo TOP zoccolino per posa in appoggio, omogeneo bianco;1880;200;6;0;TR;pc;1;129;38.09
+115;072040500;Fundo TOP zoccolino per posa in appoggio, grigio;1880;200;6;0;TR;pc;1;129;38.09
+116;072040600;Fundo TOP zoccolino per posa in appoggio, antracite;1880;200;6;0;TR;pc;1;129;38.09
+117;072060000;Fundo TOP Slim-Kit;900;900;0;0;TR;pc;1;879.56;252.92
+118;072060002;Fundo TOP Slim-Kit;1200;1200;0;0;TR;pc;1;1034.96;291.26
+119;072060001;Fundo TOP Slim-Kit;1200;900;0;0;TR;pc;1;983.16;284.73
+120;072060003;Fundo TOP Slim-Kit;1400;900;0;0;TR;pc;1;1242.16;354.3
+121;072060004;Fundo TOP Slim-Kit;1600;1000;0;0;TR;pc;1;1325.04;382.28
+122;072060005;Fundo TOP Slim-Kit;1800;900;0;0;TR;pc;1;1335.4;382.28
+123;075100031;Riolito neo, griglia lineare (griglia da 300mm);900;900;50;0;T;pc;1;575.2;162.82
+124;075100003;Riolito neo, griglia lineare (griglia da 800 mm);900;900;50;0;T;pc;1;597.26;169.07
+125;075100032;Riolito neo, griglia lineare (griglia da 800 mm);1000;1000;50;0;T;pc;1;765.31;216.64
+126;075100010;Riolito neo, griglia lineare (griglia da 1100 mm);1200;1200;50;0;T;pc;1;859.44;243.28
+127;073737307;Fundo Rioilito, griglia lineare, canalina con contropendenza (griglia da 300mm);900;900;50;0;T;pc;1;575.2;162.82
+128;073737303;Fundo Rioilito, griglia lineare, canalina con contropendenza (griglia da 800mm);900;900;50;0;T;pc;1;597.26;169.07
+129;073737308;Fundo Rioilito, griglia lineare, canalina con contropendenza (griglia da 800mm);1000;1000;50;0;T;pc;1;765.31;216.64
+130;073737304;Fundo Rioilito, griglia lineare, canalina con contropendenza (griglia da 1100mm);1200;1200;50;0;T;pc;1;859.44;281.56
+131;073737312;Fundo Riofino, griglia lineare, scarico centrale  (griglia da 300 mm);900;900;50;0;T;pc;1;444.03;125.7
+132;073737311;Fundo Riofino, griglia lineare, scarico centrale (griglia da 300 mm);1000;1000;50;0;T;pc;1;474.12;134.22
+133;073737313;Fundo Riofino, griglia lineare, scarico centrale  (griglia da 300 mm);1200;1200;50;0;T;pc;1;489.14;138.46
+134;075100001;Riolito neo, griglia lineare, rettangolare (griglia da 700 mm);1200;800;50;0;T;pc;1;691.63;195.8
+135;075100004;Riolito neo, griglia lineare, rettangolare (griglia da 800 mm);1200;900;50;0;T;pc;1;765.31;216.64
+136;075100008;Riolito neo, griglia lineare, rettangolare (griglia da 900 mm);1200;1000;50;0;T;pc;1;788.52;223.39
+137;075100033;Riolito neo, griglia lineare, rettangolare (griglia da 700 mm);1400;900;50;0;T;pc;1;800.12;226.49
+138;075100034;Riolito neo, griglia lineare, rettangolare (griglia da 800 mm);1600;1000;50;0;T;pc;1;816.95;231.25
+139;075100005;Riolito neo, griglia lineare, rettangolare (griglia da 800 mm);1800;900;60;0;T;pc;1;826.34;233.91
+140;073737314;Fundo Riofino, griglia lineare, scarico centrale  (griglia da 300 mm);1200;900;50;0;T;pc;1;471.1;133.35
+141;073737315;Fundo Riofino, griglia lineare, scarico centrale  (griglia da 300 mm);1800;900;50;0;T;pc;1;562.51;159.23
+142;073737301;Fundo Rioilito, griglia lineare, canalina con contropendenza (griglia da 700mm);1200;800;50;0;T;pc;1;691.63;195.8
+143;073737305;Fundo Rioilito, griglia lineare, canalina con contropendenza (griglia da 800mm);1200;900;50;0;T;pc;1;765.31;216.64
+144;073737302;Fundo Rioilito, griglia lineare, canalina con contropendenza (griglia da 900mm);1200;1000;50;0;T;pc;1;788.52;223.39
+145;073737309;Fundo Rioilito, griglia lineare, canalina con contropendenza (griglia da 700mm);1400;900;50;0;T;pc;1;800.12;226.49
+146;073737310;Fundo Rioilito, griglia lineare, canalina con contropendenza (griglia da 800mm);1600;1000;50;0;T;pc;1;816.95;231.25
+147;073737306;Fundo Rioilito, griglia lineare, canalina con contropendenza (griglia da 800mm);1800;900;60;0;T;pc;1;826.34;233.91
+148;073736608;Fundo Plano Linea (griglia da 300 mm);900;900;70;0;T;pc;1;777.28;234.33
+149;073736603;Fundo Plano Linea (griglia da 800 mm);900;900;70;0;T;pc;1;799.35;241.18
+150;073736600;Fundo Plano Linea (griglia da 700 mm);1200;800;70;0;T;pc;1;918.51;277.14
+151;073736601;Fundo Plano Linea (griglia da 800 mm);1200;900;70;0;T;pc;1;999.66;301.61
+152;073736607;Fundo Plano Linea (griglia da 300 mm);1200;900;70;0;T;pc;1;978.09;295.11
+153;073736602;Fundo Plano Linea (griglia da 900 mm);1200;1000;70;0;T;pc;1;1080.59;326.05
+154;073737003;Pannello inclinato Riolito ;600;1200;50;0;T;pc;1;78.89;29.26
+155;073738205;Fundo Discreto elemento per finto scarico a parete 300mm;300;0;0;0;T;pc;1;388.5;170.1
+156;073738206;Fundo Discreto elemento per finto scarico a parete 700mm;700;0;0;0;T;pc;1;490.03;214.55
+157;073738207;Fundo Discreto elemento per finto scarico a parete 800mm;800;0;0;0;T;pc;1;502.46;220
+158;073738208;Fundo Discreto elemento per finto scarico a parete 900mm;900;0;0;0;T;pc;1;516.96;226.35
+159;073738209;Fundo Discreto elemento per finto scarico a parete 1100mm;1100;0;0;0;T;pc;1;533.54;233.6
+160;073743010;Sistema per sottostrutture per piatti con scarico lineare o puntuale;900;900;0;0;TA;pc;1;69;20.66
+161;073743011;Sistema per sottostrutture per piatti con scarico lineare o puntuale;1200;1200;0;0;TA;pc;1;99;24.17
+162;073743012;Sistema per sottostrutture per piatti con scarico lineare o puntuale;1500;1500;0;0;TA;pc;1;129;27.67
+163;077500003;Scarico Riolito neo, orizzontale minimax, DN 40 ;0;0;0;0;TS;pc;1;55.76;16.42
+164;077500001;Scarico Riolito neo, orizzontale, DN 50  ;0;0;0;0;TS;pc;1;55.76;16.42
+165;077500002;Scarico Riolito neo, verticale, DN 50  ;0;0;0;0;TS;pc;1;55.76;16.42
+166;073749011;Scarico Riolito neo, verticale, DN50, con tagliafuoco;0;0;0;0;TS;pc;1;286.32;81.81
+167;676800010;Griglia Riolito neo Standard acciaio ino1,5 mm, spazzolato ;300;0;0;0;TG;pc;1;53.58;15.5
+168;676800009;Griglia Riolito neo Standard acciaio ino1,5 mm, spazzolato ;700;0;0;0;TG;pc;1;64.8;18.73
+169;676800008;Griglia Riolito neo Standard acciaio ino1,5 mm, spazzolato ;800;0;0;0;TG;pc;1;68.47;19.8
+170;676800007;Griglia Riolito neo Standard acciaio ino1,5 mm, spazzolato ;900;0;0;0;TG;pc;1;73.22;21.17
+171;676800006;Griglia Riolito neo Standard acciaio ino1,5 mm, spazzolato ;1100;0;0;0;TG;pc;1;81.82;23.65
+172;676800001;Griglia Riolito neo Exklusiv acciaio ino3 mm, spazzolato;300;0;0;0;TG;pc;1;106.99;30.93
+173;676800002;Griglia Riolito neo Exklusiv acciaio ino3 mm, spazzolato ;700;0;0;0;TG;pc;1;136.29;39.4
+174;676800003;Griglia Riolito neo Exklusiv acciaio ino3 mm, spazzolato;800;0;0;0;TG;pc;1;143.49;41.48
+175;676800004;Griglia Riolito neo Exklusiv acciaio ino3 mm, spazzolato;900;0;0;0;TG;pc;1;154.6;44.7
+176;676800005;Griglia Riolito neo Exklusiv acciaio ino3 mm, spazzolato ;1100;0;0;0;TG;pc;1;170.65;49.32
+177;676800011;Griglia Riolito neo piastrellabile, acciaio ino;300;0;0;0;TG;pc;1;136.61;39.49
+178;676800012;Griglia Riolito neo piastrellabile, acciaio ino;700;0;0;0;TG;pc;1;140.27;40.56
+179;676800013;Griglia Riolito neo piastrellabile, acciaio ino;800;0;0;0;TG;pc;1;151.45;43.79
+180;676800014;Griglia Riolito neo piastrellabile, acciaio ino;900;0;0;0;TG;pc;1;160.16;46.3
+181;676800015;Griglia Riolito neo piastrellabile, acciaio ino;1100;0;0;0;TG;pc;1;176.68;51.07
+182;676800060;Telaio in acciaio per griglia Riolito neo;300;0;0;0;TG;pc;1;94.28;30.04
+183;676800061;Telaio in acciaio per griglia Riolito neo;700;0;0;0;TG;pc;1;98.42;31.37
+184;676800062;Telaio in acciaio per griglia Riolito neo;800;0;0;0;TG;pc;1;99.97;31.85
+185;676800063;Telaio in acciaio per griglia Riolito neo;900;0;0;0;TG;pc;1;105.67;33.68
+186;676800064;Telaio in acciaio per griglia Riolito neo;1100;0;0;0;TG;pc;1;107.74;34.33
+187;676900025;Set composto da Griglia standard e Telaio in acciaio per Riolito neo;300;0;0;0;TG;pc;1;145.04;46.22
+188;676900026;Set composto da Griglia standard e Telaio in acciaio per Riolito neo;700;0;0;0;TG;pc;1;160.58;51.17
+189;676900027;Set composto da Griglia standard e Telaio in acciaio per Riolito neo;800;0;0;0;TG;pc;1;165.76;52.82
+190;676900028;Set composto da Griglia standard e Telaio in acciaio per Riolito neo;900;0;0;0;TG;pc;1;176.12;56.12
+191;676900029;Set composto da Griglia standard e Telaio in acciaio per Riolito neo;1100;0;0;0;TG;pc;1;186.48;59.42
+192;072020100;wedi Fundo Top,  rettangolare (Fundo Riolito neo 075100004);1200;900;6;0;TR;pc;1;319;87.36
+193;072020101;wedi Fundo Top (Fundo Riolito neo 075100034);1600;1000;6;0;TR;pc;1;419;94.08
+194;072020102;wedi Fundo Top (Fundo Riolito neo 075100005);1800;900;6;0;TR;pc;1;429;99.12
+195;072020500;wedi Fundo Top,  (Fundo Riolito neo 075100004);1200;900;6;0;TR;pc;1;319;87.36
+196;072020501;wedi Fundo Top, (Fundo Riolito neo 075100034);1600;1000;6;0;TR;pc;1;419;94.08
+197;072020502;wedi Fundo Top, (Fundo Riolito neo 075100005);1800;900;6;0;TR;pc;1;429;99.12
+198;072020600;wedi Fundo Top,  (Fundo Riolito neo 075100004);1200;900;6;0;TR;pc;1;319;87.36
+199;072020601;wedi Fundo Top, (Fundo Riolito neo 075100034);1600;1000;6;0;TR;pc;1;419;94.08
+200;072020602;wedi Fundo Top, (Fundo Riolito neo 075100005);1800;900;6;0;TR;pc;1;429;99.12
+201;072000100;wedi Fundo Top, bianco omogeneo 800 mm;800;50;50;0;TR;pc;1;179;52.58
+202;072000500;wedi Fundo Top, composito vinile/minerale grigio 800 mm;800;50;50;0;TR;pc;1;179;52.58
+203;072000600;wedi Fundo Top, composito vinile/minerale carbon nero 800 mm;800;50;50;0;TR;pc;1;179;52.58
+204;010007000;Striscia laterale piatti doccia scarico lineare o puntuale ;1600;50;40;0;TR;pc;1;45.58;15.37
+205;010007001;Striscia laterale piatti doccia scarico lineare o puntuale ;1600;50;40;0;TR;pc;1;48.69;16.42
+206;010007002;Striscia laterale piatti doccia scarico lineare o puntuale ;1600;50;40;0;TR;pc;1;50.76;17.12
+207;107100008;Profilo pavimento Sacciao INOV2A, per piastrella 8mm;1200;30;8;0;TP;pc;1;71.45;23.26
+208;107100010;Profilo pavimento Sacciao INOV2A, per piastrella 10mm;1200;30;10;0;TP;pc;1;72.19;23.49
+209;107100011;Profilo pavimento Sacciao INOV2A, per piastrella 11mm;1200;30;11;0;TP;pc;1;72.44;23.58
+210;107100012;Profilo pavimento Sacciao INOV2A, per piastrella 12,5mm;1200;30;12.5;0;TP;pc;1;72.79;23.69
+211;108120008;Profilo pavimento Sacciao INOV2A, per piastrella 8mm;1600;30;8;0;TP;pc;1;74.47;24.72
+212;108120010;Profilo pavimento Sacciao INOV2A, per piastrella 10mm;1600;30;10;0;TP;pc;1;75.17;24.96
+213;108120011;Profilo pavimento Sacciao INOV2A, per piastrella 11mm;1600;30;11;0;TP;pc;1;75.56;25.09
+214;108120012;Profilo pavimento Sacciao INOV2A, per piastrella 12,5mm;1600;30;12.5;0;TP;pc;1;75.78;25.15
+215;108140008;Profilo pavimento Sacciao INOV2A, per piastrella 8mm;1800;30;8;0;TP;pc;1;85.02;28.22
+216;108140010;Profilo pavimento Sacciao INOV2A, per piastrella 10mm;1800;30;10;0;TP;pc;1;85.74;28.47
+217;108140011;Profilo pavimento Sacciao INOV2A, per piastrella 11mm;1800;30;11;0;TP;pc;1;86.01;28.56
+218;108140012;Profilo pavimento Sacciao INOV2A, per piastrella 12,5mm;1800;30;12.5;0;TP;pc;1;86.45;28.69
+219;107110008;Profilo pavimento Dacciao INOV2A, per piastrella 8mm;1200;30;8;0;TP;pc;1;71.45;23.26
+220;107110010;Profilo pavimento Dacciao INOV2A, per piastrella 10mm;1200;30;10;0;TP;pc;1;72.19;23.49
+221;107110011;Profilo pavimento Dacciao INOV2A, per piastrella 11mm;1200;30;11;0;TP;pc;1;72.44;23.58
+222;107110012;Profilo pavimento Dacciao INOV2A, per piastrella 12,5mm;1200;30;12.5;0;TP;pc;1;72.79;23.69
+223;108130008;Profilo pavimento Dacciao INOV2A, per piastrella 8mm;1600;30;8;0;TP;pc;1;74.47;24.72
+224;108130010;Profilo pavimento Dacciao INOV2A, per piastrella 10mm;1600;30;10;0;TP;pc;1;75.17;24.96
+225;108130011;Profilo pavimento Dacciao INOV2A, per piastrella 11mm;1600;30;11;0;TP;pc;1;75.56;25.09
+226;108130012;Profilo pavimento Dacciao INOV2A, per piastrella 12,5mm;1600;30;12.5;0;TP;pc;1;75.78;25.15
+227;108150008;Profilo pavimento Dacciao INOV2A, per piastrella 8mm;1800;30;8;0;TP;pc;1;85.02;28.22
+228;108150010;Profilo pavimento Dacciao INOV2A, per piastrella 10mm;1800;30;10;0;TP;pc;1;85.74;28.47
+229;108150011;Profilo pavimento Dacciao INOV2A, per piastrella 11mm;1800;30;11;0;TP;pc;1;86.01;28.56
+230;108150012;Profilo pavimento Dacciao INOV2A, per piastrella 12,5mm;1800;30;12.5;0;TP;pc;1;86.45;28.69
+231;107200008;Profilo parete Sacciao INOV2A, per piastrella 8mm;1200;30;8;0;TP;pc;1;64.47;20.97
+232;107200010;Profilo parete Sacciao INOV2A, per piastrella 10mm;1200;30;10;0;TP;pc;1;65.16;21.21
+233;107200011;Profilo parete Sacciao INOV2A, per piastrella 11mm;1200;30;11;0;TP;pc;1;65.36;21.28
+234;107200012;Profilo parete Sacciao INOV2A, per piastrella 12,5mm;1200;30;12.5;0;TP;pc;1;65.73;21.39
+235;108220008;Profilo parete Sacciao INOV2A, per piastrella 8mm;1600;30;8;0;TP;pc;1;67.61;22.44
+236;108220010;Profilo parete Sacciao INOV2A, per piastrella 10mm;1600;30;10;0;TP;pc;1;68.29;22.68
+237;108220011;Profilo parete Sacciao INOV2A, per piastrella 11mm;1600;30;11;0;TP;pc;1;68.46;22.73
+238;108220012;Profilo parete Sacciao INOV2A, per piastrella 12,5mm;1600;30;12.5;0;TP;pc;1;68.85;22.86
+239;108240008;Profilo parete Sacciao INOV2A, per piastrella 8mm;1800;30;8;0;TP;pc;1;76.57;25.41
+240;108240010;Profilo parete Sacciao INOV2A, per piastrella 10mm;1800;30;10;0;TP;pc;1;77.35;25.69
+241;108240011;Profilo parete Sacciao INOV2A, per piastrella 11mm;1800;30;11;0;TP;pc;1;77.63;25.78
+242;108240012;Profilo parete Sacciao INOV2A, per piastrella 12,5mm;1800;30;12.5;0;TP;pc;1;77.95;25.88
+243;107210008;Profilo parete Dacciao INOV2A, per piastrella 8mm;1200;30;8;0;TP;pc;1;64.47;20.97
+244;107210010;Profilo parete Dacciao INOV2A, per piastrella 10mm;1200;30;10;0;TP;pc;1;65.16;21.21
+245;107210011;Profilo parete Dacciao INOV2A, per piastrella 11mm;1200;30;11;0;TP;pc;1;65.36;21.28
+246;107210012;Profilo parete Dacciao INOV2A, per piastrella 12,5mm;1200;30;12.5;0;TP;pc;1;65.73;21.39
+247;108230008;Profilo parete Dacciao INOV2A, per piastrella 8mm;1600;30;8;0;TP;pc;1;67.61;22.44
+248;108230010;Profilo parete Dacciao INOV2A, per piastrella 10mm;1600;30;10;0;TP;pc;1;68.29;22.68
+249;108230011;Profilo parete Dacciao INOV2A, per piastrella 11mm;1600;30;11;0;TP;pc;1;68.46;22.73
+250;108230012;Profilo parete Dacciao INOV2A, per piastrella 12,5mm;1600;30;12.5;0;TP;pc;1;68.85;22.86
+251;108250008;Profilo parete Dacciao INOV2A, per piastrella 8mm;1800;30;8;0;TP;pc;1;76.57;25.41
+252;108250010;Profilo parete Dacciao INOV2A, per piastrella 10mm;1800;30;10;0;TP;pc;1;77.35;25.69
+253;108250011;Profilo parete Dacciao INOV2A, per piastrella 11mm;1800;30;11;0;TP;pc;1;77.63;25.78
+254;108250012;Profilo parete Dacciao INOV2A, per piastrella 12,5mm;1800;30;12.5;0;TP;pc;1;77.95;25.88
+255;107300001;Profilo Terminale;1000;21;0;0;TP;pc;1;52.72;21.39
+256;108100001;Profilo terminale  ;1200;21;0;0;TP;pc;1;60.99;25.24
+257;106100008;Profilo pavimento Sacciao INOV2A, per piastrella 8mm per Riolito;1200;30;8;0;TP;pc;1;71.45;24.01
+258;106100010;Profilo pavimento Sacciao INOV2A, per piastrella 10mm per Riolito;1200;30;10;0;TP;pc;1;72.19;24.25
+259;106100011;Profilo pavimento Sacciao INOV2A, per piastrella 11mm per Riolito;1200;30;11;0;TP;pc;1;72.44;24.33
+260;106100012;Profilo pavimento Sacciao INOV2A, per piastrella 12,5mm per Riolito;1200;30;12.5;0;TP;pc;1;72.79;24.44
+261;106300008;Profilo pavimento Sacciao INOV2A, per piastrella 8mm per Riolito;1600;30;8;0;TP;pc;1;74.47;24.72
+262;106300010;Profilo pavimento Sacciao INOV2A, per piastrella 10mm per Riolito;1600;30;10;0;TP;pc;1;75.17;24.96
+263;106300011;Profilo pavimento Sacciao INOV2A, per piastrella 11mm per Riolito;1600;30;11;0;TP;pc;1;75.56;25.09
+264;106300012;Profilo pavimento Sacciao INOV2A, per piastrella 12,5mm per Riolito;1600;30;12.5;0;TP;pc;1;75.78;25.15
+265;106500008;Profilo pavimento Sacciao INOV2A, per piastrella 8mm per Riolito;1800;30;8;0;TP;pc;1;85.02;28.22
+266;106500010;Profilo pavimento Sacciao INOV2A, per piastrella 10mm per Riolito;1800;30;10;0;TP;pc;1;85.74;28.47
+267;106500011;Profilo pavimento Sacciao INOV2A, per piastrella 11mm per Riolito;1800;30;11;0;TP;pc;1;86.01;28.56
+268;106500012;Profilo pavimento Sacciao INOV2A, per piastrella 12,5mm per Riolito;1800;30;12.5;0;TP;pc;1;86.45;28.69
+269;106110008;Profilo pavimento Dacciao INOV2A, per piastrella 8mm per Riolito;1200;30;8;0;TP;pc;1;71.45;24.01
+270;106110010;Profilo pavimento Dacciao INOV2A, per piastrella 10mm per Riolito;1200;30;10;0;TP;pc;1;72.19;24.25
+271;106110011;Profilo pavimento Dacciao INOV2A, per piastrella 11mm per Riolito;1200;30;11;0;TP;pc;1;72.44;24.33
+272;106110012;Profilo pavimento Dacciao INOV2A, per piastrella 12,5mm per Riolito;1200;30;12.5;0;TP;pc;1;72.79;24.44
+273;106310008;Profilo pavimento Dacciao INOV2A, per piastrella 8mm per Riolito;1600;30;8;0;TP;pc;1;74.47;24.72
+274;106310010;Profilo pavimento Dacciao INOV2A, per piastrella 10mm per Riolito;1600;30;10;0;TP;pc;1;75.17;24.96
+275;106310011;Profilo pavimento Dacciao INOV2A, per piastrella 11mm per Riolito;1600;30;11;0;TP;pc;1;75.56;25.09
+276;106310012;Profilo pavimento Dacciao INOV2A, per piastrella 12,5mm per Riolito;1600;30;12.5;0;TP;pc;1;75.78;25.15
+277;106510008;Profilo pavimento Dacciao INOV2A, per piastrella 8mm per Riolito;1800;30;8;0;TP;pc;1;85.02;28.22
+278;106510010;Profilo pavimento Dacciao INOV2A, per piastrella 10mm per Riolito;1800;30;10;0;TP;pc;1;85.74;28.47
+279;106510011;Profilo pavimento Dacciao INOV2A, per piastrella 11mm per Riolito;1800;30;11;0;TP;pc;1;86.01;28.56
+280;106510012;Profilo pavimento Dacciao INOV2A, per piastrella 12,5mm per Riolito;1800;30;12.5;0;TP;pc;1;86.45;28.69
+281;106200008;Profilo parete Sacciao INOV2A, per piastrella 8mm per Riolito;1200;30;8;0;TP;pc;1;64.47;21.65
+282;106200010;Profilo parete Sacciao INOV2A, per piastrella 10mm per Riolito;1200;30;10;0;TP;pc;1;65.16;21.89
+283;106200011;Profilo parete Sacciao INOV2A, per piastrella 11mm per Riolito;1200;30;11;0;TP;pc;1;65.36;21.96
+284;106200012;Profilo parete Sacciao INOV2A, per piastrella 12,5mm per Riolito;1200;30;12.5;0;TP;pc;1;65.73;22.08
+285;106400008;Profilo parete Sacciao INOV2A, per piastrella 8mm per Riolito;1600;30;8;0;TP;pc;1;67.61;22.44
+286;106400010;Profilo parete Sacciao INOV2A, per piastrella 10mm per Riolito;1600;30;10;0;TP;pc;1;68.29;22.68
+287;106400011;Profilo parete Sacciao INOV2A, per piastrella 11mm per Riolito;1600;30;11;0;TP;pc;1;68.46;22.73
+288;106400012;Profilo parete Sacciao INOV2A, per piastrella 12,5mm per Riolito;1600;30;12.5;0;TP;pc;1;68.85;22.86
+289;106600008;Profilo parete Sacciao INOV2A, per piastrella 8mm per Riolito;1800;30;8;0;TP;pc;1;76.57;25.41
+290;106600010;Profilo parete Sacciao INOV2A, per piastrella 10mm per Riolito;1800;30;10;0;TP;pc;1;77.35;25.69
+291;106600011;Profilo parete Sacciao INOV2A, per piastrella 11mm per Riolito;1800;30;11;0;TP;pc;1;77.63;25.78
+292;106600012;Profilo parete Sacciao INOV2A, per piastrella 12,5mm per Riolito;1800;30;12.5;0;TP;pc;1;77.95;25.88
+293;106210008;Profilo parete Dacciao INOV2A, per piastrella 8mm per Riolito;1200;30;8;0;TP;pc;1;64.47;21.66
+294;106210010;Profilo parete Dacciao INOV2A, per piastrella 10mm per Riolito;1200;30;10;0;TP;pc;1;65.16;21.89
+295;106210011;Profilo parete Dacciao INOV2A, per piastrella 11mm per Riolito;1200;30;11;0;TP;pc;1;65.36;21.96
+296;106210012;Profilo parete Dacciao INOV2A, per piastrella 12,5mm per Riolito;1200;30;12.5;0;TP;pc;1;65.73;22.08
+297;106410008;Profilo parete Dacciao INOV2A, per piastrella 8mm per Riolito;1600;30;8;0;TP;pc;1;67.61;22.44
+298;106410010;Profilo parete Dacciao INOV2A, per piastrella 10mm per Riolito;1600;30;10;0;TP;pc;1;68.29;22.68
+299;106410011;Profilo parete Dacciao INOV2A, per piastrella 11mm per Riolito;1600;30;11;0;TP;pc;1;68.46;22.73
+300;106410012;Profilo parete Dacciao INOV2A, per piastrella 12,5mm per Riolito;1600;30;12.5;0;TP;pc;1;68.85;22.86
+301;106610008;Profilo parete Dacciao INOV2A, per piastrella 8mm per Riolito;1800;30;8;0;TP;pc;1;76.57;25.41
+302;106610010;Profilo parete Dacciao INOV2A, per piastrella 10mm per Riolito;1800;30;10;0;TP;pc;1;77.35;25.69
+303;106610011;Profilo parete Dacciao INOV2A, per piastrella 11mm per Riolito;1800;30;11;0;TP;pc;1;77.63;25.78
+304;106610012;Profilo parete Dacciao INOV2A, per piastrella 12,5mm per Riolito;1800;30;12.5;0;TP;pc;1;77.95;25.88
+305;072042000;wedi TOP parete, grigio;2500;900;0;0;TR;pc;1;469;150.86
+306;072042001;wedi TOP parete, grigio;2500;1200;0;0;TR;pc;1;569;184.46
+307;072042100;wedi TOP parete, carbon nero;2500;900;0;0;TR;pc;1;469;150.86
+308;072042101;wedi TOP parete, carbon nero;2500;1200;0;0;TR;pc;1;569;184.46
+309;076447020;Sanoasa panca 1, elemento terminale dritto, seduta con inclinazione in avanti;900;380;0;0;D;pc;1;374.03;121.2
+310;076447021;Sanoasa panca 1, elemento terminale dritto, seduta con inclinazione in avanti;1200;380;0;0;D;pc;1;440.23;142.66
+311;076447022;Sanoasa  panca 2, elemento terminale obliquo, seduta con inclinazione in avanti;900;380;0;0;D;pc;1;374.03;121.2
+312;076447023;Sanoasa  panca 2, elemento terminale obliquo, seduta con inclinazione in avanti;1200;380;0;0;D;pc;1;440.23;142.66
+313;076447024;Sanoasa  panca 3, elemento terminale stondato, seduta con inclinazione in avanti;900;380;0;0;D;pc;1;374.03;121.2
+314;076447025;Sanoasa  panca 3, elemento terminale stondato, seduta con inclinazione in avanti;1200;380;0;0;D;pc;1;440.23;142.66
+315;076447041;Sanoasa Panca 4, autoportante, 3 lati;1200;380;80;0;D;pc;1;257.26;83.36
+316;073784302;Sanoasa seduta ad angolo, misura M;600;300;100;0;D;pc;1;109.24;34.7
+317;073784402;Sanoasa seduta ad angolo, misura L;800;400;100;0;D;pc;1;142.34;45.22
+318;076447015;Sanoasa Comoda, seduta con inclinazione in avanti ;1000;0;0;0;D;m;1;508.13;164.67
+319;076438000;Sanoasa Comoda, seduta con inclinazione in avanti ;2000;0;0;0;D;m;1;493.34;159.86
+320;076437000;Sanoasa Comoda, supporto per seduta, frontale dritto;1000;0;0;0;D;m;1;110.18;35.71
+321;076437500;Sanoasa Comoda, supporto per seduta, frontale rotondo;1000;0;0;0;D;m;1;197.81;64.11
+322;076447004;Sanoasa Comoda, seduta angolare a 90° inclinazione avanti, passaggio dritto ;650;650;620;0;D;pc;1;662.31;210.4
+323;076447000;Sanoasa Comoda, seduta angolare a 90° inclinazione avanti, passaggio stondato;850;850;620;0;D;pc;1;867.76;275.68
+324;076447005;Sanoasa Comoda, supporto per seduta a 90°, frontale dritto ;650;650;250;0;D;pc;1;282.46;89.73
+325;076447001;Sanoasa Comoda, supporto per seduta a 90°, frontale stondato;850;850;250;0;D;pc;1;409.81;130.2
+326;076447011;Sanoasa Comoda, seduta terminale panca a sinistra R = 200 ;600;300;620;0;D;pc;1;430.82;136.85
+327;076447008;Sanoasa Comoda, seduta terminale panca a sinistra R = 600 ;700;600;620;0;D;pc;1;611.27;194.19
+328;076447012;Sanoasa Comoda, seduta terminale panca a destra R = 200 ;600;300;620;0;D;pc;1;430.82;136.85
+329;076447009;Sanoasa Comoda, seduta terminale panca a destra R = 600 ;700;600;620;0;D;pc;1;611.27;194.19
+330;076447013;Sanoasa Comoda linea, supporto elemento terminale, R = 200 ;500;200;250;0;D;pc;1;224.82;71.43
+331;076447010;Sanoasa Comoda linea, supporto elemento terminale, R = 600 ;600;500;250;0;D;pc;1;247.74;78.72
+332;076447014;Sanoasa Comoda & Comoda linea, bracciolo ;650;105;870;0;D;pc;1;369.46;117.37
+333;076448015;Sanoasa Bellina, inclinazione avanti ;1000;0;0;0;D;m;1;350.17;113.48
+334;076441000;Sanoasa Bellina, inclinazione avanti ;2000;0;0;0;D;m;1;339.97;110.17
+335;076441500;Sanoasa Bellina, supporto, frontale dritto;1000;0;0;0;D;m;1;110.18;35.71
+336;076441600;Sanoasa Bellina, supporto, frontale stondato ;1000;0;0;0;D;m;1;197.81;64.11
+337;076448004;Sanoasa Bellina, seduta angolare a 90°, frontale dritto ;550;550;240;0;D;pc;1;414.22;131.59
+338;076448000;Sanoasa Bellina, seduta angolare a 90°, frontale stondato;737;737;240;0;D;pc;1;477.43;151.67
+339;076448005;Sanoasa Bellina, supporto per seduta a 90°, passaggio dritto ;386;386;250;0;D;pc;1;220.96;70.2
+340;076448001;Sanoasa Bellina, supporto per seduta a 90°, passaggio stondato;737;737;250;0;D;pc;1;398.64;126.66
+341;076448011;Sanoasa Bellina, seduta terminale panca a sinistra R = 200 ;486;300;240;0;D;pc;1;316.49;100.54
+342;076448008;Sanoasa Bellina, seduta terminale panca a sinistra R = 486;600;486;240;0;D;pc;1;386.73;122.86
+343;076448012;Sanoasa Bellina, seduta terminale panca a destra R = 200 ;486;300;240;0;D;pc;1;316.49;100.54
+344;076448009;Sanoasa Bellina, seduta terminale panca a destra R = 486;600;486;240;0;D;pc;1;386.73;122.86
+345;076448013;Sanoasa Bellina, supporto terminale, R = 200 ;486;300;250;0;D;pc;1;169.73;53.92
+346;076448010;Sanoasa Bellina, supporto terminale, R = 486 ;600;486;250;0;D;pc;1;316.27;100.48
+347;076448014;Sanoasa Bellina, bracciolo ;550;105;650;0;D;pc;1;369.46;117.37
+348;076400042;Sanoasa Lettino 1;1920;700;672;0;D;pc;1;1582.82;590.72
+349;076400043;Sanoasa Lettino 1, con riscaldamento elettrico;1920;700;672;0;D;pc;1;2356.52;879.47
+350;076400044;Sanoasa Lettino 1, con riscaldamento ad acqua calda;1920;700;672;0;D;pc;1;2194.25;818.91
+351;076400045;Sanoasa Lettino 2;1442;700;1104;0;D;pc;1;1788.14;667.33
+352;076400046;Sanoasa Lettino 2, con riscaldamento elettrico;1442;700;1104;0;D;pc;1;2561.82;956.08
+353;076400047;Sanoasa Lettino 2, con riscaldamento ad acqua calda;1442;700;1104;0;D;pc;1;2688.31;896.18
+354;076400049;Sanoasa Lettino 3;1856;700;764;0;D;pc;1;1788.14;667.33
+355;076400050;Sanoasa Lettino 3, con riscaldamento elettrico;1856;700;764;0;D;pc;1;2561.82;956.08
+356;076400051;Sanoasa Lettino 3, con riscaldamento ad acqua calda;1856;700;764;0;D;pc;1;2688.31;1003.3
+357;076400053;Sanoasa Lettino 4;2014;700;921;0;D;pc;1;2317.79;865.07
+358;076400054;Sanoasa Lettino 4, con riscaldamento elettrico 2014 700 921 mm;2014;700;921;0;D;pc;1;3091.64;1153.82
+359;076400055;Sanoasa Lettino 4, con riscaldamento ad acqua calda 2014 700 921 mm;2014;700;921;0;D;pc;1;3081.78;1150.14
+360;076400059;Sanoasa Lettino 5;1738;700;890;0;D;pc;1;1390.77;519.04
+361;076400060;Sanoasa Lettino 5, con riscaldamento elettrico 1738 700 890 mm;1738;700;890;0;D;pc;1;2164.45;807.79
+362;076400061;Sanoasa Lettino 5, con riscaldamento ad acqua calda 1738 700 890 mm;1738;700;890;0;D;pc;1;2115.14;789.39
+363;076905500;Regolatore di temperatura riscaldamento elettrico, per guida DIN;0;0;0;0;D;pc;1;338.91;126.48
+364;076906000;Regolatore di temperatura riscaldamento elettrico, per montaggio a incasso;0;0;0;0;D;pc;1;338.91;126.48
+365;073606000;Sanbath Cube, Lavabo;570;570;925;0;D;pc;1;707.27;233.68
+366;073603000;Sanbath Wave, Lavabo;1000;550;200;0;D;pc;1;1442.13;476.46
+367;073607001;Sanbath Cube, Vasca ;1800;850;625;0;D;pc;1;4600.78;1717.3
+368;073601001;Sanbath Wave, Vasca ;1800;850;625;0;D;pc;1;4748.06;1772.77
+369;073605000;Sanbath Cube, Colona doccia (spessore 100 mm);850;400;2200;0;D;pc;1;1889.29;624.21
+370;073602000;Sanbath Wave, Colona doccia;1010;400;2400;0;D;pc;1;2561.21;846.22
+371;010000004;Pannello da costruzione wedi 4mm;1250;600;4;0;BS;m²;1;36.65;9.6
+372;010000006;Pannello da costruzione wedi 6mm;1250;600;6;0;BS;m²;1;33.76;8.85
+373;010700010;Pannello da costruzione wedi 10mm;1250;600;10;0;BS;m²;1;36.23;9.51
+374;010250004;Pannello da costruzione wedi 4mm;2500;600;4;0;BS;m²;1;36.65;9.6
+375;010250006;Pannello da costruzione wedi 6mm;2500;600;6;0;BS;m²;1;33.76;8.85
+376;010000010;Pannello da costruzione wedi 10mm;2500;600;10;0;BS;m²;1;36.23;9.51
+377;010000112;Pannello da costruzione wedi 12,5mm;2500;600;12.5;0;BS;m²;1;37.06;9.72
+378;010000020;Pannello da costruzione wedi 20mm;2500;600;20;0;BS;m²;1;38.37;10.06
+379;010000030;Pannello da costruzione wedi 30mm;2500;600;30;0;BS;m²;1;43.65;11.44
+380;010000040;Pannello da costruzione wedi 40mm;2500;600;40;0;BS;m²;1;48.84;12.79
+381;010000050;Pannello da costruzione wedi 50mm;2500;600;50;0;BS;m²;1;54.43;14.28
+382;010710060;Pannello da costruzione wedi 60mm ;2500;600;60;0;BS;m²;1;62.06;16.35
+383;010710080;Pannello da costruzione wedi 80mm ;2500;600;80;0;BS;m²;1;74.18;19.55
+384;010710199;Pannello da costruzione wedi 100mm;2500;600;100;0;BS;m²;1;94.7;24.94
+385;010000012;Pannello da costruzione wedi 12,5mm;2500;625;12.5;0;BS;m²;1;37.06;9.72
+386;010000610;Pannello da costruzione wedi 10mm;2600;600;10;0;BS;m²;1;36.23;9.51
+387;010000620;Pannello da costruzione wedi 20mm;2600;600;20;0;BS;m²;1;38.37;10.06
+388;010000630;Pannello da costruzione wedi 30mm;2600;600;30;0;BS;m²;1;43.65;11.44
+389;010000640;Pannello da costruzione wedi 40mm;2600;600;40;0;BS;m²;1;48.84;12.79
+390;010000650;Pannello da costruzione wedi 50mm;2600;600;50;0;BS;m²;1;54.43;14.28
+391;010000912;Pannello da costruzione wedi XL 12,5mm;2500;900;12.5;0;BS;m²;1;39.59;10.37
+392;010000920;Pannello da costruzione wedi XL 20mm;2500;900;20;0;BS;m²;1;43.16;11.31
+393;010000930;Pannello da costruzione wedi XL 30mm;2500;900;30;0;BS;m²;1;51.54;13.51
+394;010000950;Pannello da costruzione wedi XL 50mm;2500;900;50;0;BS;m²;1;68.94;18.07
+395;010729410;Pannello da costruzione wedi XXL 10mm;2500;1200;10;0;BS;m²;1;43;11.72
+396;010001220;Pannello da costruzione wedi XXL 20mm;2500;1200;20;0;BS;m²;1;46.47;12.19
+397;010001230;Pannello da costruzione wedi XXL 30mm;2500;1200;30;0;BS;m²;1;48.28;12.67
+398;010001250;Pannello da costruzione wedi XXL 50mm;2500;1200;50;0;BS;m²;1;65.78;17.25
+399;010001612;Pannello da costruzione wedi XXL 12,5mm;2600;1200;12.5;0;BS;m²;1;46.44;12.19
+400;074315410;wedi Sanwell Nicchia 20/40, flangia telaio 10 mm;234;434;100;0;D;pc;1;104.82;26.59
+401;074315411;wedi Sanwell Nicchia 30/60, flangia telaio 10 mm;334;634;100;0;D;pc;1;115.86;29.38
+402;074315420;wedi Nicchia / profondita 82,5 mm, flangia telaio 12,5 mm;234;434;100;0;D;pc;1;104.82;26.59
+403;074315421;wedi Nicchia / profondita 82,5 mm, flangia telaio 12,5 mm;334;634;100;0;D;pc;1;115.86;29.38
+404;041701100;wedi Sanwell Elemento per parete XL con nicchia 30/60;2500;900;100;0;D;pc;1;527.44;144.06
+405;041701101;wedi Sanwell Elemento per parete XXL con nicchia 30/60;2500;1200;100;0;D;pc;1;597.41;163.17
+406;010709020;Pannello da costruzione wedi construct 20mm, per il lungo;2500;600;20;0;BS;m²;1;46;12.06
+407;010709030;Pannello da costruzione wedi construct 30mm, per il lungo;2500;600;30;0;BS;m²;1;50.41;13.22
+408;010709050;Pannello da costruzione wedi construct 50mm, per il lungo;2500;600;50;0;BS;m²;1;61.21;16.04
+409;010708020;Pannello da costruzione wedi construct 20mm, per il largo;2500;600;20;0;BS;m²;1;46;12.06
+410;010708030;Pannello da costruzione wedi construct 30mm, per il largo;2500;600;30;0;BS;m²;1;50.41;13.22
+411;010708050;Pannello da costruzione wedi construct 50mm, per il largo;2500;600;50;0;BS;m²;1;61.21;16.04
+412;010713112;Pannello da costruzione wedi Vapor con barriera vapore 12,5mm;2500;600;12.5;0;BS;m²;1;109.56;34.74
+413;010713020;Pannello da costruzione wedi Vapor con barriera vapore 20 mm;2500;600;20;0;BS;m²;1;113.54;36.01
+414;010713050;Pannello da costruzione wedi Vapor con barriera vapore 50 mm;2500;600;50;0;BS;m²;1;126.99;40.28
+415;010702012;Pannello wedi Vapor 85;2500;600;12.5;0;BS;m²;1;48;16.8
+416;010702020;Pannello wedi Vapor 85;2500;600;20;0;BS;m²;1;50.33;17.62
+417;010702912;Pannello wedi Vapor 85;2500;600;12.5;0;BS;m²;1;48;16.8
+418;010702920;Pannello wedi Vapor 85;2500;600;20;0;BS;m²;1;50.33;17.62
+419;076400257;pannello PreLine con fresature per riscaldamento ad acqua;1240;600;30;0;BS;m²;1;67.99;23.8
+420;076400260;pannello PreLine con fresature per riscaldamento ad acqua;1240;600;50;0;BS;m²;1;80.05;28.02
+421;076400258;pannello PreLine con fresature per riscaldamento ad acqua;1240;600;60;0;BS;m²;1;86.33;30.22
+422;076400259;pannello PreLine con fresature per riscaldamento ad acqua;1240;600;40;0;BS;m²;1;70.57;24.7
+423;074300091;wedi Mensolo L, elemento angolare 20 mm;2500;150;150;0;BU;pc;1;42.86;10.88
+424;074300092;wedi Mensolo L, elemento angolare 20 mm;2500;200;200;0;BU;pc;1;62.29;15.8
+425;074300094;wedi Mensolo L, elemento angolare 20 mm;2500;200;400;0;BU;pc;1;78.74;19.98
+426;074300093;wedi Mensolo L, elemento angolare 20 mm;2500;300;300;0;BU;pc;1;78.74;19.98
+427;074300691;wedi Mensolo L, elemento angolare 20 mm;2600;150;150;0;BU;pc;1;44.63;11.32
+428;074300692;wedi Mensolo L, elemento angolare 20 mm;2600;200;200;0;BU;pc;1;64.71;16.42
+429;074300694;wedi Mensolo L, elemento angolare 20 mm;2600;200;400;0;BU;pc;1;81.92;20.77
+430;074300693;wedi Mensolo L, elemento angolare 20 mm;2600;300;300;0;BU;pc;1;81.92;20.77
+431;074300695;wedi Mensolo U, elemento a U bordo da 200 mm spessore 20 mm;2600;200;200;0;BU;pc;1;89.91;22.81
+432;074300696;wedi Mensolo U, elemento a U bordo da 150 mm spessore 20 mm;2600;300;150;0;BU;pc;1;89.91;22.81
+433;073820100;wedi Bathboard, pannello rivestibile per vasca, pezzo longitudinale;1800;600;20;0;BU;pc;1;63.07;17.17
+434;073820101;wedi Bathboard, pannello rivestibile per vasca, pezzo longitudinale;2100;600;20;0;BU;pc;1;97.32;26.49
+435;073820102;wedi Bathboard, pannello rivestibile per vasca, pezzo sul lato testa;770;600;20;0;BU;pc;1;31.91;8.69
+436;073830001;wedi Bathboard Shower, pannello rivestibile per piatto doccia;900;200;20;0;BU;pc;1;27.33;7.43
+437;073830002;wedi Bathboard Shower, pannello rivestibile per piatto doccia;900;300;20;0;BU;pc;1;29.62;8.06
+438;073964220;wedi I-Board, rivestimento WC, preforato per tubazioni - completo di viti fissaggio ;1200;1245;20;0;BU;pc;1;79.15;26.59
+439;608001100;Porta battente in cristallo;1990;0;0;0;D;pc;1;1748.85;509.51
+440;676500014;wedi Eterna, porta in acciaio inoper parete 80 mm DIN sinistra;1983;591;100;0;D;pc;1;2188.5;723.07
+441;676500015;wedi Eterna, porta in acciaio inoper parete 80 mm  DIN sinistra;1983;716;100;0;D;pc;1;2193.58;724.74
+442;676500016;wedi Eterna, porta in acciaio inoper parete 50 mm DIN sinistra;1983;591;70;0;D;pc;1;2188.5;723.07
+443;676500017;wedi Eterna, porta in acciaio inoper parete 80 mm DIN sinistra;1983;966;100;0;D;pc;1;2326.84;768.78
+444;676500010;wedi Eterna, porta in acciaio inoper parete 80 mm DIN destra ;1983;591;100;0;D;pc;1;2188.5;723.07
+445;676500011;wedi Eterna, porta in acciaio inoper parete 80 mm  DIN destra ;1983;716;100;0;D;pc;1;2193.58;724.74
+446;676500012;wedi Eterna, porta in acciaio inoper parete 50 mm DIN destra ;1983;591;70;0;D;pc;1;2188.5;723.07
+447;676500013;wedi Eterna, porta in acciaio inoper parete 80 mm DIN destra ;1983;966;100;0;D;pc;1;2326.84;768.78
+448;076902004;wedi 610, collante sigillante;310;0;0;0;A;pc;1;19.98;6.41
+449;076902007;wedi 610, collante sigillante salsicciotto;600;0;0;0;A;pc;1;31.03;6.41
+450;076902010;wedi 620, collante sigillante per guaine e elementi di impermeabilizzazione;290;0;0;0;A;pc;1;19.98;6.35
+451;110025320;wedi 320 adesivo per piastrelle universale ;25;0;0;0;A;pc;1;36.3;11.64
+452;110025360;wedi 360 malta flessibile;25;0;0;0;A;pc;1;34.23;11.91
+453;119900520;wedi 520, Malta flessibile impermeabilizzante, Componente A + B;0;0;0;0;A;pc;1;138.16;44.32
+454;073796000;wedi Fundo, set di tenuta;0;0;0;0;A;pc;1;84.03;24.25
+455;095110311;wedi Tools, nastro di tenuta TNT;10;100;0;0;A;m;1;6.44;2.05
+456;095110352;wedi Tools, nastro di tenuta TNT;50;100;0;0;A;m;1;5.7;1.82
+457;095100352;wedi Tools, nastro di tenuta TNT;50;100;0;0;A;m;1;5.52;1.74
+458;095130001;wedi Tools, angolo interno TNT;120;120;60;0;A;pc;1;8.31;2.64
+459;095135001;wedi Tools, angolo esterno TNT;115;115;60;0;A;pc;1;8.31;2.64
+460;095135012;Angolo di tenuta pendenziato s(per Riolito);226;110;66;0;A;pc;1;20.99;6.19
+461;095135013;Angolo di tenuta pendenziato d(per Riolito);226;110;66;0;A;pc;1;20.99;6.19
+462;095135017;Angolo di tenuta pendenziato s(per Riolito 073737306);276;110;75;0;A;pc;1;20.99;6.19
+463;095135016;Angolo di tenuta pendenziato d(per Riolito 073737306);276;110;75;0;A;pc;1;20.99;6.19
+464;095135014;Angolo di tenuta pendenziato muro/pavimento (per Riolito);226;110;65;0;A;pc;1;16.04;4.73
+465;095135015;Angolo di tenuta pendenziato muro/pavimento (per Riolito);226;110;65;0;A;pc;1;16.04;4.73
+466;095135019;Angolo di tenuta pendenziato muro/pavimento s(per Riolito 073737306);276;110;75;0;A;pc;1;16.04;4.73
+467;095135018;Angolo di tenuta pendenziato muro/pavimento d(per Riolito 073737306);276;110;75;0;A;pc;1;16.04;4.73
+468;095135005;Angolo di tenuta pendenziato s (per Riolito neo/Plano Linea);160;100;65;0;A;pc;1;13.05;3.86
+469;095135004;Angolo di tenuta pendenziato d(per Riolito neo/Plano Linea);160;100;65;0;A;pc;1;13.05;3.86
+470;095135007;Angolo di tenuta pendenziato s(per Riolito neo/Plano linea  075100005);160;100;75;0;A;pc;1;13.05;3.86
+471;095135006;Angolo di tenuta pendenziato d(per Riolito neo/Plano linea  075100005);160;100;75;0;A;;1;13.05;3.86
+472;095120050;wedi Tools, fasce di tenuta in TNT ,elastico;120;120;0;0;A;box;1;53.7;15.2
+473;095110361;wedi Tools, fasce di tenuta in TNT ,elastitico DN50;150;150;0;0;A;box;1;53.7;15.2
+474;095110362;wedi tools, fasce di tenuta in TNT, elastico DN70/100;250;250;135;0;A;box;1;64.56;18.27
+475;095110360;wedi Tools, nastro tenuta bordovasca;3600;120;0;0;A;pc;1;26.88;8.75
+476;095110363;wedi Tools, nastro tenuta bordovasca (con striscia disaccoppiamento);3600;120;0;0;A;pc;1;32.27;10.5
+477;095110305;wedi Subliner Dry, Guaina impermeabilizzante ad uso interno;5;1;0;0;A;m;1;15.51;4.63
+478;095110332;wedi Subliner Dry, Guaina impermeabilizzante ad uso interno;30;1;0;0;A;m;1;13.74;4.11
+479;095110315;wedi Subliner Dry & Flex, Guaina impermeabilizzante e antifrattura per terrazze e balconi;15;1;0;0;A;m;1;14.61;4.36
+480;095110331;wedi Subliner Flex, Guaina antifrattura;30;1;0;0;A;m;1;12.11;3.61
+481;011255006;wedi banda di isolamento perimetrale;25;150;0;0;A;pc;1;8.28;2.63
+482;095225053;wedi Tools, nastro armato autoadesivo;25;1;0;0;A;pc;1;20.31;6.45
+483;095215052;wedi Tools, nastro armato autoadesivo;50;60;0;0;A;pc;1;147.28;46.78
+484;095220053;wedi Tools, nastro armato;25;125;0;0;A;pc;1;17.35;5.51
+485;095210052;wedi Tools, nastro armato;50;60;0;0;A;pc;1;65.73;20.88
+486;094860106;wedi Tools, piattello in metallo zincato 35 mm;100;0;0;0;A;box;1;22.75;7.52
+487;094862106;wedi Tools, piattello in metallo zincato 35 mm;10;0;0;0;A;bag;1;2.84;0.96
+488;094860239;wedi Tools, piattello in acciao inoV2A 35 mm;100;0;0;0;A;box;1;43.45;14.36
+489;094861239;wedi Tools, piattello in acciao inoV2A 35 mm;10;0;0;0;A;bag;1;6.6;2.18
+490;094920104;wedi Tools, tassello in metallo zincato 50 mm;100;0;0;0;A;box;1;49.4;16.63
+491;094920108;wedi Tools, tassello in metallo zincato 80 mm;100;0;0;0;A;box;1;55.9;18.82
+492;094923108;wedi Tools, tassello in metallo zincato 80 mm;10;0;0;0;A;bag;1;7.3;2.51
+493;094920111;wedi Tools, tassello in metallo zincato 110 mm;100;0;0;0;A;box;1;65.03;21.91
+494;094922111;wedi Tools, tassello in metallo zincato 110 mm;10;0;0;0;A;bag;1;7.67;2.64
+495;094920114;wedi Tools, tassello in metallo zincato 140 mm;100;0;0;0;A;box;1;71.59;24.11
+496;094922114;wedi Tools, tassello in metallo zincato 140 mm;10;0;0;0;A;bag;1;8.05;2.76
+497;094920122;wedi Tools, tassello in metallo zincato 200 mm;100;0;0;0;A;box;1;92.07;31
+498;094940108;wedi Tools, tassello in acciaio inoV2A 80 mm;100;0;0;0;A;box;1;123.48;41.61
+499;094941108;wedi Tools, tassello in acciaio inoV2A 80 mm;10;0;0;0;A;bag;1;15.99;5.38
+500;094940111;wedi Tools, tassello in acciaio inoV2A 110 mm;100;0;0;0;A;box;1;130.99;44.11
+501;094941111;wedi Tools, tassello in acciaio inoV2A 110 mm;10;0;0;0;A;bag;1;17.09;5.75
+502;094940114;wedi Tools, tassello in acciaio inoV2A 140 mm;100;0;0;0;A;box;1;147.18;49.57
+503;094941114;wedi Tools, tassello in acciaio inoV2A 140 mm;10;0;0;0;A;bag;1;18.19;6.12
+504;206553004;wedi tools, set di  10 tasselli e 10 viti. tasselli da 35 mm e viti da 60 mm;0;0;0;0;A;pc;1;4.39;1.48
+505;206553001;wedi tools, set di fissaggio, 400x50mm 2 pezzi + 100x100mm 12 pezzi;0;0;0;0;A;pc;1;43.92;14.52
+506;076449017;Set di montaggio per pareti wedi TOP ;0;0;0;0;A;pc;1;19.17;7.4
+507;095300191;wedi Tools, elemento a 90°;0;0;0;0;A;pc;1;6.78;2.15
+508;095303191;wedi Tools, elemento a 90°;5;0;0;0;A;bag;1;32.92;11.72
+509;095300192;wedi Tools, elemento a parete;0;0;0;0;A;pc;1;4.11;1.31
+510;095303192;wedi Tools, elemento a parete;5;0;0;0;A;bag;1;20.46;7.27
+511;095300193;wedi Tools, elemento a 180°;0;0;0;0;A;pc;1;6.78;2.15
+512;095303193;wedi Tools, elemento a 180°;5;0;0;0;A;bag;1;32.92;11.72
+513;011220000;wedi Nonstep Plan;1196;590;6;0;A;pc;1;35.22;9.39
+514;011200000;wedi Nonstep Plus;1200;600;12;0;A;pc;1;54.76;14.89
+515;084600100;Strato di protezione wedi;25;1;0;0;A;m;1;4.72;1.51
+516;073716199A;Riolito neo, griglia lineare, rettangolare (griglia da 700 mm);900;800;50;0;T;pc;1;616.04;225.09
+517;075100036;Riolito neo, griglia lineare, rettangolare (griglia da 1100 mm);1000;1500;50;0;T;pc;1;913.32;272.55
+518;073716599A;Riolito neo, griglia lineare, rettangolare (griglia da 900 mm);1200;1160;50;0;T;pc;1;890.03;343.46
+519;011255007;Nonstep ProS;900;900;9;0;A;pc;1;50.67;17.73
+520;011255008;Nonstep ProS;1200;600;9;0;A;pc;1;45.04;15.76
+521;072010700;Wedi Fundto Top Primo Sahara beige - scarico centrale;900;900;0;0;TR;pc;1;299;1
+522;072010701;Wedi Fundto Top Primo Sahara beige - scarico centrale;1200;900;0;0;TR;pc;1;319;1
+523;072010702;Wedi Fundto Top Primo Sahara beige - scarico decentrato;900;900;0;0;TR;pc;1;319;1
+524;072010703;Wedi Fundto Top Primo Sahara beige - scarico centrale;1200;1200;0;0;TR;pc;1;359;1
+525;072010705;Wedi Fundto Top Primo Sahara beige - scarico decentrato;1800;900;0;0;TR;pc;1;429;1
+526;072010706;Wedi Fundto Top Primo Sahara beige - scarico decentrato;1400;900;0;0;TR;pc;1;399;1
+527;072010707;Wedi Fundto Top Primo Sahara beige - scarico decentrato;1600;900;0;0;TR;pc;1;419;1
+528;072010800;Wedi Fundto Top Primo Grigio Cemento - scarico centrale;900;900;0;0;TR;pc;1;299;1
+529;072010801;Wedi Fundto Top Primo Grigio Cemento - scarico centrale;1200;900;0;0;TR;pc;1;319;1
+530;072010802;Wedi Fundto Top Primo Grigio Cemento - scarico decentrato;900;900;0;0;TR;pc;1;319;1
+531;072010803;Wedi Fundto Top Primo Grigio Cemento - scarico centrale;1200;1200;0;0;TR;pc;1;359;1
+532;072010805;Wedi Fundto Top Primo Grigio Cemento - scarico decentrato;1800;900;0;0;TR;pc;1;429;1
+533;072010806;Wedi Fundto Top Primo Grigio Cemento - scarico decentrato;1400;900;0;0;TR;pc;1;399;1
+534;072010807;Wedi Fundto Top Primo Grigio Cemento - scarico decentrato;1600;900;0;0;TR;pc;1;419;1
+535;072020700;wedi Fundo Top Riolito neo Sahara beige;1200;900;0;0;TR;pc;1;319;1
+536;072020701;wedi Fundo Top Riolito neo Sahara beige;1600;1000;0;0;TR;pc;1;419;1
+537;072020702;wedi Fundo Top Riolito neo Sahara beige;1800;900;0;0;TR;pc;1;429;1
+538;072020800;wedi Fundo Top Riolito neo Grigio Cemento;1200;900;0;0;TR;pc;1;319;1
+539;072020801;wedi Fundo Top Riolito neo Grigio Cemento;1600;1000;0;0;TR;pc;1;419;1
+540;072020802;wedi Fundo Top Riolito neo Grigio Cemento;1800;900;0;0;TR;pc;1;429;1
+541;072030100;wedi Fundo Top Plano Bianco - scarico centrale;900;900;0;0;TR;pc;1;299;1
+542;072030101;wedi Fundo Top Plano Bianco - scarico centrale;1200;900;0;0;TR;pc;1;319;1
+543;072030102;wedi Fundo Top Plano Bianco - scarico decentrato;1600;1000;0;0;TR;pc;1;419;1
+544;072030600;wedi Fundo Top Plano Nero Antracite - scarico centrale;900;900;0;0;TR;pc;1;299;1
+545;072030601;wedi Fundo Top Plano Nero Antracite - scarico centrale;1200;900;0;0;TR;pc;1;319;1
+546;072030602;wedi Fundo Top Plano Nero Antracite - scarico decentrato;1600;1000;0;0;TR;pc;1;419;1
+547;072030700;wedi Fundo Top Plano Sahara beige - scarico centrale;900;900;0;0;TR;pc;1;299;1
+548;072030701;wedi Fundo Top Plano Sahara beige - scarico centrale;1200;900;0;0;TR;pc;1;319;1
+549;072030702;wedi Fundo Top Plano Sahara beige - scarico decentrato;1600;1000;0;0;TR;pc;1;419;1
+550;072030800;wedi Fundo Top Plano Grigio Cemento - scarico centrale;900;900;0;0;TR;pc;1;299;1
+551;072030801;wedi Fundo Top Plano Grigio Cemento - scarico centrale;1200;900;0;0;TR;pc;1;319;1
+552;072030802;wedi Fundo Top Plano Grigio Cemento - scarico decentrato;1600;1000;0;0;TR;pc;1;419;1
+553;072030900;wedi Fundo Top Plano Effetto Pietra naturale - scarico centrale;900;900;0;0;TR;pc;1;299;1
+554;072030901;wedi Fundo Top Plano Effetto Pietra naturale - scarico centrale;1200;900;0;0;TR;pc;1;319;1
+555;072030902;wedi Fundo Top Plano Effetto Pietra naturale - scarico decentrato;1600;1000;0;0;TR;pc;1;419;1
+556;072040700;FU Top zoccolino sahara beige;1880;200;6;0;TR;pc;1;129;1
+557;072040800;FU Top zoccolino grigio cemento;1880;200;6;0;TR;pc;1;129;1
+558;072042020;wedi Top Wall  Grigio Cemento;2500;900;0;0;TR;pc;1;469;1
+559;072042021;wedi Top Wall  Grigio Cemento;2500;1200;0;0;TR;pc;1;569;1
+560;072042040;wedi Top Wall  Sahara beige;2500;900;0;0;TR;pc;1;469;1
+561;072042041;wedi Top Wall  Sahara beige;2500;1200;0;0;TR;pc;1;569;1
+562;074315800;wedi Sanwell Top Nicchia Bianco;200;400;100;0;TR;pc;1;299;1
+563;074315801;wedi Sanwell Top Nicchia Bianco;300;600;100;0;TR;pc;1;349;1
+564;074315805;wedi Sanwell Top Effetto Pietra naturale;200;400;100;0;TR;pc;1;299;1
+565;074315806;wedi Sanwell Top Effetto Pietra naturale;300;600;100;0;TR;pc;1;349;1
+566;074315810;wedi Sanwell Top Nero Antracite;200;400;100;0;TR;pc;1;299;1
+567;074315811;wedi Sanwell Top Nero Antracite;300;600;100;0;TR;pc;1;349;1
+568;074315815;wedi Sanwell Top Sahara beige;200;400;100;0;TR;pc;1;299;1
+569;074315816;wedi Sanwell Top Sahara beige;300;600;100;0;TR;pc;1;349;1
+570;074315820;wedi Sanwell Top Grigio cemento;200;400;100;0;TR;pc;1;299;1
+571;074315821;wedi Sanwell Top Grigio cemento;300;600;100;0;TR;pc;1;349;1
+572;076447502;wedi Top Panca Sanoasa 3 Bianco;1200;0;0;0;TR;pc;1;449;1
+573;076447512;wedi Top Panca Sanoasa 3 Effetto Pietra naturale;1200;0;0;0;TR;pc;1;449;1
+574;076447522;wedi Top Panca Sanoasa 3 Nero Antracite;1200;0;0;0;TR;pc;1;449;1
+575;076447532;wedi Top Panca Sanoasa 3 Sahara beige;1200;0;0;0;TR;pc;1;449;1
+576;076447542;wedi Top Panca Sanoasa 3 Grigio cemento;1200;0;0;0;TR;pc;1;449;1
+577;095110371;wedi Tools Wall Kit sigillatura pareti;0;0;0;0;A;pc;1;128.89;1
+578;075100200;wedi Fundo Rio Ligno (canalina da 700);900;900;0;0;T;pc;1;399;1
+579;075100201;wedi Fundo Rio Ligno (canalina da 700);1200;900;0;0;T;pc;1;499;1
+580;075100202;wedi Fundo Rio Ligno (canalina da 900);1200;1200;0;0;T;pc;1;549;1
+581;075100203;wedi Fundo Rio Ligno (canalina da 800);1600;1000;0;0;T;pc;1;629;1
+582;073964250;wedi I-Board Top Bianco;1245;1200;0;0;TR;pc;1;349;1
+583;073964251;wedi I-Board Top Effetto Pietra naturale;1245;1200;0;0;TR;pc;1;349;1
+584;073964252;wedi I-Board Top Nero Antracite;1245;1200;0;0;TR;pc;1;349;1
+585;073964253;wedi I-Board Top Sahara beige;1245;1200;0;0;TR;pc;1;349;1
+586;073964254;wedi I-Board Top Grigio cemento;1245;1200;0;0;TR;pc;1;349;1
+587;073964222;wedi I-Board Plus;1245;1200;20;0;TR;pc;1;85.56;1
+588;072000700;Fundo Top set copertura canaletta piastrellabile Sahara beige;800;0;0;0;TR;pc;1;179;1
+589;072000800;Fundo Top set copertura canaletta piastrellabile Grigio cemento;800;0;0;0;TR;pc;1;179;1
+590;073732091;wedi Fundo elemento sottostruttura per canalette;240;240;82;0;TA;pc;1;51.11;1
