@@ -36,6 +36,7 @@ public class Orders extends DBInterface
     protected int compositionTrays;
     protected int compositionDesign;
     protected int compositionAccessories;
+    protected String sourceIssue;
     protected double orderValue;
 	protected boolean selected = false;
 	
@@ -345,6 +346,14 @@ public class Orders extends DBInterface
 
 	public void setOrderValue(double orderValue) {
 		this.orderValue = orderValue;
+	}
+
+	public String getSourceIssue() {
+		return sourceIssue;
+	}
+
+	public void setSourceIssue(String sourceIssue) {
+		this.sourceIssue = sourceIssue;
 	}
 
 	public boolean isSelected() {
