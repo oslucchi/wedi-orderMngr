@@ -24,6 +24,7 @@ import it.l_soft.orderMngr.rest.ApplicationProperties;
 import it.l_soft.orderMngr.rest.JsonHandler;
 import it.l_soft.orderMngr.rest.Utils;
 import it.l_soft.orderMngr.rest.dbUtils.Articles;
+import it.l_soft.orderMngr.rest.dbUtils.CustomerDelivery;
 import it.l_soft.orderMngr.rest.dbUtils.DBConnection;
 import it.l_soft.orderMngr.rest.dbUtils.DBInterface;
 import it.l_soft.orderMngr.rest.dbUtils.OrderDetails;
@@ -93,6 +94,7 @@ public class OrdersHandler {
 		OrderNotes orderNotes = new OrderNotes();
 		ArrayList<OrderDetails> orderDetails = new ArrayList<OrderDetails>();
 		ArrayList<Articles> orderArticles = new ArrayList<Articles>();
+		CustomerDelivery customerDelivery = new CustomerDelivery();
 
 		try 
 		{
@@ -145,6 +147,21 @@ public class OrdersHandler {
 		{
 			if (e.getMessage().compareTo("No record found") != 0)
 			{
+				DBInterface.disconnect(conn);
+				log.error("Exception '" + e.getMessage(), e);
+				return Utils.jsonizeResponse(Response.Status.INTERNAL_SERVER_ERROR, e, languageId, "generic.execError");
+			}
+		}
+
+		log.trace("get CustomerDelivery");
+		try 
+		{
+			customerDelivery = CustomerDelivery.getCustomerDeliveryByOrder(conn, orderDetails.get(0).getIdOrder());
+		}
+		catch(Exception e)
+		{
+			if (e.getMessage().compareTo("No record found") != 0)
+			{
 				log.error("Exception '" + e.getMessage(), e);
 				return Utils.jsonizeResponse(Response.Status.INTERNAL_SERVER_ERROR, e, languageId, "generic.execError");
 			}
@@ -153,12 +170,13 @@ public class OrdersHandler {
 		{
 			DBInterface.disconnect(conn);
 		}
-		
+
 		HashMap<String, Object> jsonResponse = new HashMap<>();
 		jsonResponse.put("orderDetails", orderDetails);
 		jsonResponse.put("orderShipments", orderShipments);
 		jsonResponse.put("orderNotes", orderNotes);
 		jsonResponse.put("orderArticles", orderArticles);
+		jsonResponse.put("customerDelivery", customerDelivery);
 		JsonHandler jh = new JsonHandler();
 		if (jh.jasonize(jsonResponse, language) != Response.Status.OK)
 		{
@@ -469,11 +487,16 @@ public class OrdersHandler {
 		
 		JsonObject jsonIn = JavaJSONMapper.StringToJSON(body);
 		Orders order = (Orders) JavaJSONMapper.JSONToJava(jsonIn.getJsonObject("order"), Orders.class);
-
 		try 
 		{
 			conn = DBInterface.connect();
-			if (order.getForwarder() != null)
+			Orders orderOnDB = new Orders(conn, order.getIdOrder());
+			if (((orderOnDB.getPalletLength() != order.getPalletLength()) ||
+				 (orderOnDB.getPalletWidth() != order.getPalletWidth()) ||
+				 (orderOnDB.getPalletHeigth() != order.getPalletHeigth()) ||
+				 (orderOnDB.getPalletWeigth() != order.getPalletWeigth()) ||
+				 (orderOnDB.getCustomerDeliveryProvince().compareTo(order.getCustomerDeliveryProvince()) != 0)) &&
+				(order.getForwarder() != null))
 			{
 				order.setForwarderCost(updateForwarderCost(order));
 				if (jsonIn.getJsonNumber("buyValue") != null)

@@ -1,6 +1,9 @@
 package it.l_soft.orderMngr.utils;
 
+import org.apache.log4j.Logger;
+
 public class Cesped extends ForwaderCostCalculation {
+	final Logger log = Logger.getLogger(this.getClass());
 
 	public Cesped() {
 		populateCostArray("AO", 15, 14.7, 14.2, 13.4);
@@ -120,15 +123,24 @@ public class Cesped extends ForwaderCostCalculation {
 		if (volume * 250 > weigth)
 			weigth = volume * 250;
 		weigth = Math.ceil(weigth / 100) * 100;
+		log.debug("Calculating costs for: '" + province + "', on volumetric weigth: " + weigth);
 		
-		if (weigth < 500)
-			return costArray.get(province)[0] * weigth / 100; 
-		else if (weigth< 1000)
-			return costArray.get(province)[1] * weigth / 100;
-		else if (weigth < 2000)
-			return costArray.get(province)[2] * weigth / 100;
-		else
-			return costArray.get(province)[3] * weigth / 100;
+		try
+		{
+			if (weigth < 500)
+				return costArray.get(province)[0] * weigth / 100; 
+			else if (weigth< 1000)
+				return costArray.get(province)[1] * weigth / 100;
+			else if (weigth < 2000)
+				return costArray.get(province)[2] * weigth / 100;
+			else
+				return costArray.get(province)[3] * weigth / 100;
+		}
+		catch(Exception e)
+		{
+			log.error("Error calculating costs for: '" + province + "', on volumetric weigth: " + weigth);
+		}
+		return(0);
 	}
 
 	@Override

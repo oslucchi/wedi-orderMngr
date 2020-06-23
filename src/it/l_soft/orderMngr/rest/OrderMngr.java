@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 
 import it.l_soft.orderMngr.rest.ApplicationProperties;
 
-
 @ApplicationPath("/")
 public class OrderMngr implements ServletContextListener {
 	ApplicationProperties prop;
@@ -26,9 +25,12 @@ public class OrderMngr implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) 
 	{
-		log.trace("application started");
-		//		prop = ApplicationProperties.getInstance();
-//		log.debug("arg0 servlet context " + arg0.getServletContext());
-//		prop.setContext(arg0.getServletContext());
+//		log.trace("application started");
+//		Labels lab = new Labels(arg0.getServletContext());
+		prop = ApplicationProperties.getInstance();
+//		lab.packageLabels(prop, "OSVALDO LUCCHINI", "VIA DELLA FORNACE 7", "20060 PESSANO CON BORNAGO (MI)", "CESPED", 4, true);
+//		System.exit(0);
+		log.debug("arg0 servlet context " + arg0.getServletContext());
+		prop.setContext(arg0.getServletContext());
     }
 }

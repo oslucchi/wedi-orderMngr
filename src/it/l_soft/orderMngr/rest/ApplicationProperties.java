@@ -43,6 +43,8 @@ public class ApplicationProperties {
 	private String mailchimpListId = "";
 	private String mailchimpAPIKEY = "";
 
+	private String labelsPrinterName = "";
+
 	private ServletContext context;
 	
 	private static ApplicationProperties instance = null;
@@ -88,7 +90,9 @@ public class ApplicationProperties {
     	URLFilterFiles = properties.getProperty("URLFilterFiles");
     	URLFilterFolders = properties.getProperty("URLFilterFolders");
 		useCoars = Boolean.parseBoolean(properties.getProperty("useCoars"));
-    	try
+		labelsPrinterName = properties.getProperty("labelsPrinterName");
+		
+		try
     	{
     		variable = "sessionExpireTime";
     		sessionExpireTime = Integer.parseInt(properties.getProperty("sessionExpireTime"));
@@ -136,7 +140,8 @@ public class ApplicationProperties {
 		paypalMode = properties.getProperty("paypalMode");
 		mailchimpListId = properties.getProperty("mailchimpListId");
 		mailchimpAPIKEY = properties.getProperty("mailchimpAPIKEY");
-    	try
+		
+		try
     	{
     		variable = "releaseTicketLocksAfter";
     		releaseTicketLocksAfter = Integer.parseInt(properties.getProperty("releaseTicketLocksAfter"));
@@ -276,6 +281,10 @@ public class ApplicationProperties {
 
 	public String getPaypalMode() {
 		return paypalMode;
+	}
+
+	public String getLabelsPrinterName() {
+		return labelsPrinterName;
 	}
 	
 }

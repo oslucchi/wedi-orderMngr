@@ -64,6 +64,18 @@ public class CustomerDelivery extends DBInterface
 		return (ArrayList<CustomerDelivery>) DBInterface.populateCollection(conn, sql, CustomerDelivery.class);
 	}
 
+	public static CustomerDelivery getCustomerDeliveryByOrder(DBConnection conn, int idOrder) throws Exception {
+		CustomerDelivery customerDelivery = new CustomerDelivery();
+		Logger log = Logger.getLogger(CustomerDelivery.class);
+		String sql = "SELECT cd.* \n" + 
+					 "FROM CustomerDelivery cd INNER JOIN Orders ord ON \n" + 
+					 "     (ord.idCustomerDelivery = cd.idCustomerDelivery)\n" + 
+					 "WHERE ord.idOrder = " + idOrder;
+		log.trace("Querying: " + sql);
+		customerDelivery.populateObject(conn, sql, customerDelivery);
+		return customerDelivery;
+	}
+
 	public int getIdCustomerDelivery() {
 		return idCustomerDelivery;
 	}
