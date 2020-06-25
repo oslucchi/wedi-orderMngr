@@ -249,7 +249,7 @@ public class DBInterface implements Serializable
 							}
 							catch(Exception e)
 							{
-								log.warn("Exception setting " + columnName + " to duoble", e);
+								log.error("Exception setting " + columnName + " to duoble", e);
 							}
 							break;
 							
@@ -267,7 +267,7 @@ public class DBInterface implements Serializable
 					}
 					catch(Exception e)
 					{ 
-						log.warn("Exception " + e.getMessage(), e);
+						log.error("Exception " + e.getMessage(), e);
 			    		retVal = "Error " + e.getMessage() + " retrieving fields value from object (" + Utils.printStackTrace(e) + ")";
 						throw new Exception(retVal);
 					}

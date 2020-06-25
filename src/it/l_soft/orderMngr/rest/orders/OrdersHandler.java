@@ -495,7 +495,8 @@ public class OrdersHandler {
 				 (orderOnDB.getPalletWidth() != order.getPalletWidth()) ||
 				 (orderOnDB.getPalletHeigth() != order.getPalletHeigth()) ||
 				 (orderOnDB.getPalletWeigth() != order.getPalletWeigth()) ||
-				 (orderOnDB.getCustomerDeliveryProvince().compareTo(order.getCustomerDeliveryProvince()) != 0)) &&
+				 ((orderOnDB.getCustomerDeliveryProvince() != null) &&
+				  (orderOnDB.getCustomerDeliveryProvince().compareTo(order.getCustomerDeliveryProvince()) != 0))) &&
 				(order.getForwarder() != null))
 			{
 				order.setForwarderCost(updateForwarderCost(order));

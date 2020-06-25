@@ -18,7 +18,7 @@ public class OrderMngr implements ServletContextListener {
         	;
         } 
         catch(Exception e) {
-    		log.warn("Exception " + e.getMessage(), e);    		
+    		log.error("Exception " + e.getMessage(), e);    		
         }
     }
 

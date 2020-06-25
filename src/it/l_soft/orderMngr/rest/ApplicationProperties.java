@@ -104,7 +104,7 @@ public class ApplicationProperties {
     	catch(NumberFormatException e)
     	{
     		log.error("The format for the variable '" + variable + "' is incorrect (" +
-    					 properties.getProperty("sessionExpireTime") + ")");
+    					 properties.getProperty("sessionExpireTime") + ")", e);
     	}
 
     	String envConf = System.getProperty("envConf");
@@ -119,7 +119,7 @@ public class ApplicationProperties {
 		}
     	catch(IOException e) 
     	{
-			log.warn("Exception " + e.getMessage(), e);
+			log.error("Exception " + e.getMessage(), e);
     		return;
 		}
     	mailSmtpHost = properties.getProperty("mailSmtpHost");
@@ -151,7 +151,7 @@ public class ApplicationProperties {
     	catch(NumberFormatException e)
     	{
     		log.error("The format for the variable '" + variable + "' is incorrect (" +
-    					 properties.getProperty("sessionExpireTime") + ")");
+    					 properties.getProperty("sessionExpireTime") + ")", e);
     	}		
 	}
 

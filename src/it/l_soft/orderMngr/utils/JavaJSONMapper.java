@@ -11,6 +11,8 @@ import javax.json.JsonReader;
 import javax.json.JsonValue;
 import javax.json.stream.JsonGenerationException;
 
+import org.apache.log4j.Logger;
+
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -20,6 +22,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 public class JavaJSONMapper {
+	final static Logger log = Logger.getLogger(JavaJSONMapper.class);
+
 	public static void JavaToJSON(Object object, Class<?> objClass)
 	{
 	}
@@ -44,11 +48,14 @@ public class JavaJSONMapper {
 			//	    	  out.close();
 			//		         object =  mapper.readValue(new File("./tmpjson"), objectClass);
 			object =  mapper.readValue(jsonIn.toString(), objClass);
-		} catch (JsonGenerationException e)
+		}
+		catch (JsonGenerationException e)
 		{
+			log.error("Exception " + e.getMessage(), e);
 			e.printStackTrace();
 		} catch (IOException e)
 		{
+			log.error("Exception " + e.getMessage(), e);
 			e.printStackTrace();
 		}
 		return(object);

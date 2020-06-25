@@ -138,7 +138,7 @@ public class Cesped extends ForwaderCostCalculation {
 		}
 		catch(Exception e)
 		{
-			log.error("Error calculating costs for: '" + province + "', on volumetric weigth: " + weigth);
+			log.error("Error calculating costs for: '" + province + "', on volumetric weigth: " + weigth, e);
 		}
 		return(0);
 	}

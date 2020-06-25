@@ -78,7 +78,7 @@ public class DBConnection
 		}
 		catch(Exception e)
 		{
-			;
+			log.error("Exception " + e.getMessage(), e);
 		}
 	}
     
@@ -90,7 +90,7 @@ public class DBConnection
 		} 
 		catch(Exception e)
 		{
-			log.warn("Exception " + e.getMessage(), e);
+			log.error("Exception " + e.getMessage(), e);
 		} 
 		
 		String retVal = null;
@@ -134,7 +134,7 @@ public class DBConnection
 		}
 		catch(Exception e)
 		{
-			;
+			log.error("Exception " + e.getMessage(), e);
 		}
 	}
 
@@ -221,7 +221,7 @@ public class DBConnection
 		}
 		catch(Exception e)
 		{
-			log.warn("Exception " + e.getMessage() + " catched on statemet '" + sql + "'", e);		
+			log.error("Exception " + e.getMessage() + " catched on statemet '" + sql + "'", e);		
 			throw new Exception(e);
 		}
 	}

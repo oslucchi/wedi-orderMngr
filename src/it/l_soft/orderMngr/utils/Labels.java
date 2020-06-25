@@ -12,12 +12,15 @@ public class Labels {
 		private String address;
 		private String zipCityProvince;
 		private String forwarder;
-		public PackageLabel(String name, String address, String zipCityProvince, String forwarder)
+		private String orderRefERP;
+		
+		public PackageLabel(String name, String address, String zipCityProvince, String forwarder, String orderRefERP)
 		{
 			this.name = name;
 			this.address = address;
 			this.zipCityProvince = zipCityProvince;
 			this.forwarder = forwarder;
+			this.orderRefERP = orderRefERP;
 		}
 		public String getName() {
 			return name;
@@ -43,6 +46,12 @@ public class Labels {
 		public void setForwarder(String forwarder) {
 			this.forwarder = forwarder;
 		}
+		public String getOrderRefERP() {
+			return orderRefERP;
+		}
+		public void setOrderRefERP(String orderRefERP) {
+			this.orderRefERP = orderRefERP;
+		}
 	}
 	
 	public Labels()
@@ -51,15 +60,16 @@ public class Labels {
 	}
 	
 	public static ArrayList<PackageLabel> packageLabels(ApplicationProperties ap, String name, String address, 
-							  String zipCityProvince, String forwarder, int copies, boolean reset)
+							  String zipCityProvince, String forwarder, String orderRefERP, int copies, boolean reset)
 	{
 		if (reset)
 		{
 			pkgLab = new ArrayList<Labels.PackageLabel>();
 		}
-		for(int i = 0; i < copies; i++)
+		for(int i = 1; i <= copies; i++)
 		{
-			pkgLab.add(new PackageLabel(name, address, zipCityProvince, forwarder + " " + i + "/" + copies));
+			pkgLab.add(new PackageLabel(name, address, zipCityProvince, 
+										forwarder + " " + i + "/" + copies, orderRefERP));
 		}
 		return pkgLab;
 	}	
