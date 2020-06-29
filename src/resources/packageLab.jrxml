@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="jasper_report_template" pageWidth="420" pageHeight="595" whenNoDataType="NoPages" columnWidth="400" leftMargin="10" rightMargin="10" topMargin="5" bottomMargin="5" uuid="153f05e4-76e4-422b-9a9b-ad7c994c57ba">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="jasper_report_template" pageWidth="595" pageHeight="421" orientation="Landscape" whenNoDataType="NoPages" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="5" bottomMargin="5" uuid="153f05e4-76e4-422b-9a9b-ad7c994c57ba">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
@@ -28,43 +28,43 @@
 		<fieldDescription><![CDATA[orderRefERP]]></fieldDescription>
 	</field>
 	<detail>
-		<band height="585" splitType="Stretch">
+		<band height="402" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="40" width="390" height="190" uuid="08fa8d73-ae8c-4c05-aa0e-9a21c0264cfb"/>
+				<reportElement x="0" y="60" width="572" height="120" uuid="08fa8d73-ae8c-4c05-aa0e-9a21c0264cfb"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="36" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="230" width="390" height="190" uuid="9ec28168-590d-480f-bab4-b850019989e4"/>
+				<reportElement x="0" y="180" width="572" height="110" uuid="9ec28168-590d-480f-bab4-b850019989e4"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="30" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="420" width="390" height="159" uuid="08fa8d73-ae8c-4c05-aa0e-9a21c0264cfb"/>
+				<reportElement x="0" y="290" width="572" height="110" uuid="08fa8d73-ae8c-4c05-aa0e-9a21c0264cfb"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="30" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{zipCityProvince}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="5" width="100" height="30" uuid="08fa8d73-ae8c-4c05-aa0e-9a21c0264cfb"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				<reportElement x="150" y="0" width="270" height="70" uuid="08fa8d73-ae8c-4c05-aa0e-9a21c0264cfb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="32" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{forwarder}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement x="240" y="0" width="159" height="40" uuid="69c1a610-d595-42e8-9009-a92d799eff77"/>
+				<reportElement x="420" y="0" width="150" height="40" uuid="69c1a610-d595-42e8-9009-a92d799eff77"/>
 				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39" drawText="false" checksumRequired="false">
 					<jr:codeExpression><![CDATA[$F{orderRefERP}]]></jr:codeExpression>
 				</jr:barbecue>
 			</componentElement>
 			<image>
-				<reportElement x="100" y="0" width="130" height="30" uuid="f401cbe9-9286-409e-8376-64841153fe43"/>
+				<reportElement x="0" y="5" width="150" height="35" uuid="f401cbe9-9286-409e-8376-64841153fe43"/>
 				<imageExpression><![CDATA["logoWedi.png"]]></imageExpression>
 			</image>
 		</band>

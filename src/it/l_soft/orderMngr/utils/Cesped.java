@@ -128,13 +128,13 @@ public class Cesped extends ForwaderCostCalculation {
 		try
 		{
 			if (weigth < 500)
-				return costArray.get(province)[0] * weigth / 100; 
+				return costArray.get(province.toUpperCase())[0] * weigth / 100; 
 			else if (weigth< 1000)
-				return costArray.get(province)[1] * weigth / 100;
+				return costArray.get(province.toUpperCase())[1] * weigth / 100;
 			else if (weigth < 2000)
-				return costArray.get(province)[2] * weigth / 100;
+				return costArray.get(province.toUpperCase())[2] * weigth / 100;
 			else
-				return costArray.get(province)[3] * weigth / 100;
+				return costArray.get(province.toUpperCase())[3] * weigth / 100;
 		}
 		catch(Exception e)
 		{

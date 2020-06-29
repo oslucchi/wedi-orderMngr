@@ -62,6 +62,7 @@ public class PrintManager {
 		String zipCityProvince;
 		String forwarder;
 		String orderRefERP;
+		int numberOfItems;
 		int copies;
 		try
 		{
@@ -70,6 +71,7 @@ public class PrintManager {
 			zipCityProvince = jsonIn.getString("zipCityProvince");
 			forwarder = jsonIn.getString("forwarder");
 			orderRefERP = jsonIn.getString("orderRefERP");
+			numberOfItems = jsonIn.getInt("numberOfItems");
 			copies = jsonIn.getInt("copies");
 		}
 		catch(Exception e)
@@ -79,7 +81,7 @@ public class PrintManager {
 		}
 
 		ArrayList<PackageLabel> pkgLab = 
-				Labels.packageLabels(ap, shipTo, address, zipCityProvince, forwarder, orderRefERP, copies, true);
+				Labels.packageLabels(ap, shipTo, address, zipCityProvince, forwarder, orderRefERP, numberOfItems, true);
 		JasperPrint jasperPrint = new JasperPrint();
 		try 
         {
@@ -93,7 +95,7 @@ public class PrintManager {
 			jasperPrint = JasperFillManager.fillReport(filepath, param, beanColDataSource);
 			
 			log.trace("printing the report");
-			printReportToPrinter(ap.getLabelsPrinterName(), jasperPrint, orderRefERP);
+			printReportToPrinter(ap.getLabelsPrinterName(), jasperPrint, orderRefERP, copies);
 		} 
         catch (Exception e)
         {
@@ -104,7 +106,7 @@ public class PrintManager {
 		return Response.status(Response.Status.OK).build();
 	}
 	
-	private void printReportToPrinter(String printerName, JasperPrint jasperPrint, String orderRefERP) throws Exception
+	private void printReportToPrinter(String printerName, JasperPrint jasperPrint, String orderRefERP, int copies) throws Exception
 	{
 		PrintService[] services = PrintServiceLookup.lookupPrintServices(null, null);
 		if (services.length == 0)
@@ -130,7 +132,7 @@ public class PrintManager {
 		}
 		PrintRequestAttributeSet printRequestAttributeSet = new HashPrintRequestAttributeSet();
 //		printRequestAttributeSet.add(MediaSizeName.ISO_A5);
-		printRequestAttributeSet.add(new Copies(1));
+		printRequestAttributeSet.add(new Copies(copies));
 		if (jasperPrint.getOrientationValue() == OrientationEnum.LANDSCAPE) 
 		{ 
 			printRequestAttributeSet.add(OrientationRequested.LANDSCAPE); 
@@ -139,9 +141,8 @@ public class PrintManager {
 		{ 
 			printRequestAttributeSet.add(OrientationRequested.PORTRAIT); 
 		}
-		printRequestAttributeSet.add(OrientationRequested.PORTRAIT); 
 		// this resolution solved the problem
-		printRequestAttributeSet.add(new PrinterResolution(420, 595, ResolutionSyntax.DPI));
+		printRequestAttributeSet.add(new PrinterResolution(300, 300, ResolutionSyntax.DPI));
 		
 		
 		JRPdfExporter pdfExporter = new JRPdfExporter();
@@ -188,7 +189,9 @@ public class PrintManager {
 		exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
 		exporter.setConfiguration(configuration);
 
+		log.debug(exporter);
+		
 		log.trace("attributes and configuration set. Now printing");
-//		exporter.exportReport();
+		exporter.exportReport();
 	}
 }
