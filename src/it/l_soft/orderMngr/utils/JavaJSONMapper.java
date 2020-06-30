@@ -2,6 +2,7 @@ package it.l_soft.orderMngr.utils;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.json.Json;
@@ -40,6 +41,8 @@ public class JavaJSONMapper {
 	{
 		Object object = null;
 		ObjectMapper mapper = new ObjectMapper();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+		mapper.setDateFormat(df);
 		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		try
 		{
