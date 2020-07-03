@@ -10,38 +10,25 @@ import org.apache.log4j.Logger;
 
 public class ApplicationProperties {
 	// site specific
-	private String webHome = "";
 	private String redirectRegistrationCompleted = "";
 	private String redirectHome	= "";
 	private String redirectOnLogin = "";
 	private int sessionExpireTime = 0;
-	private int maxNumHotOffers = 4;
 	private String defaultLang = "";
 	private String noAuthorizationRequired = "";
 	private String noAuthorizationRequiredRoot = "";
-	private boolean useCoars = false;
-	private Double maxDistanceForEventsOnTheGround = 5.0;
-	private int sendMailOnTicketinWState = 900;
 	private String URLFilterFiles = "";
-	private String URLFilterFolders = "";
+	private String URLFilterFolders = "";	
+	private boolean useCoars = false;
+	private double[] insuranceMinOrderValue;
 
 	// package properties
 	private String mailSmtpHost = "";
 	private String mailFrom = "";
 	private String mailUser = "";
 	private String mailPassword = "";
-	private String contactsMailTo = "";
-	private String webHost = "";
-	private boolean startReleaser = true;
-	private int releaseTicketLocksAfter = 600;
-	private String adminEmail;
-	private String fbApplicationId = "";
-	private String fbApplicationSecret = "";
-	private String paypalClientId;
-	private String paypalClientSecret;
-	private String paypalMode;
-	private String mailchimpListId = "";
-	private String mailchimpAPIKEY = "";
+	private String mailTo = "";
+	private String mailCC = "";
 
 	private String labelsPrinterName = "";
 
@@ -83,23 +70,15 @@ public class ApplicationProperties {
     		return;
 		}
     	
-    	webHome = properties.getProperty("webHome");
     	defaultLang = properties.getProperty("defaultLang");
     	noAuthorizationRequired = properties.getProperty("noAuthorizationRequired");
     	noAuthorizationRequiredRoot = properties.getProperty("noAuthorizationRequiredRoot");
-    	URLFilterFiles = properties.getProperty("URLFilterFiles");
-    	URLFilterFolders = properties.getProperty("URLFilterFolders");
 		useCoars = Boolean.parseBoolean(properties.getProperty("useCoars"));
-		labelsPrinterName = properties.getProperty("labelsPrinterName");
 		
 		try
     	{
     		variable = "sessionExpireTime";
     		sessionExpireTime = Integer.parseInt(properties.getProperty("sessionExpireTime"));
-    		variable = "maxNumHotOffers";
-    		maxNumHotOffers = Integer.parseInt(properties.getProperty("maxNumHotOffers"));
-    		variable = "maxDistanceForEventsOnTheGround";
-    		maxDistanceForEventsOnTheGround = Double.parseDouble(properties.getProperty("maxDistanceForEventsOnTheGround"));
     	}
     	catch(NumberFormatException e)
     	{
@@ -122,45 +101,27 @@ public class ApplicationProperties {
 			log.error("Exception " + e.getMessage(), e);
     		return;
 		}
-    	mailSmtpHost = properties.getProperty("mailSmtpHost");
+		labelsPrinterName = properties.getProperty("labelsPrinterName");
+		mailSmtpHost = properties.getProperty("mailSmtpHost");
     	mailFrom = properties.getProperty("mailFrom");
     	mailUser = properties.getProperty("mailUser");
     	mailPassword = properties.getProperty("mailPassword");
-    	contactsMailTo = properties.getProperty("contactsMailTo");
-    	webHost = properties.getProperty("webHost");
+    	mailTo = properties.getProperty("mailTo");
+    	mailCC = properties.getProperty("mailCC");
     	redirectRegistrationCompleted = properties.getProperty("redirectRegistrationCompleted");
     	redirectHome = properties.getProperty("redirectHome");
     	redirectOnLogin = properties.getProperty("redirectOnLogin");
-		startReleaser = Boolean.parseBoolean(properties.getProperty("startReleaser"));
-		adminEmail = properties.getProperty("adminEmail");
-    	fbApplicationId = properties.getProperty("fbApplicationId");
-    	fbApplicationSecret = properties.getProperty("fbApplicationSecret");
-		paypalClientId = properties.getProperty("paypalClientId");
-		paypalClientSecret = properties.getProperty("paypalClientSecret");
-		paypalMode = properties.getProperty("paypalMode");
-		mailchimpListId = properties.getProperty("mailchimpListId");
-		mailchimpAPIKEY = properties.getProperty("mailchimpAPIKEY");
-		
-		try
+    	String[] s = properties.getProperty("insuranceMinOrderValue").split(" "); 
+    	insuranceMinOrderValue = new double[s.length];
+    	int i = 0;
+    	for(String item : properties.getProperty("insuranceMinOrderValue").split(" "))
     	{
-    		variable = "releaseTicketLocksAfter";
-    		releaseTicketLocksAfter = Integer.parseInt(properties.getProperty("releaseTicketLocksAfter"));
-    		variable = "sendMailOnTicketinWState";
-    		sendMailOnTicketinWState = Integer.parseInt(properties.getProperty("sendMailOnTicketinWState"));
+        	insuranceMinOrderValue[i++] = Double.valueOf(item);
     	}
-    	catch(NumberFormatException e)
-    	{
-    		log.error("The format for the variable '" + variable + "' is incorrect (" +
-    					 properties.getProperty("sessionExpireTime") + ")", e);
-    	}		
 	}
 
 	public String getMailSmtpHost() {
 		return mailSmtpHost;
-	}
-
-	public String getMailFrom() {
-		return mailFrom;
 	}
 
 	public String getMailUser() {
@@ -170,17 +131,13 @@ public class ApplicationProperties {
 	public String getMailPassword() {
 		return mailPassword;
 	}
-
-	public String getWebHost() {
-		return webHost;
+	
+	public String getMailFrom() {
+		return mailFrom;
 	}
 
 	public int getSessionExpireTime() {
 		return sessionExpireTime;
-	}
-
-	public String getWebHome() {
-		return webHome;
 	}
 
 	public String getRedirectRegistrationCompleted() {
@@ -193,18 +150,6 @@ public class ApplicationProperties {
 
 	public String getRedirectOnLogin() {
 		return redirectOnLogin;
-	}
-
-	public int getMaxNumHotOffers() {
-		return maxNumHotOffers;
-	}
-
-	public String getFbApplicationId() {
-		return fbApplicationId;
-	}
-
-	public String getFbApplicationSecret() {
-		return fbApplicationSecret;
 	}
 
 	public String getDefaultLang() {
@@ -231,44 +176,8 @@ public class ApplicationProperties {
 		this.context = context;
 	}
 
-	public String getAdminEmail() {
-		return adminEmail;
-	}
-
-	public int getReleaseTicketLocksAfter() {
-		return releaseTicketLocksAfter;
-	}
-
-	public String getPaypalClientId() {
-		return paypalClientId;
-	}
-
-	public String getPaypalClientSecret() {
-		return paypalClientSecret;
-	}
-
-	public Double getMaxDistanceForEventsOnTheGround() {
-		return maxDistanceForEventsOnTheGround;
-	}
-
-	public String getMailchimpListId() {
-		return mailchimpListId;
-	}
-
-	public String getMailchimpAPIKEY() {
-		return mailchimpAPIKEY;
-	}
-
-	public boolean isStartReleaser() {
-		return startReleaser;
-	}
-
-	public String getContactsMailTo() {
-		return contactsMailTo;
-	}
-
-	public int getSendMailOnTicketinWState() {
-		return sendMailOnTicketinWState;
+	public String getLabelsPrinterName() {
+		return labelsPrinterName;
 	}
 
 	public String[] getURLFilterFiles() {
@@ -279,12 +188,15 @@ public class ApplicationProperties {
 		return URLFilterFolders.split(",");
 	}
 
-	public String getPaypalMode() {
-		return paypalMode;
+	public String getMailTo() {
+		return mailTo;
 	}
 
-	public String getLabelsPrinterName() {
-		return labelsPrinterName;
+	public String getMailCC() {
+		return mailCC;
 	}
-	
+
+	public double[] getInsuranceMinOrderValue() {
+		return insuranceMinOrderValue;
+	}
 }

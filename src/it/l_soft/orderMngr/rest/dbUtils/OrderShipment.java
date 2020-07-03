@@ -1,7 +1,6 @@
 package it.l_soft.orderMngr.rest.dbUtils;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import org.apache.log4j.Logger;
 
@@ -10,16 +9,14 @@ public class OrderShipment extends DBInterface
 	private static final long serialVersionUID = -4849479160608801245L;
 	protected int idOrderShipment;
 	protected int idOrder;
-	protected String forwarder;
 	protected int palletLength;
 	protected int palletWidth;
 	protected int palletHeigth;
 	protected int palletWeigth;
 	protected int numberOfItemsToShip;
-	protected double costForwarder;
-	protected double costClient;
-	protected Date assemblyDate;
-	protected Date shipmentDate;
+	protected double forwarderCost;
+	protected double clientCost;
+	protected String note;
 	
 	private void setNames()
 	{
@@ -54,7 +51,7 @@ public class OrderShipment extends DBInterface
 	}
 
 	@SuppressWarnings("unchecked")
-	public static ArrayList<OrderShipment> getOrderShipmentbyOrderId(DBConnection conn, int idOrder) throws Exception
+	public static ArrayList<OrderShipment> getOrderShipmentByOrderId(DBConnection conn, int idOrder) throws Exception
 	{
 		String sql = "SELECT * " +
 					 "FROM OrderShipment " +
@@ -76,14 +73,6 @@ public class OrderShipment extends DBInterface
 
 	public void setIdOrder(int idOrder) {
 		this.idOrder = idOrder;
-	}
-
-	public String getForwarder() {
-		return forwarder;
-	}
-
-	public void setForwarder(String forwarder) {
-		this.forwarder = forwarder;
 	}
 
 	public int getPalletLength() {
@@ -126,36 +115,23 @@ public class OrderShipment extends DBInterface
 		this.numberOfItemsToShip = numberOfItemsToShip;
 	}
 
-	public double getCostForwarder() {
-		return costForwarder;
+	public double getForwarderCost() {
+		return forwarderCost;
 	}
 
-	public void setCostForwarder(double costForwarder) {
-		this.costForwarder = costForwarder;
+	public void setForwarderCost(double forwarderCost) {
+		this.forwarderCost = forwarderCost;
 	}
 
-	public double getCostClient() {
-		return costClient;
+	public double getClientCost() {
+		return clientCost;
 	}
 
-	public void setCostClient(double costClient) {
-		this.costClient = costClient;
+	public void setClientCost(double clientCost) {
+		this.clientCost = clientCost;
 	}
 
-	public Date getAssemblyDate() {
-		return assemblyDate;
+	public String getNote() {
+		return note;
 	}
-
-	public void setAssemblyDate(Date assemblyDate) {
-		this.assemblyDate = assemblyDate;
-	}
-
-	public Date getShipmentDate() {
-		return shipmentDate;
-	}
-
-	public void setShipmentDate(Date shipmentDate) {
-		this.shipmentDate = shipmentDate;
-	}
-
 }

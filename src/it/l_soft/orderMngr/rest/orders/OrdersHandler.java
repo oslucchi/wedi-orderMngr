@@ -113,7 +113,7 @@ public class OrdersHandler {
 
 		try 
 		{
-			orderShipments = OrderShipment.getOrderShipmentbyOrderId(conn, id);
+			orderShipments = OrderShipment.getOrderShipmentByOrderId(conn, id);
 		}
 		catch(Exception e)
 		{
@@ -197,7 +197,7 @@ public class OrdersHandler {
 		try 
 		{
 			conn = DBInterface.connect();
-			orderShipments = OrderShipment.getOrderShipmentbyOrderId(conn, id);
+			orderShipments = OrderShipment.getOrderShipmentByOrderId(conn, id);
 		}
 		catch(Exception e)
 		{
@@ -223,6 +223,69 @@ public class OrdersHandler {
 		return Response.status(Response.Status.OK).entity(jh.json).build();
 	}
 	
+	@PUT
+	@Path("/shipment")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response updateShipments(String body, @HeaderParam("Language") String language)
+	{
+		int languageId = Utils.setLanguageId(language);
+		JsonObject jsonIn = JavaJSONMapper.StringToJSON(body);
+		OrderShipment shipment;
+		try 
+		{
+			shipment = (OrderShipment) JavaJSONMapper.JSONToJava(jsonIn.getJsonObject("shipment"), OrderShipment.class);
+			conn = DBInterface.connect();
+			shipment.update(conn, "idOrderShipment");
+		}
+		catch(Exception e)
+		{
+			log.error("Exception '" + e.getMessage(), e);
+			return Utils.jsonizeResponse(Response.Status.INTERNAL_SERVER_ERROR, e, languageId, "generic.execError");
+		}
+		finally
+		{
+			DBInterface.disconnect(conn);
+		}
+		return Response.status(Response.Status.OK).entity("").build();
+	}
+
+	
+	@POST
+	@Path("/addShipment")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response addShipments(String body, @HeaderParam("Language") String language)
+	{
+		int languageId = Utils.setLanguageId(language);
+		JsonObject jsonIn = JavaJSONMapper.StringToJSON(body);
+		OrderShipment shipment;
+		try 
+		{
+			shipment = (OrderShipment) JavaJSONMapper.JSONToJava(jsonIn.getJsonObject("shipment"), OrderShipment.class);
+			conn = DBInterface.connect();
+			shipment.setIdOrderShipment(shipment.insertAndReturnId(conn, "idOrderShipment", shipment));
+		}
+		catch(Exception e)
+		{
+			log.error("Exception '" + e.getMessage(), e);
+			return Utils.jsonizeResponse(Response.Status.INTERNAL_SERVER_ERROR, e, languageId, "generic.execError");
+		}
+		finally
+		{
+			DBInterface.disconnect(conn);
+		}
+		HashMap<String, Object> jsonResponse = new HashMap<>();
+		jsonResponse.put("shipment", shipment);
+		JsonHandler jh = new JsonHandler();
+		if (jh.jasonize(jsonResponse, language) != Response.Status.OK)
+		{
+			return Response.status(Response.Status.UNAUTHORIZED)
+					.entity(jh.json).build();
+		}
+		return Response.status(Response.Status.OK).entity(jh.json).build();
+	}
+
 	@GET
 	@Path("/notes/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -500,7 +563,18 @@ public class OrdersHandler {
 				(order.getForwarder() != null))
 			{
 				order.setForwarderCost(updateForwarderCost(order));
-				if (jsonIn.getJsonNumber("buyValue") != null)
+				int insuranceEvalIndex = 0;
+				switch(order.getForwarder())
+				{
+				case "CES":
+					insuranceEvalIndex = 0;
+					break;
+				case "TWS":
+					insuranceEvalIndex = 1;
+				}
+				if ((order.getInsuranceCost() == 0) &&
+					(jsonIn.getJsonNumber("buyValue") != null) && 
+					(prop.getInsuranceMinOrderValue()[insuranceEvalIndex] < jsonIn.getJsonNumber("buyValue").doubleValue()))
 				{
 					String s;
 					double value;
