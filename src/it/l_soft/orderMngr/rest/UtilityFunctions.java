@@ -348,31 +348,30 @@ public class UtilityFunctions {
         pdfExporter.setExporterOutput(new SimpleOutputStreamExporterOutput(pdfReportStream));
         pdfExporter.exportReport();
         
-        
-        File file = new File("/shares/orderMngr/spool/lab-" + orderRefERP + ".pdf");
-        file.createNewFile();
-
-        Set<PosixFilePermission> perms = new HashSet<PosixFilePermission>();
-        perms.add(PosixFilePermission.OWNER_READ);
-        perms.add(PosixFilePermission.OWNER_WRITE);
-        perms.add(PosixFilePermission.GROUP_READ);
-        perms.add(PosixFilePermission.GROUP_WRITE);
-        perms.add(PosixFilePermission.OTHERS_READ);
-        perms.add(PosixFilePermission.OTHERS_WRITE);
-        Files.setPosixFilePermissions(file.toPath(), perms);
-        
-        try (FileOutputStream fos = new FileOutputStream(file))
+        try
         {
-    	   fos.write(pdfReportStream.toByteArray());
-    	   fos.close(); //There is no more need for this line since you had created the instance of "fos" inside the try. And this will automatically close the OutputStream
-    	}
-//        response.setContentType("application/pdf");
-//        response.setHeader("Content-Length", String.valueOf(pdfReportStream.size()));
-//        response.addHeader("Content-Disposition", "inline; filename=jasper.pdf;");
-//
-//        OutputStream responseOutputStream = response.getOutputStream();
-//        responseOutputStream.write(pdfReportStream.toByteArray());
-//        responseOutputStream.close();
+	        File file = new File("/shares/orderMngr/spool/lab-" + orderRefERP + ".pdf");
+	        file.createNewFile();
+	
+	        Set<PosixFilePermission> perms = new HashSet<PosixFilePermission>();
+	        perms.add(PosixFilePermission.OWNER_READ);
+	        perms.add(PosixFilePermission.OWNER_WRITE);
+	        perms.add(PosixFilePermission.GROUP_READ);
+	        perms.add(PosixFilePermission.GROUP_WRITE);
+	        perms.add(PosixFilePermission.OTHERS_READ);
+	        perms.add(PosixFilePermission.OTHERS_WRITE);
+	        Files.setPosixFilePermissions(file.toPath(), perms);
+	        
+	        try (FileOutputStream fos = new FileOutputStream(file))
+	        {
+	    	   fos.write(pdfReportStream.toByteArray());
+	    	   fos.close(); //There is no more need for this line since you had created the instance of "fos" inside the try. And this will automatically close the OutputStream
+	    	}
+        }
+        catch(Exception e)
+        {
+        	log.error("Unable to create PDF in the shared", e);
+        }
         pdfReportStream.close();
 
 		JRPrintServiceExporter exporter;
