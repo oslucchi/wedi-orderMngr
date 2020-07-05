@@ -480,66 +480,6 @@ public class OrdersHandler {
 		}
 		return Response.status(Response.Status.OK).entity(jh.json).build();
 	}
-
-	private double updateForwarderCost(Orders order)
-	{
-		Object forwarder = null;
-		switch(order.getForwarder())
-		{
-		case "CES":
-			if ((order.getPalletLength() == 0) || 
-				(order.getPalletWidth() == 0) ||
-				(order.getPalletHeigth() == 0) ||
-				(order.getPalletWeigth() == 0))
-			{
-				return 0;
-			}
-			forwarder = new Cesped();
-			break;
-			
-		case "TWS":
-			return 0;
-
-		default:
-			return 0;
-		}
-		double cost = ((ForwaderCostCalculation) forwarder).getShipmentCost(
-															order.getCustomerDeliveryProvince(),
-															order.getPalletLength(),
-															order.getPalletWidth(),
-															order.getPalletHeigth(),
-															(double)order.getPalletWeigth());
-		
-		return cost;
-	}
-	
-	private int updateInsuranceCost(Orders order, double buyValue)
-	{
-		Object forwarder = null;
-		switch(order.getForwarder())
-		{
-		case "CES":
-			if ((order.getPalletLength() == 0) || 
-				(order.getPalletWidth() == 0) ||
-				(order.getPalletHeigth() == 0) ||
-				(order.getPalletWeigth() == 0))
-			{
-				return 0;
-			}
-			forwarder = new Cesped();
-			break;
-			
-		case "TWS":
-			return 0;
-
-		default:
-			return 0;
-		}
-		int cost = ((ForwaderCostCalculation) forwarder).getInsuranceCost(buyValue);
-		
-		return cost;
-	}
-
 	@PUT
 	@Path("/update/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -550,51 +490,25 @@ public class OrdersHandler {
 		
 		JsonObject jsonIn = JavaJSONMapper.StringToJSON(body);
 		Orders order = (Orders) JavaJSONMapper.JSONToJava(jsonIn.getJsonObject("order"), Orders.class);
+		JsonArray shipments = jsonIn.getJsonArray("shipments");
 		try 
 		{
 			conn = DBInterface.connect();
-			Orders orderOnDB = new Orders(conn, order.getIdOrder());
-			if (((orderOnDB.getPalletLength() != order.getPalletLength()) ||
-				 (orderOnDB.getPalletWidth() != order.getPalletWidth()) ||
-				 (orderOnDB.getPalletHeigth() != order.getPalletHeigth()) ||
-				 (orderOnDB.getPalletWeigth() != order.getPalletWeigth()) ||
-				 ((orderOnDB.getCustomerDeliveryProvince() != null) &&
-				  (orderOnDB.getCustomerDeliveryProvince().compareTo(order.getCustomerDeliveryProvince()) != 0))) &&
-				(order.getForwarder() != null))
+			DBInterface.TransactionStart(conn);
+			if (shipments != null)
 			{
-				order.setForwarderCost(updateForwarderCost(order));
-				int insuranceEvalIndex = 0;
-				switch(order.getForwarder())
+				for(int i = 0; i < shipments.size(); i++)
 				{
-				case "CES":
-					insuranceEvalIndex = 0;
-					break;
-				case "TWS":
-					insuranceEvalIndex = 1;
-				}
-				if ((order.getInsuranceCost() == 0) &&
-					(jsonIn.getJsonNumber("buyValue") != null) && 
-					(prop.getInsuranceMinOrderValue()[insuranceEvalIndex] < jsonIn.getJsonNumber("buyValue").doubleValue()))
-				{
-					String s;
-					double value;
-					try
-					{
-						s = String.valueOf(jsonIn.getInt("buyValue", 0));
-						value = Double.parseDouble(s);
-					}
-					catch(Exception e)
-					{
-						value = 0;
-					}
-					order.setInsuranceCost(updateInsuranceCost(order, value));
+					OrderShipment shipment = (OrderShipment) JavaJSONMapper.JSONToJava(((JsonObject) shipments.get(i)), OrderShipment.class);
+					shipment.update(conn, "idOrderShipment");
 				}
 			}
-			
 			order.update(conn, "idOrder");
+			DBInterface.TransactionCommit(conn);
 		}
 		catch(Exception e)
 		{
+			DBInterface.TransactionRollback(conn);
 			log.error("Exception '" + e.getMessage(), e);
 			return Utils.jsonizeResponse(Response.Status.INTERNAL_SERVER_ERROR, e, languageId, "generic.execError");
 		}

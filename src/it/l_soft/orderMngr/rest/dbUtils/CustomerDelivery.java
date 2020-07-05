@@ -123,4 +123,21 @@ public class CustomerDelivery extends DBInterface
 	public void setProvince(String province) {
 		this.province = province;
 	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
+	public boolean isSelected() {
+		return selected;
+	}
+
+	public void setSelected(boolean selected) {
+		this.selected = selected;
+	}
+
 }

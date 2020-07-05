@@ -13,13 +13,9 @@ public class Orders extends DBInterface
 	protected int idCustomer;
 	protected int idCustomerDelivery;
 	protected String status;
-	protected Date preparationDate;
+	protected Date requestedAssemblyDate;
+	protected Date effectiveAssemblyDate;
 	protected Date shipmentDate;
-	protected int numberOfItemsToShip;
-    protected int palletLength;
-    protected int palletWidth;
-    protected int palletHeigth;
-    protected int palletWeigth;
     protected String orderRef;
     protected String transportDocNum;
     protected String forwarder;
@@ -29,8 +25,8 @@ public class Orders extends DBInterface
     protected int assemblyTime;
     protected int palletCost;
     protected int insuranceCost;
-    protected String customerDescription;
     protected String customerRefERP;
+    protected String customerDescription;
     protected String customerDeliveryProvince;
     protected int compositionBoards;
     protected int compositionTrays;
@@ -164,12 +160,20 @@ public class Orders extends DBInterface
 		this.status = status;
 	}
 
-	public Date getPreparationDate() {
-		return preparationDate;
+	public Date getRequestedAssemblyDate() {
+		return requestedAssemblyDate;
 	}
 
-	public void setPreparationDate(Date preparationDate) {
-		this.preparationDate = preparationDate;
+	public void setRequestedAssemblyDate(Date requestedAssemblyDate) {
+		this.requestedAssemblyDate = requestedAssemblyDate;
+	}
+
+	public Date getEffectiveAssemblyDate() {
+		return effectiveAssemblyDate;
+	}
+
+	public void setEffectiveAssemblyDate(Date effectiveAssemblyDate) {
+		this.effectiveAssemblyDate = effectiveAssemblyDate;
 	}
 
 	public Date getShipmentDate() {
@@ -178,38 +182,6 @@ public class Orders extends DBInterface
 
 	public void setShipmentDate(Date shipmentDate) {
 		this.shipmentDate = shipmentDate;
-	}
-
-	public int getPalletLength() {
-		return palletLength;
-	}
-
-	public void setPalletLength(int palletLength) {
-		this.palletLength = palletLength;
-	}
-
-	public int getPalletWidth() {
-		return palletWidth;
-	}
-
-	public void setPalletWidth(int palletWidth) {
-		this.palletWidth = palletWidth;
-	}
-
-	public int getPalletHeigth() {
-		return palletHeigth;
-	}
-
-	public void setPalletHeigth(int palletHeigth) {
-		this.palletHeigth = palletHeigth;
-	}
-
-	public int getPalletWeigth() {
-		return palletWeigth;
-	}
-
-	public void setPalletWeigth(int palletWeigth) {
-		this.palletWeigth = palletWeigth;
 	}
 
 	public String getOrderRef() {
@@ -306,14 +278,6 @@ public class Orders extends DBInterface
 
 	public void setCustomerDeliveryProvince(String customerDeliveryProvince) {
 		this.customerDeliveryProvince = customerDeliveryProvince;
-	}
-
-	public int getNumberOfItemsToShip() {
-		return numberOfItemsToShip;
-	}
-
-	public void setNumberOfItemsToShip(int numberOfItemsToShip) {
-		this.numberOfItemsToShip = numberOfItemsToShip;
 	}
 
 	public int getCompositionBoards() {

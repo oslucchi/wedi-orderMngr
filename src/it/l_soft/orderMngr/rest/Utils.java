@@ -126,11 +126,17 @@ public class Utils {
 		HashMap<String, Object>jsonResponse = new HashMap<>();
 //		Genson genson = new Genson();
 		Gson gson = new Gson();
+		StringWriter sw = new StringWriter();
+		PrintWriter pw = new PrintWriter(sw);
+		if (e != null)
+		{
+			e.printStackTrace(pw);
+		}
 		
 		jsonResponse.clear();
 		jsonResponse.put("error", 
 						 LanguageResources.getResource(languageId, errResource) + 
-						 	(e == null ? "" : " (" + e.getMessage() + ")"));
+						 	(e == null ? "" : " (" + e.getMessage() + ")\n" + sw.toString()));
 		return Response.status(status).entity(gson.toJson(jsonResponse)).build();
 	}
 

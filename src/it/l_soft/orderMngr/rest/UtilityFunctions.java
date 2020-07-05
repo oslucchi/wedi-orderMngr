@@ -101,18 +101,6 @@ public class UtilityFunctions {
 				int collo = 1;
 				cd = new CustomerDelivery(conn, item.getIdCustomerDelivery());
 				Shipments shipment = new Shipments();
-				shipment.setCustomer(item.getCustomerDescription());
-				shipment.setAddress(cd.getAddress() + " - " + cd.getZipCode() + " " + cd.getCity());
-				shipment.setProvince(cd.getProvince());
-				shipment.setLength(item.getPalletLength());
-				shipment.setWidth(item.getPalletWidth());
-				shipment.setHeigth(item.getPalletHeigth());
-				shipment.setWeigth(item.getPalletWeigth());
-				shipment.setDdt(item.getTransportDocNum());
-				shipment.setOrderValue(item.getOrderValue());
-				shipment.setInsurance(item.getInsuranceCost() <= 0 ? "" : "All risk " + Math.floor(item.getOrderValue()));
-				shipmentList.add(shipment);
-
 				pallets = OrderShipment.getOrderShipmentByOrderId(conn, item.getIdOrder());
 				if (pallets.size() != 0)
 				{

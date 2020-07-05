@@ -887,8 +887,15 @@ public class DBInterface implements Serializable
 	
 	public static void disconnect(DBConnection conn) 
 	{
-		if (conn != null)
-			conn.finalize();
+		try
+		{
+			if (conn != null)
+				conn.finalize();
+		}
+		catch(Exception e)
+		{
+			log.error("Eccezione " + e.getMessage(), e);
+		}
 	}
 
 	public boolean isLogStatement() {
