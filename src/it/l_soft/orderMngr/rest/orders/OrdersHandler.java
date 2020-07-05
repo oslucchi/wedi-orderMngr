@@ -341,17 +341,26 @@ public class OrdersHandler {
 			break;
 		case "TWS":
 			break;
+		
 		default:
 			return Utils.jsonizeResponse(Response.Status.INTERNAL_SERVER_ERROR, null, languageId, "generic.execError");
 		}
-		double cost = ((ForwaderCostCalculation) forwarder).getShipmentCost(
+		double cost = 0;
+		try
+		{
+			cost = ((ForwaderCostCalculation) forwarder).getShipmentCost(
 															jsonIn.getString("province"),
 															jsonIn.getInt("len"),
 															jsonIn.getInt("width"),
 															jsonIn.getInt("height"),
 															(double)jsonIn.getInt("weight"));
-		
-		
+			
+			
+		}
+		catch(Exception e)
+		{
+			log.warn("Error " + e.getMessage(), e);
+		}
 		HashMap<String, Object> jsonResponse = new HashMap<>();
 		jsonResponse.put("shipmentCost", cost);
 		JsonHandler jh = new JsonHandler();

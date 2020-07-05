@@ -15,6 +15,7 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.TimeZone;
 
 import javax.json.JsonArray;
 import javax.json.JsonObject;
@@ -100,7 +101,7 @@ public class UtilityFunctions {
 			{
 				int collo = 1;
 				cd = new CustomerDelivery(conn, item.getIdCustomerDelivery());
-				Shipments shipment = new Shipments();
+				Shipments shipment = null;
 				pallets = OrderShipment.getOrderShipmentByOrderId(conn, item.getIdOrder());
 				if (pallets.size() != 0)
 				{
@@ -118,8 +119,15 @@ public class UtilityFunctions {
 						shipment.setDdt(item.getTransportDocNum());
 						shipment.setOrderValue(0);
 						shipment.setInsurance("");
-						previousShipment.setNote((pallet.getNote() != null ? pallet.getNote() + " - " : "" ) + (collo++) + "' collo");
-						shipment.setNote((pallet.getNote() != null ? pallet.getNote() + " - " : "" ) + collo + "' collo");
+						if (previousShipment != null)
+						{
+							previousShipment.setNote((pallet.getNote() != null ? pallet.getNote() + " - " : "" ) + (collo++) + "' collo");
+							shipment.setNote((pallet.getNote() != null ? pallet.getNote() + " - " : "" ) + collo + "' collo");
+						}
+						else
+						{
+							shipment.setNote(pallet.getNote());
+						}
 						shipmentList.add(shipment);
 					}
 				}
@@ -194,6 +202,7 @@ public class UtilityFunctions {
 		stringBuilder.deleteCharAt(stringBuilder.length() - 1);
 		reader.close();
 
+		pickupDate = new Date(pickupDate.getTime() + TimeZone.getDefault().getOffset(pickupDate.getTime()));
 		String mailBody = stringBuilder.toString();
 		mailBody = mailBody.replaceAll("TABLE", tableString).replaceAll("PICKDATE", sdf.format((pickupDate)));
 		Mailer.sendMail(mailBody);  
