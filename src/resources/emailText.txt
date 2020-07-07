@@ -1,54 +1,28 @@
-<html xmlns:v="urn:schemas-microsoft-com:vml"
-xmlns:o="urn:schemas-microsoft-com:office:office"
-xmlns:w="urn:schemas-microsoft-com:office:word"
-xmlns:x="urn:schemas-microsoft-com:office:excel"
-xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
-xmlns="http://www.w3.org/TR/REC-html40">
-
-<head>
-<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
-<meta name=ProgId content=Word.Document>
-<meta name=Generator content="Microsoft Word 14">
-<meta name=Originator content="Microsoft Word 14">
-<link rel=File-List href="a_file/filelist.xml">
-<link rel=themeData href="a_file/themedata.thmx">
-<link rel=colorSchemeMapping href="a_file/colorschememapping.xml">
-</head>
-
-<body lang=IT style='tab-interval:35.4pt'>
-
-<div class=WordSection1>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:normal'>
-<span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
-"Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
-color:black;mso-fareast-language:IT'>
-	A seguire l'elenco delle spedizioni da ritirare:</br>
-	</br>
-	TABLE
-	</br>
-	Il materiale e' ritirabile dalle 14:30 alle 17:00 del PICKDATE
-</span>
-</p>
-Cordiali saluti<br>
---<br>
-<span style='font-size:8.0pt;mso-ascii-font-family:Calibri;mso-fareast-font-family:
-"Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
-color:black;mso-fareast-language:IT'><br>
-</span><span class=SpellE><span style='mso-ascii-font-family:Calibri;
-mso-fareast-font-family:"Times New Roman";mso-hansi-font-family:Calibri;
-mso-bidi-font-family:Calibri;color:black;mso-fareast-language:IT'>Wedi</span></span><span
-style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
-mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black;
-mso-fareast-language:IT'> Italia Srl<br>
-via Vimercate 44<br>
-20876 Ornago (MB)<br>
-<span class=SpellE>Thp</span>: 039 245 9420<o:p></o:p></span></p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-</div>
-
+<html>
+<head></head>
+<body>
+    <div style='font-family: Courier;'>
+	    <p>
+	        <span>
+		        A seguire l'elenco delle spedizioni da ritirare:</br>
+		        </br>
+				TABLE
+		        </br>
+		        Il materiale e' ritirabile dalle 14:30 alle 17:00 del PICKDATE
+	            <br>
+	        </span>
+	    </p>
+	    <span>
+	        Cordiali saluti<br>
+	        --<br>
+	        Wedi Italia Srl<br>
+	        via Vimercate 44<br>
+	        20876 Ornago (MB)<br>
+	        Thp: 039 245 9420
+	    </span>
+	</div>
+	<br>
+	<br>
+	<b>Mail inviata automaticamente. Non rispondere a questa mail. L'indirizzo mittente non &egrave; presidiato.</b>
 </body>
-
 </html>

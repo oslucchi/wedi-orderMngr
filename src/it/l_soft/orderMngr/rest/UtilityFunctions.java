@@ -118,15 +118,19 @@ public class UtilityFunctions {
 						shipment.setWeigth(pallet.getPalletWeigth());
 						shipment.setDdt(item.getTransportDocNum());
 						shipment.setOrderValue(0);
-						shipment.setInsurance("");
 						if (previousShipment != null)
 						{
-							previousShipment.setNote((pallet.getNote() != null ? pallet.getNote() + " - " : "" ) + (collo++) + "' collo");
-							shipment.setNote((pallet.getNote() != null ? pallet.getNote() + " - " : "" ) + collo + "' collo");
+							shipment.setInsurance("");
+							previousShipment.setNote(((pallet.getNote() != null) && (pallet.getNote().compareTo("") != 0) ? 
+															pallet.getNote() + " - " : "" ) + (collo++) + "' collo");
+							shipment.setNote(((pallet.getNote() != null) && (pallet.getNote().compareTo("") != 0) ?
+															pallet.getNote() + " - " : "" ) + collo + "' collo");
 						}
 						else
 						{
-							shipment.setNote(pallet.getNote());
+							shipment.setInsurance((item.getInsuranceCost() != 0 ?
+													"All Risk " + String.format("%.0f", Math.ceil(item.getOrderValue())) : ""));
+							shipment.setNote((pallet.getNote() == null ? "" : pallet.getNote()));
 						}
 						shipmentList.add(shipment);
 					}
@@ -155,7 +159,7 @@ public class UtilityFunctions {
 	private void pickRequestToCES(ArrayList<Shipments> shipmentList, Date pickupDate) throws Exception
 	{
 		SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM", Locale.ITALIAN);
-		String tableString =  "<table>" +
+		String tableString =  "<table>\n" +
 							  "  <tr>" +
 							  "    <th>Cliente</th>" +
 							  "    <th>Indirizzo</th>" +
@@ -167,7 +171,7 @@ public class UtilityFunctions {
 							  "    <th>Lar</th>" +
 							  "    <th>Alt</th>" +
 							  "    <th>Kg</th>" +
-							  "  </tr>";
+							  "  </tr>\n";
 		for( int i = 0; i < shipmentList.size(); i++)
 		{
 			Shipments shipment = shipmentList.get(i);
@@ -178,16 +182,20 @@ public class UtilityFunctions {
 								"  <td>" + shipment.getAddress() + "</td>" +
 								"  <td>" + shipment.getProvince() + "</td>" +
 								"  <td>" + shipment.getDdt() + "</td>" +
-								"  <td>" + shipment.getInsurance() + "</td>" +
+								"  <td>" + 
+									(shipment.getInsurance().compareTo("") != 0 ? 
+											"<span style='color:red'>" + shipment.getInsurance() + "</span>" :
+											"" ) +
+								"  </td>" +
 								"  <td>" + shipment.getNote() + "</td>" +
-								"  <td>" + shipment.getLength() + "</td>" +
-								"  <td>" + shipment.getWidth() + "</td>" +
-								"  <td>" + shipment.getHeigth() + "</td>" +
-								"  <td>" + shipment.getWeigth() + "</td>" +
-								"</tr>";
+								"  <td align='right'>" + shipment.getLength() + "</td>" +
+								"  <td align='right'>" + shipment.getWidth() + "</td>" +
+								"  <td align='right'>" + shipment.getHeigth() + "</td>" +
+								"  <td align='right'>" + shipment.getWeigth() + "</td>" +
+								"</tr>\n";
 			}
 		}
-		tableString += "</table>";
+		tableString += "</table>\n";
 		
 		BufferedReader reader = new BufferedReader(new FileReader(ap.getContext().getRealPath("/resources/emailText.txt")));
 		StringBuilder stringBuilder = new StringBuilder();
