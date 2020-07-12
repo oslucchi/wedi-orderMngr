@@ -15,6 +15,7 @@ public class CustomerDelivery extends DBInterface
 	protected String zipCode;
 	protected String city;
 	protected String province;
+	protected String logisticCommEmail;
 	protected boolean selected = false;
 	
 	private void setNames()
@@ -140,4 +141,11 @@ public class CustomerDelivery extends DBInterface
 		this.selected = selected;
 	}
 
+	public String getLogisticCommEmail() {
+		return logisticCommEmail;
+	}
+
+	public void setLogisticCommEmail(String logisticCommEmail) {
+		this.logisticCommEmail = logisticCommEmail;
+	}
 }

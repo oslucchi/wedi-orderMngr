@@ -1,4 +1,4 @@
-package it.l_soft.orderMngr.rest.orders;
+package it.l_soft.orderMngr.rest.handlers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,6 +25,7 @@ import it.l_soft.orderMngr.rest.JsonHandler;
 import it.l_soft.orderMngr.rest.Utils;
 import it.l_soft.orderMngr.rest.dbUtils.Articles;
 import it.l_soft.orderMngr.rest.dbUtils.CustomerDelivery;
+import it.l_soft.orderMngr.rest.dbUtils.Customers;
 import it.l_soft.orderMngr.rest.dbUtils.DBConnection;
 import it.l_soft.orderMngr.rest.dbUtils.DBInterface;
 import it.l_soft.orderMngr.rest.dbUtils.OrderDetails;
@@ -95,6 +96,7 @@ public class OrdersHandler {
 		ArrayList<OrderDetails> orderDetails = new ArrayList<OrderDetails>();
 		ArrayList<Articles> orderArticles = new ArrayList<Articles>();
 		CustomerDelivery customerDelivery = new CustomerDelivery();
+		Customers customer = new Customers();
 
 		try 
 		{
@@ -162,6 +164,21 @@ public class OrdersHandler {
 		{
 			if (e.getMessage().compareTo("No record found") != 0)
 			{
+				DBInterface.disconnect(conn);
+				log.error("Exception '" + e.getMessage(), e);
+				return Utils.jsonizeResponse(Response.Status.INTERNAL_SERVER_ERROR, e, languageId, "generic.execError");
+			}
+		}
+
+		log.trace("get Customers");
+		try 
+		{
+			customer = Customers.getCustomersByOrderId(conn, id, languageId);
+		}
+		catch(Exception e)
+		{
+			if (e.getMessage().compareTo("No record found") != 0)
+			{
 				log.error("Exception '" + e.getMessage(), e);
 				return Utils.jsonizeResponse(Response.Status.INTERNAL_SERVER_ERROR, e, languageId, "generic.execError");
 			}
@@ -177,6 +194,7 @@ public class OrdersHandler {
 		jsonResponse.put("orderNotes", orderNotes);
 		jsonResponse.put("orderArticles", orderArticles);
 		jsonResponse.put("customerDelivery", customerDelivery);
+		jsonResponse.put("customer", customer);
 		JsonHandler jh = new JsonHandler();
 		if (jh.jasonize(jsonResponse, language) != Response.Status.OK)
 		{

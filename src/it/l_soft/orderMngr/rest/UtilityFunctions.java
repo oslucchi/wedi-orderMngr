@@ -38,6 +38,7 @@ import javax.ws.rs.core.Response;
 import org.apache.log4j.Logger;
 
 import it.l_soft.orderMngr.rest.dbUtils.CustomerDelivery;
+import it.l_soft.orderMngr.rest.dbUtils.Customers;
 import it.l_soft.orderMngr.rest.dbUtils.DBConnection;
 import it.l_soft.orderMngr.rest.dbUtils.DBInterface;
 import it.l_soft.orderMngr.rest.dbUtils.OrderShipment;
@@ -407,4 +408,51 @@ public class UtilityFunctions {
 		log.trace("attributes and configuration set. Now printing");
 		exporter.exportReport();
 	}
+	
+	
+	@POST
+	@Path("/statusEmail")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response statusEmail(String body, @HeaderParam("Language") String language)
+	{
+		int languageId = Utils.setLanguageId(language);
+		JsonObject jsonIn = JavaJSONMapper.StringToJSON(body);
+		Orders order;
+		Customers customer;
+		CustomerDelivery customerDelivery;
+		
+		try
+		{
+			order = (Orders) JavaJSONMapper.JSONToJava(jsonIn.getJsonObject("order"), Orders.class);
+			if (order.getForwarder().compareTo("CLI") != 0)
+			{
+				return Response.status(Response.Status.OK).build();
+			}
+
+			customerDelivery = (CustomerDelivery) JavaJSONMapper.JSONToJava(jsonIn.getJsonObject("customerDelivery"), CustomerDelivery.class);
+			if ((customerDelivery.getLogisticCommEmail() != null) &&
+				(customerDelivery.getLogisticCommEmail().compareTo("") != 0))
+			{
+				Mailer.sendChangeStatusEmail(customerDelivery.getLogisticCommEmail(), order);
+				return Response.status(Response.Status.OK).build();
+			}
+			
+			customer = (Customers) JavaJSONMapper.JSONToJava(jsonIn.getJsonObject("customer"), Customers.class);
+			if ((customer.getLogisticCommEmail() != null) &&
+				(customer.getLogisticCommEmail().compareTo("") != 0))
+			{
+				Mailer.sendChangeStatusEmail(customer.getLogisticCommEmail(), order);
+				return Response.status(Response.Status.OK).build();
+			}
+		}
+		catch(Exception e)
+		{
+			log.error("Body is wrong: '" + body + "'", e);
+			return Utils.jsonizeResponse(Response.Status.INTERNAL_SERVER_ERROR, e, languageId, "generic.execError");			
+		}
+
+		return Utils.jsonizeResponse(Response.Status.INTERNAL_SERVER_ERROR, null, languageId, "logistics.noMailConfigured");
+	}
+
 }

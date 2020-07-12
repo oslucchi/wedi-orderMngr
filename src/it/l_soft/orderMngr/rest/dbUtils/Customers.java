@@ -11,6 +11,7 @@ public class Customers extends DBInterface
 	protected int idCustomers;
 	protected String refERP;
 	protected String description;
+	protected String logisticCommEmail;
 
 	protected boolean selected = false;
 	
@@ -59,6 +60,17 @@ public class Customers extends DBInterface
 		return (ArrayList<Customers>) DBInterface.populateCollection(conn, sql, Customers.class);
 	}
 
+	public static Customers getCustomersByOrderId(DBConnection conn, int idOrder, int languageCode) throws Exception {
+		Customers cu;
+		Logger log = Logger.getLogger(Customers.class);
+		String sql = "SELECT a.* " +
+					 "FROM Customers a INNER JOIN Orders b ON " +
+					 "  (a.idCustomers = b.idCustomer) " +
+					 "WHERE idOrder = " + idOrder;
+		log.trace("Querying: " + sql);
+		cu = (Customers) populateByQuery(conn, sql, Customers.class);
+		return  cu;
+	}
 
 	public int getIdCustomers() {
 		return idCustomers;
@@ -90,5 +102,13 @@ public class Customers extends DBInterface
 
 	public void setSelected(boolean selected) {
 		this.selected = selected;
+	}
+
+	public String getLogisticCommEmail() {
+		return logisticCommEmail;
+	}
+
+	public void setLogisticCommEmail(String logisticCommEmail) {
+		this.logisticCommEmail = logisticCommEmail;
 	}
 }

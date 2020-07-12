@@ -12,6 +12,7 @@ public class Orders extends DBInterface
 	protected int idOrder;
 	protected int idCustomer;
 	protected int idCustomerDelivery;
+	protected String customerOrderRef;
 	protected String status;
 	protected Date requestedAssemblyDate;
 	protected Date effectiveAssemblyDate;
@@ -336,4 +337,11 @@ public class Orders extends DBInterface
 		this.selected = selected;
 	}
 
+	public String getCustomerOrderRef() {
+		return customerOrderRef;
+	}
+
+	public void setCustomerOrderRef(String customerOrderRef) {
+		this.customerOrderRef = customerOrderRef;
+	}
 }
