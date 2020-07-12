@@ -70,6 +70,7 @@ public class Cesped extends ForwaderCostCalculation {
 		populateCostArray("FR", 14.5, 14.2, 13.7, 12.9);
 		populateCostArray("AP", 14.5, 14.2, 13.7, 12.9);
 		populateCostArray("PU", 14.5, 14.2, 13.7, 12.9);
+		populateCostArray("PS", 14.5, 14.2, 13.7, 12.9);
 		populateCostArray("AQ", 16, 15.7, 15.2, 14.4);
 		populateCostArray("PE", 15, 14.7, 14.2, 13.4);
 		populateCostArray("TE", 15, 14.7, 14.2, 13.4);
