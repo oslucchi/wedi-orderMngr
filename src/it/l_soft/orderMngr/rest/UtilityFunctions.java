@@ -452,7 +452,7 @@ public class UtilityFunctions {
 			return Utils.jsonizeResponse(Response.Status.INTERNAL_SERVER_ERROR, e, languageId, "generic.execError");			
 		}
 
-		return Utils.jsonizeResponse(Response.Status.INTERNAL_SERVER_ERROR, null, languageId, "logistics.noMailConfigured");
+		return Utils.jsonizeResponse(Response.Status.OK, null, languageId, "logistics.noMailConfigured");
 	}
 
 }

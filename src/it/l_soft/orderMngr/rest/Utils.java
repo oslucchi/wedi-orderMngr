@@ -132,9 +132,9 @@ public class Utils {
 		{
 			e.printStackTrace(pw);
 		}
-		
+		String objAttribute = ((status.getStatusCode() >= 200) && (status.getStatusCode() < 300) ? "resource" : "error");
 		jsonResponse.clear();
-		jsonResponse.put("error", 
+		jsonResponse.put(objAttribute, 
 						 LanguageResources.getResource(languageId, errResource) + 
 						 	(e == null ? "" : " (" + e.getMessage() + ")\n" + sw.toString()));
 		return Response.status(status).entity(gson.toJson(jsonResponse)).build();

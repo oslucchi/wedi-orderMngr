@@ -84,6 +84,7 @@ public class Mailer
 			Message message = new MimeMessage(session);
 
 			// Set From: header field of the header.
+			message.setFrom(new InternetAddress("noreply@wedi.it"));
 			// message.setFrom(new InternetAddress(ap.getMailFrom()));
 
 			// Set To: header field of the header.
