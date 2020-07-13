@@ -35,6 +35,7 @@ public class Orders extends DBInterface
     protected int compositionAccessories;
     protected String sourceIssue;
     protected double orderValue;
+    protected String confirmationEmail;
 	protected boolean selected = false;
 	
 	private void setNames()
@@ -343,5 +344,13 @@ public class Orders extends DBInterface
 
 	public void setCustomerOrderRef(String customerOrderRef) {
 		this.customerOrderRef = customerOrderRef;
+	}
+
+	public String getConfirmationEmail() {
+		return confirmationEmail;
+	}
+
+	public void setConfirmationEmail(String confirmationEmail) {
+		this.confirmationEmail = confirmationEmail;
 	}
 }

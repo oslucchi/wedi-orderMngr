@@ -421,29 +421,49 @@ public class UtilityFunctions {
 		Orders order;
 		Customers customer;
 		CustomerDelivery customerDelivery;
+		String mailTo = "";
+		String sep = "";
 		
 		try
 		{
 			order = (Orders) JavaJSONMapper.JSONToJava(jsonIn.getJsonObject("order"), Orders.class);
-			if (order.getForwarder().compareTo("CLI") != 0)
+			if ((order.getStatus().compareTo("CON") != 0) &&
+				(order.getStatus().compareTo("RDY") != 0))
 			{
-				return Response.status(Response.Status.OK).build();
-			}
-
-			customerDelivery = (CustomerDelivery) JavaJSONMapper.JSONToJava(jsonIn.getJsonObject("customerDelivery"), CustomerDelivery.class);
-			if ((customerDelivery.getLogisticCommEmail() != null) &&
-				(customerDelivery.getLogisticCommEmail().compareTo("") != 0))
-			{
-				Mailer.sendChangeStatusEmail(customerDelivery.getLogisticCommEmail(), order);
+				log.debug("Order status " + order.getStatus() + " not for reporting");
 				return Response.status(Response.Status.OK).build();
 			}
 			
-			customer = (Customers) JavaJSONMapper.JSONToJava(jsonIn.getJsonObject("customer"), Customers.class);
-			if ((customer.getLogisticCommEmail() != null) &&
-				(customer.getLogisticCommEmail().compareTo("") != 0))
+			if ((order.getStatus().compareTo("RDY") == 0) &&
+				(order.getForwarder().compareTo("CLI") != 0))
 			{
-				Mailer.sendChangeStatusEmail(customer.getLogisticCommEmail(), order);
+				log.debug("Order is ready but not for client pickup. Do not report");
 				return Response.status(Response.Status.OK).build();
+			}
+
+			if (order.getConfirmationEmail() != null)
+			{
+				mailTo = order.getConfirmationEmail();
+				sep = ",";
+			}
+
+			if (order.getStatus().compareTo("RDY") == 0)
+			{
+				customerDelivery = (CustomerDelivery) JavaJSONMapper.JSONToJava(jsonIn.getJsonObject("customerDelivery"), CustomerDelivery.class);
+				if ((customerDelivery.getLogisticCommEmail() != null) &&
+					(customerDelivery.getLogisticCommEmail().compareTo("") != 0))
+				{
+					mailTo += sep + customerDelivery.getLogisticCommEmail();
+					sep = ",";
+				}
+				
+				customer = (Customers) JavaJSONMapper.JSONToJava(jsonIn.getJsonObject("customer"), Customers.class);
+				if ((customer.getLogisticCommEmail() != null) &&
+					(customer.getLogisticCommEmail().compareTo("") != 0))
+				{
+					mailTo += sep + customer.getLogisticCommEmail();
+					sep = ",";
+				}
 			}
 		}
 		catch(Exception e)
@@ -452,7 +472,14 @@ public class UtilityFunctions {
 			return Utils.jsonizeResponse(Response.Status.INTERNAL_SERVER_ERROR, e, languageId, "generic.execError");			
 		}
 
-		return Utils.jsonizeResponse(Response.Status.OK, null, languageId, "logistics.noMailConfigured");
+		if (mailTo.compareTo("") != 0)
+		{
+			Mailer.sendChangeStatusEmail(mailTo, order);
+			return Response.status(Response.Status.OK).build();
+		}
+		else
+		{
+			return Utils.jsonizeResponse(Response.Status.OK, null, languageId, "logistics.noMailConfigured");
+		}
 	}
-
 }

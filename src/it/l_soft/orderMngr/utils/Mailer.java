@@ -144,6 +144,12 @@ public class Mailer
 			SimpleDateFormat sdf = new SimpleDateFormat("EEEE dd MMMM", Locale.ITALIAN);
 			body = body.replaceAll("\\$FIRSTPICKUP\\$", sdf.format(firstPickup.getTime()));
 			body = body.replaceAll("\\$LASTPICKUP\\$", sdf.format(lastPickup.getTime()));
+			body = body.replaceAll("à", "&agrave;");
+			body = body.replaceAll("è", "&egrave;");
+			body = body.replaceAll("é", "&eacute;");
+			body = body.replaceAll("ì", "&igrave;");
+			body = body.replaceAll("ù", "&ugrave;");
+			body = body.replaceAll("ò", "&ograve;");
 			
 			message.setContent(body, "text/html");
 
