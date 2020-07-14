@@ -100,6 +100,15 @@ public class Mailer
 //			message.setContent(body, "text/html");
 			String body = LanguageResources.getResource("statusChangeMail." + order.getStatus() + ".body");
 			body = body.replaceAll("\\$ORDREF\\$", orderRef);
+			if (order.getForwarder().compareTo("CLI") == 0)
+			{
+				body = body.replaceAll("\\$CLIPICK\\$", LanguageResources.getResource("statusChangeMail.CON.clipick"));
+			}
+			else
+			{
+				body = body.replaceAll("\\$CLIPICK\\$", "");
+			}
+			
 			Calendar firstPickup = Calendar.getInstance();
 			Calendar lastPickup = Calendar.getInstance();
 	        firstPickup.setTime(new Date());
