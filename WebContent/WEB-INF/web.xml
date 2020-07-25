@@ -15,7 +15,7 @@
 		<filter-name>CORS</filter-name>
 		<filter-class>it.l_soft.orderMngr.rest.CORSFilter</filter-class>
 	</filter>
-		<filter-mapping>
+	<filter-mapping>
 		<filter-name>CORS</filter-name>
 		<url-pattern>/restcall/*</url-pattern>
 	</filter-mapping>
@@ -45,7 +45,6 @@
 		<param-value>it.l_soft.orderMngr.rest.CORSFilter</param-value>
 		</init-param>
 	</servlet>
-
     <listener>
         <listener-class>it.l_soft.orderMngr.rest.OrderMngr</listener-class>
     </listener>

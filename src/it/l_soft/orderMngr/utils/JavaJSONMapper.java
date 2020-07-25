@@ -25,8 +25,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class JavaJSONMapper {
 	final static Logger log = Logger.getLogger(JavaJSONMapper.class);
 
-	public static void JavaToJSON(Object object, Class<?> objClass)
+	public static String JavaToJSON(Object object)
 	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json;
+		try
+		{
+			json = mapper.writeValueAsString(object);
+		}
+		catch(Exception e) 
+		{
+			log.error("Error jasonizing the object (" + e.getMessage() + ")", e);
+			e.printStackTrace();
+			return "{}";
+		}
+		return json;
 	}
 	
 	public static JsonObject StringToJSON(String jsonString)
