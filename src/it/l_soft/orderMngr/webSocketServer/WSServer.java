@@ -51,12 +51,23 @@ public class WSServer extends Thread {
 	    {
 			for(SessionData item : users.getList())
 			{
-				if (item.getSession().getId().compareTo(sender.getSession().getId()) != 0)
+				if (item.getUd().getToken().compareTo(sender.getUd().getToken()) != 0)
 				{
 					msgOut = new Message(Message.MSG_BROADCAST, object.getString("sender"), "broadcast", 
 										 object.getString("text"), item.getUd().getToken(), sender.getUd().getToken(), "");
 					msgOut.insert(conn);
-					item.getSession().getBasicRemote().sendText(msgOut.toJSONString(false));
+					System.out.println("Sending message: " + msgOut.toJSONString(false));
+					if (item.getSession().isOpen())
+					{
+						item.getSession().getBasicRemote().sendText(msgOut.toJSONString(false));
+					}
+					else
+					{
+						log.error("Unable to send to session " + item.getSession().getId() + 
+								  " token '" + item.getUd().getToken() + "', " +
+								  "the session is closed despite been marked as opened");
+						item.getUd().setActive(false);
+					}
 				}
 			}
 		}
@@ -80,7 +91,18 @@ public class WSServer extends Thread {
 					msgOut = new Message(Message.MSG_BROADCAST, object.getString("sender"), object.getString("recipient"), 
 							 			 object.getString("text"), item.getUd().getToken(), sender.getUd().getToken(), "");
 					msgOut.insert(conn);
-					item.getSession().getBasicRemote().sendText(msgOut.toJSONString(false));
+					System.out.println("Sending message: " + msgOut.toJSONString(false));
+					if (item.getSession().isOpen())
+					{
+						item.getSession().getBasicRemote().sendText(msgOut.toJSONString(false));
+					}
+					else
+					{
+						log.error("Unable to send to session " + item.getSession().getId() + 
+								  " token '" + item.getUd().getToken() + "', " +
+								  "the session is closed despite been marked as opened");
+						item.getUd().setActive(false);
+					}
 				}
 			}
 		}
@@ -102,7 +124,17 @@ public class WSServer extends Thread {
 					Message msg = new Message(Message.MSG_ADD_USER, "server", "broadcast", 
 											  JavaJSONMapper.JavaToJSON(newUser.getUd()), "", "", "");
 					System.out.println("Sending message: " + msg.toJSONString(true));
-					item.getSession().getBasicRemote().sendText(msg.toJSONString(true));
+					if (item.getSession().isOpen())
+					{
+						item.getSession().getBasicRemote().sendText(msg.toJSONString(true));
+					}
+					else
+					{
+						log.error("Unable to send to session " + item.getSession().getId() + 
+								  " token '" + item.getUd().getToken() + "', " +
+								  "the session is closed despite been marked as opened");
+						item.getUd().setActive(false);
+					}
 				}
 			}
 		}
@@ -121,12 +153,23 @@ public class WSServer extends Thread {
 	    {
 			for(SessionData item : users.getList())
 			{
-				if (item.getSession().getId().compareTo(leftUser.getSession().getId()) != 0)
+				if (item.getUd().isActive() &&
+					(item.getSession().getId().compareTo(leftUser.getSession().getId()) != 0))
 				{
 					Message msg = new Message(Message.MSG_RMV_USER, "server", "broadcast", 
 											  JavaJSONMapper.JavaToJSON(leftUser.getUd()), "", "", leftUser.getUd().getToken());
 					System.out.println("Sending message: " + msg.toJSONString(true));
-					item.getSession().getBasicRemote().sendText(msg.toJSONString(true));
+					if (item.getSession().isOpen())
+					{
+						item.getSession().getBasicRemote().sendText(msg.toJSONString(true));
+					}
+					else
+					{
+						log.error("Unable to send to session " + item.getSession().getId() + 
+								  " token '" + item.getUd().getToken() + "', " +
+								  "the session is closed despite been marked as opened");
+						item.getUd().setActive(false);
+					}
 				}
 			}
 		}
@@ -148,7 +191,17 @@ public class WSServer extends Thread {
 											  sender.getUd().getAccount(), JavaJSONMapper.JavaToJSON(item.getUd()), 
 											  "", "", "");
 					System.out.println("Sending message: " + msg.toJSONString(true));
-					sender.getSession().getBasicRemote().sendText(msg.toJSONString(true));
+					if (sender.getSession().isOpen())
+					{
+						sender.getSession().getBasicRemote().sendText(msg.toJSONString(true));
+					}
+					else
+					{
+						log.error("Unable to send to session " + sender.getSession().getId() + 
+								  " token '" + sender.getUd().getToken() + "', " +
+								  "the session is closed despite been marked as opened");
+						sender.getUd().setActive(false);
+					}
 				}
 			}
 		}
@@ -173,7 +226,17 @@ public class WSServer extends Thread {
 			Message msg = new Message(Message.MSG_HISTORY, "server", 
 									  ud.getAccount(), Message.getHistory(conn, ud.getToken()), "", "", "");
 			System.out.println("Sending message: " + msg.toJSONString(false));
-			recipient.getSession().getBasicRemote().sendText(msg.toJSONString(false));
+			if (recipient.getSession().isOpen())
+			{
+				recipient.getSession().getBasicRemote().sendText(msg.toJSONString(false));
+			}
+			else
+			{
+				log.error("Unable to send to session " + recipient.getSession().getId() + 
+						  " token '" + recipient.getUd().getToken() + "', " +
+						  "the session is closed despite been marked as opened");
+				recipient.getUd().setActive(false);
+			}
 		}
 	    catch (Exception e) 
 	    {

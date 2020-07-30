@@ -31,7 +31,7 @@ public class Users {
 	{
 		UsersData ud = new UsersData();
 		ud.setAccount(account);
-		if (token != null)
+		if ((token != null) && (token.compareTo("") != 0))
 		{
 			ud.setToken(token);
 		}
