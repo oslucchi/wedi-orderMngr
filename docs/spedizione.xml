@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<Spedizioni     
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="urn:Shipments.Namespace"  
+    xsi:schemaLocation="urn:Shipments.Namespace Shipments.xsd"
+>
+	<DataPickup>2020-07-16</DataPickup>
+	<Spedizione>
+		<Id>019849</Id>
+		<DDT>202000759</DDT>
+		<NumeroColli>4</NumeroColli>
+		<PesoVolumetrico>35.4</PesoVolumetrico>
+		<Destinatario>
+			<Azienda>TRUCCHI EFISIO SRL</Azienda>
+			<Indirizzo>CORSO GENOVA 352</Indirizzo>
+			<Cap>18530</Cap>
+			<Citta>VENTIMIGLIA</Citta>
+			<Provincia>IM</Provincia>
+		</Destinatario>
+		<Note>Avvisare almeno mezz'ora prima della consegna 3471234567</Note>
+	</Spedizione>
+	<Spedizione>
+		<Id>019912</Id>
+		<DDT>202000762</DDT>
+		<NumeroColli>3</NumeroColli>
+		<PesoVolumetrico>22.7</PesoVolumetrico>
+		<Destinatario>
+			<Azienda>PROVERA SAS</Azienda>
+			<Indirizzo>LUNGO DORA NAPOLI, 32</Indirizzo>
+			<Cap>10152</Cap>
+			<Citta>TORINO</Citta>
+			<Provincia>TO</Provincia>
+		</Destinatario>
+		<Assicurazione>ALLRISK</Assicurazione>
+	</Spedizione>
+</Spedizioni>
