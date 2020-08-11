@@ -44,13 +44,13 @@ public class Users {
 		SessionData sd = new SessionData();
 		sd.setSession(session);
 		sd.setUd(ud);
-		list.put(session.getId(), sd);
+		list.put(token, sd);
 		return sd;
 	}
 
-	public void removeUser(String sessionId)
+	public void removeUser(String token)
 	{
-		SessionData sd = list.get(sessionId);
+		SessionData sd = list.get(token);
 		if (sd != null)
 		{
 			sd.getUd().setActive(false);
@@ -99,9 +99,9 @@ public class Users {
 		return null;
 	}
 	
-	public UsersData setAccount(Session session, String account) throws Exception
+	public UsersData setAccount(Session session, String account, String token) throws Exception
 	{
-		SessionData sd = list.get(session.getId());
+		SessionData sd = list.get(token);
 		if (sd == null)
 		{
 			sd = addUser(session, account, null);
@@ -109,7 +109,7 @@ public class Users {
 		else
 		{
 			sd.getUd().setAccount(account);
-			list.replace(session.getId(), sd);
+			list.replace(token, sd);
 		}
 		return sd.getUd();
 	}

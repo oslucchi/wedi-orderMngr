@@ -26,7 +26,7 @@ public class WSServer extends Thread {
 
 	public void run() 
     {
-		System.out.println("webSocketServer started");
+		log.trace("webSocketServer started");
     }
 	
 	public WSServer()
@@ -56,7 +56,7 @@ public class WSServer extends Thread {
 					msgOut = new Message(Message.MSG_BROADCAST, object.getString("sender"), "broadcast", 
 										 object.getString("text"), item.getUd().getToken(), sender.getUd().getToken(), "");
 					msgOut.insert(conn);
-					System.out.println("Sending message: " + msgOut.toJSONString(false));
+					log.debug("Sending message: " + msgOut.toJSONString(false));
 					if (item.getSession().isOpen())
 					{
 						item.getSession().getBasicRemote().sendText(msgOut.toJSONString(false));
@@ -91,7 +91,7 @@ public class WSServer extends Thread {
 					msgOut = new Message(Message.MSG_BROADCAST, object.getString("sender"), object.getString("recipient"), 
 							 			 object.getString("text"), item.getUd().getToken(), sender.getUd().getToken(), "");
 					msgOut.insert(conn);
-					System.out.println("Sending message: " + msgOut.toJSONString(false));
+					log.debug("Sending message: " + msgOut.toJSONString(false));
 					if (item.getSession().isOpen())
 					{
 						item.getSession().getBasicRemote().sendText(msgOut.toJSONString(false));
@@ -123,7 +123,7 @@ public class WSServer extends Thread {
 				{
 					Message msg = new Message(Message.MSG_ADD_USER, "server", "broadcast", 
 											  JavaJSONMapper.JavaToJSON(newUser.getUd()), "", "", "");
-					System.out.println("Sending message: " + msg.toJSONString(true));
+					log.debug("Sending message: " + msg.toJSONString(true));
 					if (item.getSession().isOpen())
 					{
 						item.getSession().getBasicRemote().sendText(msg.toJSONString(true));
@@ -158,7 +158,7 @@ public class WSServer extends Thread {
 				{
 					Message msg = new Message(Message.MSG_RMV_USER, "server", "broadcast", 
 											  JavaJSONMapper.JavaToJSON(leftUser.getUd()), "", "", leftUser.getUd().getToken());
-					System.out.println("Sending message: " + msg.toJSONString(true));
+					log.debug("Sending message: " + msg.toJSONString(true));
 					if (item.getSession().isOpen())
 					{
 						item.getSession().getBasicRemote().sendText(msg.toJSONString(true));
@@ -190,7 +190,7 @@ public class WSServer extends Thread {
 					Message msg = new Message(Message.MSG_ADD_USER, "server", 
 											  sender.getUd().getAccount(), JavaJSONMapper.JavaToJSON(item.getUd()), 
 											  "", "", "");
-					System.out.println("Sending message: " + msg.toJSONString(true));
+					log.debug("Sending message: " + msg.toJSONString(true));
 					if (sender.getSession().isOpen())
 					{
 						sender.getSession().getBasicRemote().sendText(msg.toJSONString(true));
@@ -225,7 +225,7 @@ public class WSServer extends Thread {
 			conn = DBInterface.connect();
 			Message msg = new Message(Message.MSG_HISTORY, "server", 
 									  ud.getAccount(), Message.getHistory(conn, ud.getToken()), "", "", "");
-			System.out.println("Sending message: " + msg.toJSONString(false));
+			log.debug("Sending message: " + msg.toJSONString(false));
 			if (recipient.getSession().isOpen())
 			{
 				recipient.getSession().getBasicRemote().sendText(msg.toJSONString(false));
@@ -248,7 +248,7 @@ public class WSServer extends Thread {
 	private void logonConfirm(SessionData sd, UsersData ud) throws Exception
 	{
 		Message msgOut = new Message(Message.MSG_LOGON_CONF, "server", ud.getAccount(), ud.getToken(), "", "", ud.getToken());
-		System.out.println("Sending msg: " + msgOut.toJSONString(false));
+		log.debug("Sending msg: " + msgOut.toJSONString(false));
 		sd.getSession().getBasicRemote().sendText(msgOut.toJSONString(false));
 		sendUserlist(sd, ud.getToken());
 		sendMsgHistory(sd);
@@ -258,20 +258,20 @@ public class WSServer extends Thread {
 	@OnOpen
 	public void onOpen(Session session)
 	{
-		System.out.println("onOpen::" + session.getId());
+		log.trace("onOpen::" + session.getId());
 	}
 
 	@OnClose
 	public void onClose(Session session) throws IOException, Exception
 	{
-		System.out.println("onClose::" +  session.getId());
+		log.trace("onClose::" +  session.getId());
 		users.removeUser(session.getId());
 		broadcastLeftUser(users.getSessionData(session));
 	}
 
 	@OnMessage
 	public void onMessage(String message, Session session) throws Exception {
-		System.out.println("onMessage::From=" + session.getId() + " Message=" + message);
+		log.debug("onMessage::From=" + session.getId() + " Message=" + message);
 		JsonObject object = JavaJSONMapper.StringToJSON(message);
 		UsersData ud = null;
 		SessionData sd = null;
@@ -344,7 +344,7 @@ public class WSServer extends Thread {
 				break;
 								
 			case Message.MSG_PRIVATE:
-				if ((sd = users.getSessionData(session)) == null)
+				if ((sd = Users.getSessionData(object.getString("token"))) == null)
 				{
 					log.error("It should never happen! No session data stored despite been connected");
 					return;
@@ -353,7 +353,7 @@ public class WSServer extends Thread {
 				break;
 				
 			case Message.MSG_BROADCAST:
-				if ((sd = users.getSessionData(session)) == null)
+				if ((sd = Users.getSessionData(object.getString("token"))) == null)
 				{
 					log.error("It should never happen! No session data stored despite been connected");
 					return;
@@ -375,6 +375,6 @@ public class WSServer extends Thread {
 
 	@OnError
 	public void onError(Throwable t) {
-		System.out.println("onError::" + t.getMessage());
+		log.error("onError::" + t.getMessage());
 	}
 }
