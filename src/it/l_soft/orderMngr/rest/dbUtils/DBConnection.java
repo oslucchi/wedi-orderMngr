@@ -50,7 +50,7 @@ public class DBConnection
 			ds = (DataSource) envCtx.lookup("jdbc/orderMngr");
 			conn = ds.getConnection();
 			st = conn.createStatement();
-			// log.debug("Creted connection (" + conn + ") and statement (" + st + ")");
+			// log.debug("Created connection (" + conn + ") and statement (" + st + ")");
 			st.executeQuery("SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED");
 		}
 		catch(SQLException e) 
@@ -139,6 +139,7 @@ public class DBConnection
 	}
 
 	
+	@SuppressWarnings("deprecation")
 	protected void finalize() 
 	{
 		// log.debug("Closing resources");

@@ -68,6 +68,43 @@ public class Message extends DBInterface {
     	this.token = token;
     }
 
+    static public String getMessageTypeString(int type)
+    {
+    	switch(type)
+    	{
+    	case MSG_LOGON:
+    		return("MSG_LOGON");
+    		
+        case MSG_LOGOFF:
+    		return("MSG_LOGOFF");
+    		
+        case MSG_BROADCAST:
+    		return("MSG_BROADCAST");
+    		
+        case MSG_PRIVATE:
+    		return("MSG_PRIVATE");
+    		
+        case MSG_ADD_USER:
+    		return("MSG_ADD_USER");
+    		
+        case MSG_RMV_USER:
+    		return("MSG_RMV_USER");
+    		
+        case MSG_LOGON_CONF:
+    		return("MSG_LOGON_CONF");
+    		
+        case MSG_LOG_WITH_TOKEN:
+    		return("MSG_LOG_WITH_TOKEN");
+    		
+        case MSG_HISTORY:
+    		return("MSG_HISTORY");
+    		
+        case MSG_LOGON_DENY:
+    		return("MSG_LOGON_DENY");
+    	}
+		return("UNKNOWN");
+    }
+    
 	public int getType() {
 		return type;
 	}

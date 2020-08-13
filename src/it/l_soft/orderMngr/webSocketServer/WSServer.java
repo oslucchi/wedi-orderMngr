@@ -272,12 +272,14 @@ public class WSServer extends Thread {
 	@OnMessage
 	public void onMessage(String message, Session session) throws Exception {
 		log.debug("onMessage::From=" + session.getId() + " Message=" + message);
-		JsonObject object = JavaJSONMapper.StringToJSON(message);
 		UsersData ud = null;
 		SessionData sd = null;
-
+		JsonObject object = null;
 		conn = DBInterface.connect();
 		try {
+			log.trace("Getting message object from json");
+			object = JavaJSONMapper.StringToJSON(message);
+			log.debug("Received a " + Message.getMessageTypeString(object.getInt("type")) + " message");
 			switch(object.getInt("type"))
 			{
 			case Message.MSG_LOGON:
@@ -364,7 +366,7 @@ public class WSServer extends Thread {
 		} 
 		catch (IOException e) 
 		{
-			e.printStackTrace();
+			log.error("Exception: " + e.getMessage(), e);
 		}
 		finally
 		{
