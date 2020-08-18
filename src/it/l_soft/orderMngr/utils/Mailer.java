@@ -5,12 +5,15 @@ import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
 
+import org.apache.log4j.Logger;
+
 import it.l_soft.orderMngr.rest.ApplicationProperties;
 import it.l_soft.orderMngr.rest.LanguageResources;
 import it.l_soft.orderMngr.rest.dbUtils.Orders;
 
 public class Mailer
 {
+	static final Logger log = Logger.getLogger(Mailer.class);
 	static ApplicationProperties ap = ApplicationProperties.getInstance();
 
 	public static void sendMail(String body)
@@ -21,6 +24,7 @@ public class Mailer
 		props.put("mail.smtp.host", ap.getMailSmtpHost());
 		props.put("mail.smtp.port", "25");
 
+		log.debug("Connecting to mail server '" + ap.getMailSmtpHost() + "' on port 25");
 		// Get the Session object.
 		Session session = Session.getInstance(props,
 				new javax.mail.Authenticator() {
@@ -49,13 +53,15 @@ public class Mailer
 			message.setContent(body, "text/html");
 
 			// Send message
+			log.trace("Ready to send message via Transport.send");
 			Transport.send(message);
 
-			System.out.println("Sent message successfully....");
+			log.trace("Sent message successfully....");
 
 		} 
 		catch (MessagingException e) 
 		{
+			log.debug("Exception " + e.getMessage(), e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
@@ -70,6 +76,7 @@ public class Mailer
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.host", ap.getMailSmtpHost());
 		props.put("mail.smtp.port", "25");
+		log.debug("Connecting to mail server '" + ap.getMailSmtpHost() + "' on port 25");
 
 		// Get the Session object.
 		Session session = Session.getInstance(props,
@@ -163,13 +170,14 @@ public class Mailer
 			message.setContent(body, "text/html");
 
 			// Send message
+			log.trace("Ready to send message via Transport.send");
 			Transport.send(message);
 
-			System.out.println("Sent message successfully....");
-
+			log.trace("Sent message successfully....");
 		} 
 		catch (Exception e) 
 		{
+			log.debug("Exception " + e.getMessage(), e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}

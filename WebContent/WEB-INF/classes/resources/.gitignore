@@ -5,3 +5,5 @@
 /packageLab.jrxml
 /emailText.txt
 /it.properties
+/site.dev.properties
+/site.prd.properties

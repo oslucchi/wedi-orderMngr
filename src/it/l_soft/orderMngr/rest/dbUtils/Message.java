@@ -220,17 +220,23 @@ public class Message extends DBInterface {
 		String sql = "SELECT * FROM Message a " +
 					 "WHERE (((a.senderToken = '" + token + "') OR " +
 					 "        (a.recipientToken = '" + token + "') OR " +
-					 "        (a.recipient = 'broadcast')) AND " +
+					 "        ((a.senderToken != '" + token + "') AND (a.recipient = 'broadcast'))) AND " +
 					 "       (a.timestamp >= CURDATE()))";
 		String history = "";
 		
 		ArrayList<Message> mList = (ArrayList<Message>) populateCollection(conn, sql, Message.class);
 		for(Message item : mList)
 		{
-			history += "[" + sdf.format(item.getTimestamp()) + "] " +
-					   (item.getSenderToken().compareTo(token) == 0 ? "=> " : "<= ") +
-					   (item.getRecipientToken().compareTo(token) == 0 ? item.getRecipient() : item.getSender()) + ": " +							   
-					   item.getText() + "\n";
+			history += "[" + sdf.format(item.getTimestamp()) + "] ";
+			if (item.getSenderToken().compareTo(token) == 0)
+			{
+				history += "=> " + item.getRecipient();
+			}
+			else
+			{
+				history += "<= " + item.getSender() + (item.getRecipient().compareTo("broadcast") == 0 ? "(B)" : "");
+			}
+			history += ": " + item.getText() + "\n";
 		}
 		history = new String(Base64.getEncoder().encode(history.getBytes()));
 		return history;

@@ -212,12 +212,12 @@ public class WSServer extends Thread {
 		}
 	}
 
-	private void sendMsgHistory(SessionData recipient) throws Exception
+	private void sendMsgHistory(SessionData currentUser) throws Exception
 	{
-		UsersData ud = recipient.getUd();
+		UsersData ud = currentUser.getUd();
 		if (ud == null)
 		{
-			log.error("Unable to find user for session id '" + recipient.getSession().getId() + "'. Aborting");
+			log.error("Unable to find user for session id '" + currentUser.getSession().getId() + "'. Aborting");
 			return;
 		}
 		try
@@ -226,16 +226,16 @@ public class WSServer extends Thread {
 			Message msg = new Message(Message.MSG_HISTORY, "server", 
 									  ud.getAccount(), Message.getHistory(conn, ud.getToken()), "", "", "");
 			log.debug("Sending message: " + msg.toJSONString(false));
-			if (recipient.getSession().isOpen())
+			if (currentUser.getSession().isOpen())
 			{
-				recipient.getSession().getBasicRemote().sendText(msg.toJSONString(false));
+				currentUser.getSession().getBasicRemote().sendText(msg.toJSONString(false));
 			}
 			else
 			{
-				log.error("Unable to send to session " + recipient.getSession().getId() + 
-						  " token '" + recipient.getUd().getToken() + "', " +
+				log.error("Unable to send to session " + currentUser.getSession().getId() + 
+						  " token '" + currentUser.getUd().getToken() + "', " +
 						  "the session is closed despite been marked as opened");
-				recipient.getUd().setActive(false);
+				currentUser.getUd().setActive(false);
 			}
 		}
 	    catch (Exception e) 
