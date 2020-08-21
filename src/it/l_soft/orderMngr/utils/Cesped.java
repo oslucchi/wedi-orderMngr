@@ -1,8 +1,19 @@
 package it.l_soft.orderMngr.utils;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+
 import org.apache.log4j.Logger;
 
-public class Cesped extends ForwaderCostCalculation {
+import it.l_soft.orderMngr.rest.ApplicationProperties;
+import it.l_soft.orderMngr.rest.dbUtils.Shipments;
+
+public class Cesped extends ForwarderActions {
 	final Logger log = Logger.getLogger(this.getClass());
 
 	public Cesped() {
@@ -149,6 +160,67 @@ public class Cesped extends ForwaderCostCalculation {
 	public int getInsuranceCost(double buyValue)
 	{
 		return insuranceCost[0];
+	}
+	
+	@Override
+	public void generatePickRequest(ArrayList<Shipments> shipmentList, Date pickupDate, ApplicationProperties ap) throws Exception
+	{
+		SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM", Locale.ITALIAN);
+		String tableString =  "<table>\n" +
+							  "  <tr>" +
+							  "    <th>Cliente</th>" +
+							  "    <th>Indirizzo</th>" +
+							  "    <th>PV</th>" +
+							  "    <th>DDT</th>" +
+							  "    <th>Assicuraz.</th>" +
+							  "    <th style='text-align:center;'>Note</th>" +
+							  "    <th>Lun</th>" +
+							  "    <th>Lar</th>" +
+							  "    <th>Alt</th>" +
+							  "    <th>Kg</th>" +
+							  "  </tr>\n";
+		for( int i = 0; i < shipmentList.size(); i++)
+		{
+			Shipments shipment = shipmentList.get(i);
+			if (shipment.isSelected())
+			{
+				tableString +=  "<tr>" + 
+								"  <td>" + shipment.getCustomer() + "</td>" +
+								"  <td>" + shipment.getAddress() + "</td>" +
+								"  <td>" + shipment.getProvince() + "</td>" +
+								"  <td>" + shipment.getDdt() + "</td>" +
+								"  <td>" + 
+									(shipment.getInsurance().compareTo("") != 0 ? 
+											"<span style='color:red'>" + shipment.getInsurance() + "</span>" :
+											"" ) +
+								"  </td>" +
+								"  <td>" + shipment.getNote() + "</td>" +
+								"  <td align='right'>" + shipment.getLength() + "</td>" +
+								"  <td align='right'>" + shipment.getWidth() + "</td>" +
+								"  <td align='right'>" + shipment.getHeigth() + "</td>" +
+								"  <td align='right'>" + shipment.getWeigth() + "</td>" +
+								"</tr>\n";
+			}
+		}
+		tableString += "</table>\n";
+		
+		BufferedReader reader = new BufferedReader(new FileReader(ap.getContext().getRealPath("/resources/emailText.txt")));
+		StringBuilder stringBuilder = new StringBuilder();
+		String line = null;
+		String ls = System.getProperty("line.separator");
+		while ((line = reader.readLine()) != null) 
+		{
+			stringBuilder.append(line);
+			stringBuilder.append(ls);
+		}
+		// delete the last new line separator
+		stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+		reader.close();
+
+		pickupDate = new Date(pickupDate.getTime() + TimeZone.getDefault().getOffset(pickupDate.getTime()));
+		String mailBody = stringBuilder.toString();
+		mailBody = mailBody.replaceAll("TABLE", tableString).replaceAll("PICKDATE", sdf.format((pickupDate)));
+		Mailer.sendMail(mailBody);  
 	}
 
 }

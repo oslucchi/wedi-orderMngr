@@ -1,14 +1,18 @@
 package it.l_soft.orderMngr.utils;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Formatter;
+import java.util.Locale;
 
 import it.l_soft.orderMngr.rest.ApplicationProperties;
 import it.l_soft.orderMngr.rest.dbUtils.Shipments;
 
-public class TWS extends ForwarderActions {
+public class GLS extends ForwarderActions {
 
-	public TWS() {
+	public GLS() {
 		populateCostArray("AO", 15, 14.7, 14.2, 13.4);
 		populateCostArray("TO", 10, 9.7, 9.3, 8.5);
 		populateCostArray("AT", 10.5, 10.2, 9.7, 9);
@@ -130,9 +134,59 @@ public class TWS extends ForwarderActions {
 	}
 
 	@Override
-	public void generatePickRequest(ArrayList<Shipments> shipmentList, Date pickupDate, ApplicationProperties ap)
-			throws Exception {
-		// TODO Auto-generated method stub
+	public void generatePickRequest(ArrayList<Shipments> shipmentList, Date pickupDate, ApplicationProperties ap) throws Exception 
+	{
+		SimpleDateFormat ddmmyy = new SimpleDateFormat("ddMMyy", Locale.ITALIAN);
+//		StringBuilder sb = new StringBuilder();
+        File file = new File("/archive/Dev/Projects/wedi/wedi-orderMngr/WebContent/spool/GLSTEMP");
+        file.createNewFile();
+
+		Formatter fmt = new Formatter(file);
 		
+		for( int i = 0; i < shipmentList.size(); i++)
+		{
+			Shipments shipment = shipmentList.get(i);
+			if (!shipment.isSelected())
+				continue;
+			fmt.format("%35.35s%35.35s%30.30s%5.5s%2.2s", 
+					   shipment.getCustomer(),
+					   shipment.getAddress(),
+					   shipment.getCity(),
+					   shipment.getZipCode(),
+					   shipment.getProvince());
+
+			fmt.format("%10.10s%6.6s%s", 
+					   shipment.getDdt(),
+					   "190820", //ddmmyy.format(shipment.getDdtDate()),
+					   "00");
+			fmt.format("%06d", 
+					   shipment.getWeigth());
+			fmt.format("0000000000%40.40sF%15.15s", 
+					   shipment.getNote(),
+					   "");
+			
+			fmt.format("%011.2f%011.1f%12.12s%600.600s%40.40s%06d01       %06d%02d", 
+					   shipment.getInsuranceCost(),
+					   shipment.getVolumetricWeigth(),
+					   "",
+					   shipment.getIdOrder(),
+					   "",
+					   shipment.getIdOrder(),
+					   shipment.getIdOrder(),
+					   shipment.getNumOfItems());
+			
+			String mailAlert = shipment.getCustomerMail() + ";logistica.ordini@wedi.it";
+			fmt.format("%70.70s%20.20s%17.17s%33.33s%6.6s%40.40s%4.4s%s%12.12s\n",
+					   mailAlert,
+					   "",
+					   "",
+					   "",
+					   ddmmyy.format(new Date()),
+					   "ritiro effettuabile a partire dalle 14:30",
+					   "",
+					   "A", //shipment.getInsurance().substring(0, 1),
+					   "");
+		}
+		fmt.close();
 	}
 }

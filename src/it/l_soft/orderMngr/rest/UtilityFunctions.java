@@ -44,10 +44,14 @@ import it.l_soft.orderMngr.rest.dbUtils.DBInterface;
 import it.l_soft.orderMngr.rest.dbUtils.OrderShipment;
 import it.l_soft.orderMngr.rest.dbUtils.Orders;
 import it.l_soft.orderMngr.rest.dbUtils.Shipments;
+import it.l_soft.orderMngr.utils.Cesped;
+import it.l_soft.orderMngr.utils.ForwarderActions;
+import it.l_soft.orderMngr.utils.GLS;
 import it.l_soft.orderMngr.utils.JavaJSONMapper;
 import it.l_soft.orderMngr.utils.Labels;
 import it.l_soft.orderMngr.utils.Labels.PackageLabel;
 import it.l_soft.orderMngr.utils.Mailer;
+import it.l_soft.orderMngr.utils.TWS;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
@@ -157,65 +161,6 @@ public class UtilityFunctions {
 		return Response.status(Response.Status.OK).entity(jh.json).build();
 	}
 
-	private void pickRequestToCES(ArrayList<Shipments> shipmentList, Date pickupDate) throws Exception
-	{
-		SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM", Locale.ITALIAN);
-		String tableString =  "<table>\n" +
-							  "  <tr>" +
-							  "    <th>Cliente</th>" +
-							  "    <th>Indirizzo</th>" +
-							  "    <th>PV</th>" +
-							  "    <th>DDT</th>" +
-							  "    <th>Assicuraz.</th>" +
-							  "    <th style='text-align:center;'>Note</th>" +
-							  "    <th>Lun</th>" +
-							  "    <th>Lar</th>" +
-							  "    <th>Alt</th>" +
-							  "    <th>Kg</th>" +
-							  "  </tr>\n";
-		for( int i = 0; i < shipmentList.size(); i++)
-		{
-			Shipments shipment = shipmentList.get(i);
-			if (shipment.isSelected())
-			{
-				tableString +=  "<tr>" + 
-								"  <td>" + shipment.getCustomer() + "</td>" +
-								"  <td>" + shipment.getAddress() + "</td>" +
-								"  <td>" + shipment.getProvince() + "</td>" +
-								"  <td>" + shipment.getDdt() + "</td>" +
-								"  <td>" + 
-									(shipment.getInsurance().compareTo("") != 0 ? 
-											"<span style='color:red'>" + shipment.getInsurance() + "</span>" :
-											"" ) +
-								"  </td>" +
-								"  <td>" + shipment.getNote() + "</td>" +
-								"  <td align='right'>" + shipment.getLength() + "</td>" +
-								"  <td align='right'>" + shipment.getWidth() + "</td>" +
-								"  <td align='right'>" + shipment.getHeigth() + "</td>" +
-								"  <td align='right'>" + shipment.getWeigth() + "</td>" +
-								"</tr>\n";
-			}
-		}
-		tableString += "</table>\n";
-		
-		BufferedReader reader = new BufferedReader(new FileReader(ap.getContext().getRealPath("/resources/emailText.txt")));
-		StringBuilder stringBuilder = new StringBuilder();
-		String line = null;
-		String ls = System.getProperty("line.separator");
-		while ((line = reader.readLine()) != null) 
-		{
-			stringBuilder.append(line);
-			stringBuilder.append(ls);
-		}
-		// delete the last new line separator
-		stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-		reader.close();
-
-		pickupDate = new Date(pickupDate.getTime() + TimeZone.getDefault().getOffset(pickupDate.getTime()));
-		String mailBody = stringBuilder.toString();
-		mailBody = mailBody.replaceAll("TABLE", tableString).replaceAll("PICKDATE", sdf.format((pickupDate)));
-		Mailer.sendMail(mailBody);  
-	}
 	
 	@POST
 	@Path("/submitShipmentPickupRequest")
@@ -227,6 +172,8 @@ public class UtilityFunctions {
 		JsonObject jsonIn = JavaJSONMapper.StringToJSON(body);
 		JsonArray jsonShipments;
 		String forwarder;
+		ForwarderActions fa = null;
+		
 		ArrayList<Shipments> shipmentList = new ArrayList<Shipments>();
 		Shipments shipment;
 		Date pickupDate;
@@ -246,12 +193,19 @@ public class UtilityFunctions {
 			switch(forwarder)
 			{
 			case "CES":
-				pickRequestToCES(shipmentList, pickupDate);
+				fa = new Cesped();
 				break;
 				
 			case "TWS":
+				fa = new TWS();
+				break;
+
+			case "GLS":
+				fa = new GLS();
 				break;
 			}
+			
+			fa.generatePickRequest(shipmentList, pickupDate, ap);
 		}
 		catch(Exception e)
 		{

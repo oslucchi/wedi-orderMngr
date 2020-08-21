@@ -33,7 +33,7 @@ import it.l_soft.orderMngr.rest.dbUtils.OrderNotes;
 import it.l_soft.orderMngr.rest.dbUtils.OrderShipment;
 import it.l_soft.orderMngr.rest.dbUtils.Orders;
 import it.l_soft.orderMngr.utils.Cesped;
-import it.l_soft.orderMngr.utils.ForwaderCostCalculation;
+import it.l_soft.orderMngr.utils.ForwarderActions;
 import it.l_soft.orderMngr.utils.JavaJSONMapper;
 
 @Path("/orders")
@@ -366,7 +366,7 @@ public class OrdersHandler {
 		double cost = 0;
 		try
 		{
-			cost = ((ForwaderCostCalculation) forwarder).getShipmentCost(
+			cost = ((ForwarderActions) forwarder).getShipmentCost(
 															jsonIn.getString("province"),
 															jsonIn.getInt("len"),
 															jsonIn.getInt("width"),
