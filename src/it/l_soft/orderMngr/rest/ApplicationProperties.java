@@ -25,6 +25,7 @@ public class ApplicationProperties {
 	// package properties
 	private String mailSmtpHost = "";
 	private String mailFrom = "";
+	private String statusMailFrom = "";
 	private String mailUser = "";
 	private String mailPassword = "";
 	private String mailTo = "";
@@ -104,6 +105,7 @@ public class ApplicationProperties {
 		labelsPrinterName = properties.getProperty("labelsPrinterName");
 		mailSmtpHost = properties.getProperty("mailSmtpHost");
     	mailFrom = properties.getProperty("mailFrom");
+    	statusMailFrom = properties.getProperty("statusMailFrom");
     	mailUser = properties.getProperty("mailUser");
     	mailPassword = properties.getProperty("mailPassword");
     	mailTo = properties.getProperty("mailTo");
@@ -134,6 +136,10 @@ public class ApplicationProperties {
 	
 	public String getMailFrom() {
 		return mailFrom;
+	}
+
+	public String getStatusMailFrom() {
+		return statusMailFrom;
 	}
 
 	public int getSessionExpireTime() {

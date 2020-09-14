@@ -1,10 +1,8 @@
 package it.l_soft.orderMngr.rest;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.attribute.PosixFilePermission;
 import java.text.SimpleDateFormat;
@@ -12,10 +10,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import java.util.TimeZone;
 
 import javax.json.JsonArray;
 import javax.json.JsonObject;

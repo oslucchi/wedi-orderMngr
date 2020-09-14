@@ -20,7 +20,8 @@ public class Message extends DBInterface {
     static public final int MSG_LOG_WITH_TOKEN = 8;
     static public final int MSG_HISTORY = 9;
     static public final int MSG_LOGON_DENY = 10;
-    
+    static public final int MSG_KEEP_ALIVE = 11;
+    static public final int MSG_KEEP_ALIVE_RESPONSE = 12;
     
     protected int idMessage;
     protected Date timestamp;
@@ -101,6 +102,9 @@ public class Message extends DBInterface {
     		
         case MSG_LOGON_DENY:
     		return("MSG_LOGON_DENY");
+
+        case MSG_KEEP_ALIVE:
+    		return("MSG_KEEP_ALIVE");
     	}
 		return("UNKNOWN");
     }

@@ -91,13 +91,14 @@ public class Mailer
 			Message message = new MimeMessage(session);
 
 			// Set From: header field of the header.
-			message.setFrom(new InternetAddress("noreply@wedi.it"));
-			// message.setFrom(new InternetAddress(ap.getMailFrom()));
+			if ((ap.getStatusMailFrom() != null) && (ap.getStatusMailFrom().compareTo("") != 0))
+			{
+				message.setFrom(new InternetAddress(ap.getStatusMailFrom()));
+			}
 
 			// Set To: header field of the header.
-			to="antonio.masi@wedi.it";
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-			String cc = "osvaldo.lucchini@wedi.it";
+			String cc = "ordini@wedi.it";
 			message.setRecipients(Message.RecipientType.CC, InternetAddress.parse(cc));
 
 			// Set Subject: header field

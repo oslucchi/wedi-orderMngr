@@ -88,7 +88,7 @@ public class WSServer extends Thread {
 			{
 				if (item.getSession().getId().compareTo(sender.getSession().getId()) != 0)
 				{
-					msgOut = new Message(Message.MSG_BROADCAST, object.getString("sender"), object.getString("recipient"), 
+					msgOut = new Message(Message.MSG_PRIVATE, object.getString("sender"), object.getString("recipient"), 
 							 			 object.getString("text"), item.getUd().getToken(), sender.getUd().getToken(), "");
 					msgOut.insert(conn);
 					log.debug("Sending message: " + msgOut.toJSONString(false));
@@ -361,6 +361,20 @@ public class WSServer extends Thread {
 					return;
 				}
 				broadcastMsg(sd, message, object);
+				break;
+
+			case Message.MSG_KEEP_ALIVE:
+				log.debug("received a keepalive message");
+				if ((sd = Users.getSessionData(object.getString("token"))) == null)
+				{
+					log.error("It should never happen! No session data stored despite been connected");
+					return;
+				}
+				log.debug("sent by: " + sd.getUd().getAccount());
+				Message msg = new Message(Message.MSG_KEEP_ALIVE_RESPONSE, "server", 
+						  sd.getUd().getAccount(), "PONG", "", "", "");
+				session.getBasicRemote().sendText(msg.toJSONString(false));
+				log.debug("keep alive replied");
 				break;
 			}
 		} 
