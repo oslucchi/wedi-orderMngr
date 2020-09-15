@@ -220,6 +220,7 @@ public class Message extends DBInterface {
 	@SuppressWarnings("unchecked")
 	public static String getHistory(DBConnection conn, String token) throws Exception
 	{
+		
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 		String sql = "SELECT * FROM Message a " +
 					 "WHERE (((a.senderToken = '" + token + "') OR " +
@@ -229,18 +230,26 @@ public class Message extends DBInterface {
 		String history = "";
 		
 		ArrayList<Message> mList = (ArrayList<Message>) populateCollection(conn, sql, Message.class);
+		Date previousTimestamp = new Date();
+		String recipient;
+		String colorClass;
 		for(Message item : mList)
 		{
-			history += "[" + sdf.format(item.getTimestamp()) + "] ";
+			if (previousTimestamp.compareTo(item.getTimestamp()) == 0)
+				continue;
+			previousTimestamp = item.getTimestamp();
 			if (item.getSenderToken().compareTo(token) == 0)
 			{
-				history += "=> " + item.getRecipient();
+				recipient = "=> " + item.getRecipient();
+				colorClass = "greenStatement";
 			}
 			else
 			{
-				history += "<= " + item.getSender() + (item.getRecipient().compareTo("broadcast") == 0 ? "(B)" : "");
+				recipient =  "<= " + item.getSender();
+				colorClass = (item.getRecipient().compareTo("broadcast") == 0 ? "blueStatement" : "redStatement");
 			}
-			history += ": " + item.getText() + "\n";
+			history += "<span class='" + colorClass + "'>[" + sdf.format(item.getTimestamp()) + "] ";
+			history += recipient + ": " + item.getText() + "</span><br>";
 		}
 		history = new String(Base64.getEncoder().encode(history.getBytes()));
 		return history;
