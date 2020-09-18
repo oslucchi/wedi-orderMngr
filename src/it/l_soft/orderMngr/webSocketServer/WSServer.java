@@ -152,48 +152,13 @@ public class WSServer extends Thread {
 		}
 	}
 
-	private void broadcastLeftUser(SessionData leftUser) throws IOException
-	{
-		if (leftUser == null)
-			return;
-		
-	    try 
-	    {
-			for(SessionData item : users.getList())
-			{
-				if (item.getUd().isActive() &&
-					(item.getSession().getId().compareTo(leftUser.getSession().getId()) != 0))
-				{
-					Message msg = new Message(Message.MSG_RMV_USER, "server", "broadcast", 
-											  JavaJSONMapper.JavaToJSON(leftUser.getUd()), "", "", leftUser.getUd().getToken());
-					log.debug("Sending message: " + msg.toJSONString(true));
-					if (item.getSession().isOpen())
-					{
-						item.getSession().getBasicRemote().sendText(msg.toJSONString(true));
-					}
-					else
-					{
-						log.error("Unable to send to session " + item.getSession().getId() + 
-								  " token '" + item.getUd().getToken() + "', " +
-								  "the session is closed despite been marked as opened");
-						item.getUd().setActive(false);
-					}
-				}
-			}
-		}
-	    catch (Exception e) 
-	    {
-			e.printStackTrace(); 
-		}
-	}
-
 	private void sendUserlist(SessionData sender, String token) throws Exception
 	{
 	    try 
 	    {
 			for(SessionData item : users.getList())
 			{
-				if (item.getSession().getId().compareTo(sender.getSession().getId()) != 0)
+				if (item.getUd().isActive() && (item.getSession().getId().compareTo(sender.getSession().getId()) != 0))
 				{
 					Message msg = new Message(Message.MSG_ADD_USER, "server", 
 											  sender.getUd().getAccount(), JavaJSONMapper.JavaToJSON(item.getUd()), 
@@ -263,17 +228,53 @@ public class WSServer extends Thread {
 		broadcastNewUser(sd);
 	}
 	
-	private void checkSessionStatus()
+	private void broadcastLeftUser(SessionData leftUser) throws IOException
+	{
+		if (leftUser == null)
+			return;
+		
+	    try 
+	    {
+			for(SessionData item : users.getList())
+			{
+				if (item.getUd().isActive() &&
+					(item.getSession().getId().compareTo(leftUser.getSession().getId()) != 0))
+				{
+					Message msg = new Message(Message.MSG_RMV_USER, "server", "broadcast", 
+											  JavaJSONMapper.JavaToJSON(leftUser.getUd()), "", "", leftUser.getUd().getToken());
+					log.debug("Sending message: " + msg.toJSONString(true));
+					if (item.getSession().isOpen())
+					{
+						item.getSession().getBasicRemote().sendText(msg.toJSONString(true));
+					}
+					else
+					{
+						log.error("Unable to send to session " + item.getSession().getId() + 
+								  " token '" + item.getUd().getToken() + "', " +
+								  "the session is closed despite been marked as opened");
+						item.getUd().setActive(false);
+					}
+				}
+			}
+		}
+	    catch (Exception e) 
+	    {
+			e.printStackTrace(); 
+		}
+	}
+	
+	private void checkSessionStatus(SessionData sd)
 	{
 		Date now = new Date();
 		try 
 		{
 			for(SessionData item : users.getList())
 			{
-				if (now.getTime() - item.getLastKeepAlive().getTime() > 120000)
+				if (item.getUd().isActive() && (now.getTime() - item.getLastKeepAlive().getTime() > 120000))
 				{
 					item.getUd().setActive(false);
 					item.getSession().close();
+					broadcastLeftUser(item);
 				}
 			}
 		} 
@@ -394,7 +395,6 @@ public class WSServer extends Thread {
 				break;
 
 			case Message.MSG_KEEP_ALIVE:
-				log.debug("received a keepalive message");
 				if ((sd = Users.getSessionData(object.getString("token"))) == null)
 				{
 					log.error("It should never happen! No session data stored despite been connected");
@@ -404,8 +404,9 @@ public class WSServer extends Thread {
 				Message msg = new Message(Message.MSG_KEEP_ALIVE_RESPONSE, "server", 
 						  sd.getUd().getAccount(), "PONG", "", "", "");
 				session.getBasicRemote().sendText(msg.toJSONString(false));
+				sd.setLastKeepAlive(new Date());
 				log.debug("keep alive replied");
-				checkSessionStatus();
+				checkSessionStatus(sd);
 				break;
 			}
 		} 
