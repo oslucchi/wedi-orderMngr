@@ -1,6 +1,7 @@
 package it.l_soft.orderMngr.webSocketServer;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.json.JsonObject;
 import javax.websocket.OnClose;
@@ -81,16 +82,19 @@ public class WSServer extends Thread {
 	private void privateMsg(SessionData sender, String text, JsonObject object) throws IOException
 	{
 		Message msgOut = null;
+		String recipientToken = object.getString("recipientToken");
 		try
 		{
 			conn = DBInterface.connect();
-			for(SessionData item : users.getList())
+			SessionData item = Users.getSessionData(recipientToken);
+			
+			if (item != null)
 			{
-				if (item.getSession().getId().compareTo(sender.getSession().getId()) != 0)
+				msgOut = new Message(Message.MSG_PRIVATE, object.getString("sender"), object.getString("recipient"), 
+						 			 object.getString("text"), recipientToken, sender.getUd().getToken(), "");
+				msgOut.insert(conn);
+				if (item.getUd().isActive())
 				{
-					msgOut = new Message(Message.MSG_PRIVATE, object.getString("sender"), object.getString("recipient"), 
-							 			 object.getString("text"), item.getUd().getToken(), sender.getUd().getToken(), "");
-					msgOut.insert(conn);
 					log.debug("Sending message: " + msgOut.toJSONString(false));
 					if (item.getSession().isOpen())
 					{
@@ -103,6 +107,10 @@ public class WSServer extends Thread {
 								  "the session is closed despite been marked as opened");
 						item.getUd().setActive(false);
 					}
+				}
+				else
+				{
+					log.debug("Message archived as the session is marked close");
 				}
 			}
 		}
@@ -255,6 +263,27 @@ public class WSServer extends Thread {
 		broadcastNewUser(sd);
 	}
 	
+	private void checkSessionStatus()
+	{
+		Date now = new Date();
+		try 
+		{
+			for(SessionData item : users.getList())
+			{
+				if (now.getTime() - item.getLastKeepAlive().getTime() > 120000)
+				{
+					item.getUd().setActive(false);
+					item.getSession().close();
+				}
+			}
+		} 
+		catch (Exception e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	@OnOpen
 	public void onOpen(Session session)
 	{
@@ -340,6 +369,7 @@ public class WSServer extends Thread {
 				}
 				ud.setActive(true);
 				logonConfirm(sd, ud);
+				sd.setLastKeepAlive(new Date());
 				break;
 								
 			case Message.MSG_LOGOFF:
@@ -375,6 +405,7 @@ public class WSServer extends Thread {
 						  sd.getUd().getAccount(), "PONG", "", "", "");
 				session.getBasicRemote().sendText(msg.toJSONString(false));
 				log.debug("keep alive replied");
+				checkSessionStatus();
 				break;
 			}
 		} 
