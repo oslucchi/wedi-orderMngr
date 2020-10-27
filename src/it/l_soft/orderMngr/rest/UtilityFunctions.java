@@ -111,14 +111,18 @@ public class UtilityFunctions {
 						previousShipment = shipment;
 						shipment = new Shipments();
 						shipment.setCustomer(item.getCustomerDescription());
-						shipment.setAddress(cd.getAddress() + " - " + cd.getZipCode() + " " + cd.getCity());
+						shipment.setAddress(cd.getAddress());
+						shipment.setCity(cd.getCity());
+						shipment.setZipCode(cd.getZipCode() );
 						shipment.setProvince(cd.getProvince());
 						shipment.setLength(pallet.getPalletLength());
 						shipment.setWidth(pallet.getPalletWidth());
 						shipment.setHeigth(pallet.getPalletHeigth());
 						shipment.setWeigth(pallet.getPalletWeigth());
 						shipment.setDdt(item.getTransportDocNum());
+						shipment.setDdtDate(item.getEffectiveAssemblyDate());
 						shipment.setOrderValue(0);
+						shipment.setCustomerMail(item.getConfirmationEmail());
 						if (previousShipment != null)
 						{
 							shipment.setInsurance("");
@@ -132,6 +136,7 @@ public class UtilityFunctions {
 							shipment.setInsurance((item.getInsuranceCost() != 0 ?
 													"All Risk " + String.format("%.0f", Math.ceil(item.getOrderValue())) : ""));
 							shipment.setNote((pallet.getNote() == null ? "" : pallet.getNote()));
+							shipment.setNumOfItems(pallet.getNumberOfItemsToShip());
 						}
 						shipmentList.add(shipment);
 					}

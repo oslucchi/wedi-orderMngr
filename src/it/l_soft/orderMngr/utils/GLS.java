@@ -148,24 +148,25 @@ public class GLS extends ForwarderActions {
 			Shipments shipment = shipmentList.get(i);
 			if (!shipment.isSelected())
 				continue;
-			fmt.format("%35.35s%35.35s%30.30s%5.5s%2.2s", 
+			fmt.format("%-35.35s%-35.35s%-30.30s%5.5s%2.2s", 
 					   shipment.getCustomer(),
 					   shipment.getAddress(),
 					   shipment.getCity(),
 					   shipment.getZipCode(),
 					   shipment.getProvince());
 
-			fmt.format("%10.10s%6.6s%s", 
+			fmt.format("%10.10s%6.6s%05d%s", 
 					   shipment.getDdt(),
-					   "190820", //ddmmyy.format(shipment.getDdtDate()),
+					   ddmmyy.format(shipment.getDdtDate()),
+					   shipment.getNumOfItems(),
 					   "00");
 			fmt.format("%06d", 
 					   shipment.getWeigth());
-			fmt.format("0000000000%40.40sF%15.15s", 
+			fmt.format("0000000000%-40.40sF%15.15s", 
 					   shipment.getNote(),
 					   "");
 			
-			fmt.format("%011.2f%011.1f%12.12s%600.600s%40.40s%06d01       %06d%02d", 
+			fmt.format("%011.2f%011.1f%12.12s%-600.600s%40.40s%06d01       %06d%02d", 
 					   shipment.getInsuranceCost(),
 					   shipment.getVolumetricWeigth(),
 					   "",
@@ -175,16 +176,19 @@ public class GLS extends ForwarderActions {
 					   shipment.getIdOrder(),
 					   shipment.getNumOfItems());
 			
-			String mailAlert = shipment.getCustomerMail() + ";logistica.ordini@wedi.it";
-			fmt.format("%70.70s%20.20s%17.17s%33.33s%6.6s%40.40s%4.4s%s%12.12s\n",
+			String mailAlert = ((shipment.getCustomerMail() == null) || (shipment.getCustomerMail().trim().compareTo("") == 0) ? 
+										"" : shipment.getCustomerMail() + ",") + 
+							   "logistica.ordini@wedi.it";
+			// mailAlert.replaceAll(";", ",");
+			fmt.format("%-70.70s%20.20s%17.17s%33.33s%6.6s%-40.40s%4.4s%s%12.12s\n",
 					   mailAlert,
 					   "",
 					   "",
 					   "",
 					   ddmmyy.format(new Date()),
-					   "ritiro effettuabile a partire dalle 14:30",
+					   "ritiro possibile dalle 14:30",
 					   "",
-					   "A", //shipment.getInsurance().substring(0, 1),
+					   (shipment.getInsurance() == null ? "" : "A"),
 					   "");
 		}
 		fmt.close();

@@ -186,7 +186,7 @@ public class Cesped extends ForwarderActions {
 			{
 				tableString +=  "<tr>" + 
 								"  <td>" + shipment.getCustomer() + "</td>" +
-								"  <td>" + shipment.getAddress() + "</td>" +
+								"  <td>" + shipment.getAddress() + " - " + shipment.getZipCode() + " " + shipment.getCity() + "</td>" +
 								"  <td>" + shipment.getProvince() + "</td>" +
 								"  <td>" + shipment.getDdt() + "</td>" +
 								"  <td>" + 
