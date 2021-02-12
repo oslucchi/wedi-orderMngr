@@ -5,10 +5,10 @@
 				removeAbandonedOnBorrow="true" removeAbandonedTimeout="60" logAbandoned="true"
 				username="orderMngr" password="Omh1nppa"
 				name="jdbc/orderMngr" type="javax.sql.DataSource" 
-				url="jdbc:mysql://localhost:3306/orderMngr?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;useTimezone=true&amp;serverTimezone=CET"/>
+				url="jdbc:mysql://192.168.60.184:3306/orderMngr?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC"/>
 </Context>
 <!-- 
-				url="jdbc:mysql://192.168.60.183:3306/orderMngr?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC"/>
+				url="jdbc:mysql://192.168.60.184:3306/orderMngr?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC"/>
 				url="jdbc:mysql://93.64.39.106:3306/orderMngr?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC"/>
 				url="jdbc:mysql://localhost:3306/orderMngr?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC"/>
  -->

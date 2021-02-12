@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `orderMngr` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `orderMngr`;
 -- MySQL dump 10.13  Distrib 5.7.29, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: orderMngr
+-- Host: 192.168.60.184    Database: orderMngr
 -- ------------------------------------------------------
--- Server version	5.7.29-0ubuntu0.18.04.1
+-- Server version	5.5.5-10.1.45-MariaDB-0+deb9u1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -38,7 +36,7 @@ CREATE TABLE `Articles` (
   `grossPrice` decimal(6,2) DEFAULT NULL,
   `buyPrice` decimal(6,2) DEFAULT NULL,
   PRIMARY KEY (`idArticle`)
-) ENGINE=InnoDB AUTO_INCREMENT=617 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=656 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -56,8 +54,9 @@ CREATE TABLE `CustomerDelivery` (
   `city` varchar(90) DEFAULT NULL,
   `province` varchar(2) DEFAULT NULL,
   `notes` varchar(90) DEFAULT NULL,
+  `logisticCommEmail` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`idCustomerDelivery`)
-) ENGINE=InnoDB AUTO_INCREMENT=1428 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1564 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,8 +70,9 @@ CREATE TABLE `Customers` (
   `idCustomers` int(11) NOT NULL AUTO_INCREMENT,
   `refERP` varchar(12) DEFAULT NULL,
   `description` varchar(60) DEFAULT NULL,
+  `logisticCommEmail` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`idCustomers`)
-) ENGINE=InnoDB AUTO_INCREMENT=1343 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1378 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,7 +89,28 @@ CREATE TABLE `Journal` (
   `statement` blob,
   `timestamp` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`idJournal`)
-) ENGINE=InnoDB AUTO_INCREMENT=3627 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=51411 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `Message`
+--
+
+DROP TABLE IF EXISTS `Message`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Message` (
+  `idMessage` int(11) NOT NULL AUTO_INCREMENT,
+  `timestamp` datetime DEFAULT NULL,
+  `type` int(11) DEFAULT NULL,
+  `recipient` varchar(32) DEFAULT NULL,
+  `sender` varchar(32) DEFAULT NULL,
+  `text` varchar(2048) DEFAULT NULL,
+  `token` varchar(64) DEFAULT NULL,
+  `senderToken` varchar(64) DEFAULT NULL,
+  `recipientToken` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`idMessage`)
+) ENGINE=InnoDB AUTO_INCREMENT=148 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,12 +124,12 @@ CREATE TABLE `OrderDetails` (
   `idOrderDetails` int(11) NOT NULL AUTO_INCREMENT,
   `idOrder` int(11) DEFAULT NULL,
   `idArticle` int(11) DEFAULT NULL,
-  `quantity` decimal(5,2) DEFAULT NULL,
+  `quantity` decimal(6,2) DEFAULT NULL,
   `cost` decimal(6,2) DEFAULT NULL,
   `sourceIssue` tinyint(4) DEFAULT NULL,
   `piecesFromSqm` int(11) DEFAULT NULL,
   PRIMARY KEY (`idOrderDetails`)
-) ENGINE=InnoDB AUTO_INCREMENT=1167 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3974 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +144,7 @@ CREATE TABLE `OrderNotes` (
   `idOrder` int(11) DEFAULT NULL,
   `note` blob,
   PRIMARY KEY (`idOrderNotes`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=306 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,7 +169,7 @@ CREATE TABLE `OrderShipment` (
   `shipmentDate` datetime DEFAULT NULL,
   `note` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`idOrderShipment`)
-) ENGINE=InnoDB AUTO_INCREMENT=302 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=967 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -163,6 +184,7 @@ CREATE TABLE `Orders` (
   `status` varchar(3) DEFAULT NULL,
   `idCustomer` int(11) NOT NULL,
   `idCustomerDelivery` int(11) DEFAULT NULL,
+  `customerOrderRef` varchar(64) DEFAULT NULL,
   `requestedAssemblyDate` datetime DEFAULT NULL,
   `effectiveAssemblyDate` datetime DEFAULT NULL,
   `shipmentDate` datetime DEFAULT NULL,
@@ -181,8 +203,10 @@ CREATE TABLE `Orders` (
   `compositionDesign` int(11) DEFAULT '-1',
   `compositionAccessories` int(11) DEFAULT '-1',
   `orderValue` double DEFAULT '-1',
-  PRIMARY KEY (`idOrder`)
-) ENGINE=InnoDB AUTO_INCREMENT=208 DEFAULT CHARSET=latin1;
+  `confirmationEmail` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`idOrder`),
+  KEY `Status_IDX` (`status`)
+) ENGINE=InnoDB AUTO_INCREMENT=838 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -199,7 +223,22 @@ CREATE TABLE `PackagingStats` (
   `autoEndTime` decimal(13,0) DEFAULT NULL,
   `manualTime` int(11) DEFAULT NULL,
   PRIMARY KEY (`idPackagingStats`)
-) ENGINE=InnoDB AUTO_INCREMENT=167 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=793 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `UsersData`
+--
+
+DROP TABLE IF EXISTS `UsersData`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `UsersData` (
+  `idUsersData` int(11) NOT NULL AUTO_INCREMENT,
+  `account` varchar(45) DEFAULT NULL,
+  `token` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`idUsersData`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -211,4 +250,4 @@ CREATE TABLE `PackagingStats` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-12  9:27:40
+-- Dump completed on 2020-11-04 19:09:45

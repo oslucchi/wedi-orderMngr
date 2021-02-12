@@ -97,10 +97,12 @@ public class OrdersHandler {
 		ArrayList<Articles> orderArticles = new ArrayList<Articles>();
 		CustomerDelivery customerDelivery = new CustomerDelivery();
 		Customers customer = new Customers();
+		Orders order = null;
 
 		try 
 		{
 			conn = DBInterface.connect();
+			order = new Orders(conn, id);
 			orderDetails = OrderDetails.getAllOrderDetails(conn, id);
 		}
 		catch(Exception e)
@@ -113,6 +115,24 @@ public class OrdersHandler {
 			}
 		}
 
+		if (orderDetails.size() == 0)
+		{
+			Exception e = new Exception("L'ordine " + order.getOrderRef() + " di " + order.getCustomerDescription() +
+										"non ha articoli e viene spostato a CANCELLATO. Ricaricarlo");
+			order.setStatus("CAN");
+			try {
+				order.update(conn, "idOrder");
+			} 
+			catch (Exception e1) {
+				// TODO Auto-generated catch block
+				log.error("Exception " + e.getMessage() + " setting order " + order.getOrderRef() + 
+						  " status to CAN cause of no details found", e);
+			}
+			DBInterface.disconnect(conn);
+			log.error("Exception '" + e.getMessage(), e);
+			return Utils.jsonizeResponse(Response.Status.INTERNAL_SERVER_ERROR, e, languageId, "generic.execError");
+		}
+		
 		try 
 		{
 			orderShipments = OrderShipment.getOrderShipmentByOrderId(conn, id);

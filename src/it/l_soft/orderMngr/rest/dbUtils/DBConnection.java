@@ -74,7 +74,8 @@ public class DBConnection
 		try
 		{
 			st.executeQuery("SELECT * FROM Journal");
-			isJournal = true;
+//			isJournal = true;
+			isJournal = false;
 		}
 		catch(Exception e)
 		{
@@ -130,7 +131,8 @@ public class DBConnection
 		try
 		{
 			st.executeQuery("SELECT * FROM Journal");
-			isJournal = true;
+//			isJournal = true;
+			isJournal = false;
 		}
 		catch(Exception e)
 		{

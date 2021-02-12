@@ -32,6 +32,7 @@ public class WSServer extends Thread {
 	
 	public WSServer()
 	{
+		users = Users.getInstance();
 	}
 	
 	public void setUsers(Users usersLoc)
@@ -48,15 +49,16 @@ public class WSServer extends Thread {
 	private void broadcastMsg(SessionData sender, String text, JsonObject object) throws IOException
 	{
 		Message msgOut = null;
+		log.trace("Inserting broadcast message into DB for future retrieval");
 	    try 
 	    {
+			msgOut = new Message(Message.MSG_BROADCAST, object.getString("sender"), "broadcast",  
+								 object.getString("text"), "broadcast", sender.getUd().getToken(), "");
+			msgOut.insert(conn);
 			for(SessionData item : users.getList())
 			{
 				if (item.getUd().getToken().compareTo(sender.getUd().getToken()) != 0)
 				{
-					msgOut = new Message(Message.MSG_BROADCAST, object.getString("sender"), "broadcast", 
-										 object.getString("text"), item.getUd().getToken(), sender.getUd().getToken(), "");
-					msgOut.insert(conn);
 					log.debug("Sending message: " + msgOut.toJSONString(false));
 					if (item.getSession().isOpen())
 					{
@@ -85,7 +87,6 @@ public class WSServer extends Thread {
 		String recipientToken = object.getString("recipientToken");
 		try
 		{
-			conn = DBInterface.connect();
 			SessionData item = Users.getSessionData(recipientToken);
 			
 			if (item != null)
@@ -195,7 +196,6 @@ public class WSServer extends Thread {
 		}
 		try
 		{
-			conn = DBInterface.connect();
 			Message msg = new Message(Message.MSG_HISTORY, "server", 
 									  ud.getAccount(), Message.getHistory(conn, ud.getToken()), "", "", "");
 			log.debug("Sending message: " + msg.toJSONString(false));
@@ -295,8 +295,11 @@ public class WSServer extends Thread {
 	public void onClose(Session session) throws IOException, Exception
 	{
 		log.trace("onClose::" +  session.getId());
-		users.removeUser(session.getId());
-		broadcastLeftUser(users.getSessionData(session));
+		if (users != null)
+		{
+			users.removeUser(session.getId());
+			broadcastLeftUser(users.getSessionData(session));
+		}
 	}
 
 	@OnMessage
