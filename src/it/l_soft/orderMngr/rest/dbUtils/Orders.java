@@ -17,6 +17,11 @@ public class Orders extends DBInterface
 	protected Date requestedAssemblyDate;
 	protected Date effectiveAssemblyDate;
 	protected Date shipmentDate;
+	protected int numberOfItemsToShip;
+    protected int palletLength;
+    protected int palletWidth;
+    protected int palletHeigth;
+    protected int palletWeigth;
     protected String orderRef;
     protected String transportDocNum;
     protected String forwarder;
@@ -36,6 +41,7 @@ public class Orders extends DBInterface
     protected String sourceIssue;
     protected double orderValue;
     protected String confirmationEmail;
+    protected double invoiceValue;
 	protected boolean selected = false;
 	
 	private void setNames()
@@ -186,6 +192,38 @@ public class Orders extends DBInterface
 		this.shipmentDate = shipmentDate;
 	}
 
+	public int getPalletLength() {
+		return palletLength;
+	}
+
+	public void setPalletLength(int palletLength) {
+		this.palletLength = palletLength;
+	}
+
+	public int getPalletWidth() {
+		return palletWidth;
+	}
+
+	public void setPalletWidth(int palletWidth) {
+		this.palletWidth = palletWidth;
+	}
+
+	public int getPalletHeigth() {
+		return palletHeigth;
+	}
+
+	public void setPalletHeigth(int palletHeigth) {
+		this.palletHeigth = palletHeigth;
+	}
+
+	public int getPalletWeigth() {
+		return palletWeigth;
+	}
+
+	public void setPalletWeigth(int palletWeigth) {
+		this.palletWeigth = palletWeigth;
+	}
+
 	public String getOrderRef() {
 		return orderRef;
 	}
@@ -282,6 +320,14 @@ public class Orders extends DBInterface
 		this.customerDeliveryProvince = customerDeliveryProvince;
 	}
 
+	public int getNumberOfItemsToShip() {
+		return numberOfItemsToShip;
+	}
+
+	public void setNumberOfItemsToShip(int numberOfItemsToShip) {
+		this.numberOfItemsToShip = numberOfItemsToShip;
+	}
+
 	public int getCompositionBoards() {
 		return compositionBoards;
 	}
@@ -352,5 +398,13 @@ public class Orders extends DBInterface
 
 	public void setConfirmationEmail(String confirmationEmail) {
 		this.confirmationEmail = confirmationEmail;
+	}
+
+	public double getInvoiceValue() {
+		return invoiceValue;
+	}
+
+	public void setInvoiceValue(double invoiceValue) {
+		this.invoiceValue = invoiceValue;
 	}
 }
